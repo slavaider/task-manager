@@ -3,7 +3,9 @@
   "ignorePatterns": [
     "projects/**/*"
   ],
-  "plugins": ["import"],
+  "plugins": [
+    "import"
+  ],
   "overrides": [
     {
       "files": [
@@ -49,6 +51,14 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:ngrx/recommended"
+      ]
     }
   ]
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "youtube-client": {
+    "task-manager": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "youtube-client:build:production"
+              "browserTarget": "task-manager:build:production"
             },
             "development": {
-              "browserTarget": "youtube-client:build:development"
+              "browserTarget": "task-manager:build:development"
             }
           },
           "defaultConfiguration": "development"
