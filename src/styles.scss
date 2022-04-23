@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+*,*::before,*:after{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+}
+
+.small{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.container{
+  max-width: 1200px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.flex{
+  display: flex;
+}
+
+.flex.space-between{
+  justify-content: space-between;
+}
+
+.flex.align-center{
+  align-items: center;
+}
+
+.flex.end{
+  justify-content: flex-end;
+}
+
+img{
+  min-height: 100%;
+}
+
+
+.full-width{
+  width: 100%;
+}
+
+.align-left{
+  align-self: flex-start;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
