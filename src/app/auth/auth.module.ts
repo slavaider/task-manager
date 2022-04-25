@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatInputModule } from '@angular/material/input';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -16,11 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AuthRoutingModule,
     MatFormFieldModule,
+    MatInputModule,
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }],
 })
 export class AuthModule {}

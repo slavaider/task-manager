@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .container {
+    font-size: 18px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 100%;
+    max-width: 30rem;
+  
+    .title {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+  
+    .controls {
+      display: flex;
+      align-items: flex-end;
+      column-gap: 20px;
+    }
+  }
+  
