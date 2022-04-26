@@ -1,0 +1,40 @@
+<div class="container">
+  <form
+    class="form"
+    [formGroup]="loginForm"
+    (ngSubmit)="submit()"
+  >
+    <p class="title">
+      Login
+    </p>
+    <mat-form-field>
+      <mat-label>
+        Enter your login
+      </mat-label>
+      <input matInput formControlName="login" required>
+      <mat-error *ngIf="login?.invalid">
+        Please enter a login
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Enter your password
+      </mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="password?.invalid">
+        Please enter a password
+      </mat-error>
+    </mat-form-field>
+    <div class="controls">
+      <a routerLink="/auth/register">
+        Registration
+      </a>
+      <button mat-raised-button [disabled]="!loginForm.valid" type="submit">
+        Login
+      </button>
+    </div>
+  </form>
+</div>
