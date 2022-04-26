@@ -16,6 +16,6 @@ export class AuthService {
       }),
     };
 
-    return this.http.post('http://v1115797.hosted-by-vdsina.ru:4000/signup', body, options);
+    return this.http.post('http://localhost:4200/api/signup', body, options);
   }
 }
