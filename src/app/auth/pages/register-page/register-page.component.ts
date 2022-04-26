@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register-page',
@@ -15,7 +16,7 @@ export class RegisterPageComponent {
     password: ['', [Validators.required]],
   });
 
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private auth: AuthService) {}
 
   get name(): AbstractControl | null {
     return this.registerForm.get('name');
@@ -32,8 +33,7 @@ export class RegisterPageComponent {
   submit() {
     const { name, login, password } = this.registerForm.value;
     if (name && login && password) {
-      // this.auth.register({ name, login, password });
-      console.log(name, login, password);
+      this.auth.register({ name, login, password }).subscribe((res) => console.log(res));
     }
   }
 }
