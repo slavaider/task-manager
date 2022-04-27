@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,32 +10,44 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./register-page.component.scss'],
 })
 export class RegisterPageComponent {
-  hide: boolean = true;
+  public hide: boolean = true;
 
-  registerForm: FormGroup = this.fb.group({
+  public registerForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     login: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private notification: MatSnackBar,
+    private router: Router,
+  ) {}
 
-  get name(): AbstractControl | null {
+  public get name(): AbstractControl | null {
     return this.registerForm.get('name');
   }
 
-  get login(): AbstractControl | null {
+  public get login(): AbstractControl | null {
     return this.registerForm.get('login');
   }
 
-  get password(): AbstractControl | null {
+  public get password(): AbstractControl | null {
     return this.registerForm.get('password');
   }
 
-  submit() {
+  public submit() {
     const { name, login, password } = this.registerForm.value;
     if (name && login && password) {
-      this.auth.register({ name, login, password }).subscribe((res) => console.log(res));
+      this.auth.register({ name, login, password }).subscribe(() => {
+        this.notification.open(`${name} was registered`, 'ok', {
+          duration: 4000,
+          panelClass: ['note-success'],
+        });
+
+        this.router.navigateByUrl('/auth/login');
+      });
     }
   }
 }

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,28 +10,34 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
-  hide: boolean = true;
+  public hide: boolean = true;
 
-  loginForm: FormGroup = this.fb.group({
+  public loginForm: FormGroup = this.fb.group({
     login: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
 
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private auth: AuthService,
+    private notification: MatSnackBar,
+    private router: Router,
+  ) {}
 
-  get login(): AbstractControl | null {
+  public get login(): AbstractControl | null {
     return this.loginForm.get('login');
   }
 
-  get password(): AbstractControl | null {
+  public get password(): AbstractControl | null {
     return this.loginForm.get('password');
   }
 
-  submit() {
+  public submit() {
     const { login, password } = this.loginForm.value;
     if (login && password) {
-      // this.auth.logIn({ login, password });
-      console.log(login, password);
+      this.auth.login({ login, password }).subscribe((res) => {
+        // console.log(res.token);
+      });
     }
   }
 }

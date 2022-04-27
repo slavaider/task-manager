@@ -54,3 +54,21 @@ img{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.note-error {
+  color: #ffffff;
+  background-color: #ff0000;
+
+  * {
+    color: #ffffff;
+  }
+}
+
+.note-success {
+  color: #ffffff;
+  background-color: #008000;
+
+  * {
+    color: #ffffff;
+  }
+}

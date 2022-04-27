@@ -10,19 +10,24 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { AuthModule } from './auth/auth.module';
+import { interceptors } from './http-interceptors/interceptors';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AuthModule,
+    CoreModule,
     AppRoutingModule,
     AppI18nextModule,
     HttpClientModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}, {}),
   ],
-  providers: [],
+  providers: [interceptors],
   bootstrap: [AppComponent],
   exports: [FormsModule],
 })

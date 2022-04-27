@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IAuthRegister } from '../models/auth.models';
+import { IAuthLogin, IAuthLoginRes, IAuthRegister, IAuthRegisterRes } from '../models/auth.models';
 
 @Injectable({
   providedIn: 'root',
@@ -8,14 +8,18 @@ import { IAuthRegister } from '../models/auth.models';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  register({ name, login, password }: IAuthRegister) {
-    const body = { name, login, password };
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
+  public register({ name, login, password }: IAuthRegister) {
+    return this.http.post<IAuthRegisterRes>('signup', {
+      name,
+      login,
+      password,
+    });
+  }
 
-    return this.http.post('http://localhost:4200/api/signup', body, options);
+  public login({ login, password }: IAuthLogin) {
+    return this.http.post<IAuthLoginRes>('signin', {
+      login,
+      password,
+    });
   }
 }
