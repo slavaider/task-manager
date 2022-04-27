@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { interceptors } from './http-interceptors/interceptors';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CoreModule } from './core/core.module';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,7 @@ import { CoreModule } from './core/core.module';
     BrowserAnimationsModule,
     StoreModule.forRoot({}, {}),
   ],
-  providers: [interceptors],
+  providers: [interceptors, CookieService],
   bootstrap: [AppComponent],
   exports: [FormsModule],
 })

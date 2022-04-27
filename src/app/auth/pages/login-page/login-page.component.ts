@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -18,10 +18,10 @@ export class LoginPageComponent {
   });
 
   constructor(
-    private readonly fb: FormBuilder,
+    private fb: FormBuilder,
     private auth: AuthService,
-    private notification: MatSnackBar,
     private router: Router,
+    private cookieService: CookieService,
   ) {}
 
   public get login(): AbstractControl | null {
@@ -36,7 +36,12 @@ export class LoginPageComponent {
     const { login, password } = this.loginForm.value;
     if (login && password) {
       this.auth.login({ login, password }).subscribe((res) => {
-        // console.log(res.token);
+        const token = res.token;
+        const expDate = new Date(Date.now() + 86400e3);
+        const path = '/';
+        this.cookieService.set('token', token, expDate, path);
+
+        this.router.navigateByUrl('/');
       });
     }
   }
