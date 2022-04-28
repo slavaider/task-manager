@@ -9,18 +9,20 @@ export class ErrorsHandler implements ErrorHandler {
 
   handleError(error: Error | HttpErrorResponse) {
     if (error instanceof HttpErrorResponse) {
-      if (error.error.statusCode === 401) {
-        this.zone.run(() => {
-          this.router.navigate(['/auth/login']);
-        });
-      } else {
-        this.zone.run(() => {
-          this.notification.open(error.error.message, 'ok', {
-            duration: 4000,
-            panelClass: ['note-error'],
+      switch (error.error.statusCode) {
+        case 401:
+          this.zone.run(() => {
+            this.router.navigate(['/auth/login']);
           });
-        });
+          break;
+        default:
+          this.zone.run(() => {
+            this.notification.open(error.error.message, 'ok', {
+              duration: 4000,
+              panelClass: ['note-error'],
+            });
+          });
       }
-    }
+    } else console.error(error.message);
   }
 }

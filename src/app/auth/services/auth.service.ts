@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   public register({ name, login, password }: IAuthRegister) {
-    return this.http.post<IAuthRegisterRes>('signup', {
+    return this.http.post<IAuthRegisterRes>('/api/signup', {
       name,
       login,
       password,
@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   public login({ login, password }: IAuthLogin) {
-    return this.http.post<IAuthLoginRes>('signin', {
+    return this.http.post<IAuthLoginRes>('/api/signin', {
       login,
       password,
     });
