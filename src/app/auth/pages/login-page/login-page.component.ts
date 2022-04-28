@@ -37,11 +37,11 @@ export class LoginPageComponent {
     if (login && password) {
       this.auth.login({ login, password }).subscribe((res) => {
         const token = res.token;
-        const expDate = new Date(Date.now() + 86400e3);
+        const expDate = new Date(Date.now() + 60 * 60 * 12 * 1000); // 12 hours
         const path = '/';
         this.cookieService.set('token', token, expDate, path);
 
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl(path);
       });
     }
   }

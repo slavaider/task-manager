@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { IAuthLogin, IAuthLoginRes, IAuthRegister, IAuthRegisterRes } from '../models/auth.models';
@@ -10,18 +10,25 @@ export class AuthService {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   public register({ name, login, password }: IAuthRegister) {
-    return this.http.post<IAuthRegisterRes>('/api/signup', {
-      name,
-      login,
-      password,
-    });
+    const body = { name, login, password };
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    return this.http.post<IAuthRegisterRes>('/api/signup', body, options);
   }
 
   public login({ login, password }: IAuthLogin) {
-    return this.http.post<IAuthLoginRes>('/api/signin', {
-      login,
-      password,
-    });
+    const body = { login, password };
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    return this.http.post<IAuthLoginRes>('/api/signin', body, options);
   }
 
   public logout() {

@@ -8,7 +8,6 @@ export class BaseInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const updateRequest = request.clone({
       url: `${BASE_URL}${request.url}`,
-      setHeaders: { 'Content-Type': 'application/json' },
     });
 
     return next.handle(updateRequest);
