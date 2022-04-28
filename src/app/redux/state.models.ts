@@ -1,4 +1,4 @@
-export namespace ITEMS_ACTIONS {
+export namespace ACTIONS_NAMES {
   export const GET_BOARDS = 'GET_BOARDS';
   export const GET_BOARD = ' GET_BOARD';
   export const POST_BOARD = 'POST_BOARD';
@@ -25,10 +25,10 @@ export interface IBoard {
   id: string;
   title: string;
   order: number;
-  columns: IColumns[];
+  columns: IColumn[];
 }
 
-export interface IColumns {
+export interface IColumn {
   id: string;
   title: string;
   order: number;
