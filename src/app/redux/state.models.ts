@@ -1,7 +1,11 @@
 export namespace ACTIONS_NAMES {
   export const GET_BOARDS = 'GET_BOARDS';
+  export const GET_BOARDS_SUCCESSFUL = 'GET_BOARDS_SUCCESSFUL';
+  export const GET_BOARDS_FAILED = 'GET_BOARDS_FAILED';
   export const GET_BOARD = ' GET_BOARD';
   export const POST_BOARD = 'POST_BOARD';
+  export const POST_BOARD_SUCCESFUL = 'POST_BOARD_SUCCESFUL';
+  export const POST_BOARD_FAILED = 'POST_BOARD_FAILED';
   export const DELETE_BOARD = 'DELETE_BOARD';
   export const PUT_BOARD = 'PUT_BOARD';
 

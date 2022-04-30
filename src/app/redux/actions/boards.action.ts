@@ -1,9 +1,18 @@
 import { createAction, props } from '@ngrx/store';
 import { ACTIONS_NAMES, IBoard, IColumn, ITask } from '../state.models';
-// import { ACTIONS_NAMES } from '../state.models';
 
 // BOARDS
 export const getBoards = createAction(ACTIONS_NAMES.GET_BOARDS);
+
+export const getBoardsSuccessful = createAction(
+  ACTIONS_NAMES.GET_BOARDS_SUCCESSFUL,
+  props<{ boards: IBoard[] }>(),
+);
+
+export const getBoardsFailed = createAction(
+  ACTIONS_NAMES.GET_BOARDS_FAILED,
+   props<{ error: Error }>()
+   );
 
 export const getBoard = createAction(ACTIONS_NAMES.GET_BOARD, props<{ id: string }>());
 
