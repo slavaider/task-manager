@@ -27,6 +27,7 @@
     "angular-i18next": "^11.0.0",
     "cookies": "^0.8.0",
     "i18next": "^21.6.16",
+    "ngx-cookie-service": "^13.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "uuid": "^8.3.2",
@@ -52,6 +53,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-ngrx": "^2.0.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
@@ -60,7 +62,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "prettier": "^2.6.0",
-    "typescript": "~4.6.2",
-    "eslint-plugin-ngrx": "^2.0.0"
+    "typescript": "~4.6.2"
   }
 }
