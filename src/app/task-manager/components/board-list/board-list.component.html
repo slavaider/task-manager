@@ -1,1 +1,8 @@
-<p>board-list works!</p>
+<mat-list role="list">
+  <mat-list-item 
+    role="listitem"
+    *ngFor="let board of boards$ | async" 
+  >
+    <app-board [board]="board"></app-board>
+  </mat-list-item>
+</mat-list>

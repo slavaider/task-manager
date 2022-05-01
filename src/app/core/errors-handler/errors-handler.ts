@@ -23,6 +23,6 @@ export class ErrorsHandler implements ErrorHandler {
             });
           });
       }
-    } else console.error(error.message);
+    } else console.error(error);
   }
 }
