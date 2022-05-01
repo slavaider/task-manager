@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ACTIONS_NAMES, IBoard, IColumn, ITask } from '../state.models';
+import { ACTIONS_NAMES, IBoard, IColumn, ITask } from '../boardState.models';
 
 // BOARDS
 export const getBoards = createAction(ACTIONS_NAMES.GET_BOARDS);
@@ -20,18 +20,18 @@ export const postBoard = createAction(ACTIONS_NAMES.POST_BOARD, props<{ newBoard
 
 export const deleteBoard = createAction(ACTIONS_NAMES.DELETE_BOARD, props<{ id: string }>());
 
-export const putBoard = createAction(ACTIONS_NAMES.PUT_BOARD, props<{ newBoard: IBoard }>());
+export const putBoard = createAction(ACTIONS_NAMES.PUT_BOARD, props<{ modifiedBoard: IBoard }>());
 
 // COLUMNS
-export const getColumns = createAction(ACTIONS_NAMES.GET_COLUMNS);
+export const getColumns = createAction(ACTIONS_NAMES.GET_COLUMNS, props<{ boardId: string }>());
 
-export const getColumn = createAction(ACTIONS_NAMES.GET_COLUMN, props<{ id: string }>());
+export const getColumn = createAction(ACTIONS_NAMES.GET_COLUMN, props<{ boardId: string, id: string }>());
 
-export const postColumn = createAction(ACTIONS_NAMES.POST_COLUMN, props<{ newColumn: IColumn }>());
+export const postColumn = createAction(ACTIONS_NAMES.POST_COLUMN, props<{ boardId: string, newColumn: IColumn }>());
 
-export const deleteColumn = createAction(ACTIONS_NAMES.DELETE_COLUMN, props<{ id: string }>());
+export const deleteColumn = createAction(ACTIONS_NAMES.DELETE_COLUMN, props<{ boardId: string, id: string }>());
 
-export const putColumn = createAction(ACTIONS_NAMES.PUT_COLUMN, props<{ newColumn: IColumn }>());
+export const putColumn = createAction(ACTIONS_NAMES.PUT_COLUMN, props<{ boardId: string, id: string, modifiedColumn: IColumn }>());
 
 // TASKS
 export const getTasks = createAction(ACTIONS_NAMES.GET_TASKS);

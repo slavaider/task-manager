@@ -1,11 +1,7 @@
-import { IBoard } from "../redux/state.models";
+import { BoardState } from "../redux/boardState";
 
 export interface AppState {
-  boards: IBoard[];
-  loading: boolean;
-  loaded: boolean;
-  error: Error | null;
-  userIsAutorised: boolean;
+  doardState: BoardState;
 }
 
 
