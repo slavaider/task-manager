@@ -1,6 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { IBoard } from '../boardState.models';
-import { AppState } from 'src/app/store/state';
 import * as boardActions from '../actions/boards.action';
 import { BoardState } from '../boardState';
 
@@ -10,7 +9,6 @@ const initialState: BoardState = {
   loading: false,
   loaded: false,
   error: null,
-  // userIsAutorised: false,
 };
 
 const reducer = createReducer(
@@ -32,8 +30,8 @@ const reducer = createReducer(
     return { ...state, error, loading: false, loaded: false };
   }),
 
-  on(boardActions.getBoard, (state, { id }) => {
-    console.log('getBoard', state);
+  on(boardActions.getBoard, (state, { boardId }) => {
+    console.log('getBoard', state, boardId);
     return { ...state };
   }),
 
@@ -42,67 +40,67 @@ const reducer = createReducer(
     return { ...state, boards: [...state.boards, newBoard], loading: false, loaded: true };
   }),
 
-  on(boardActions.deleteBoard, (state, { id }) => {
-    console.log('filteredBoards', state);
-    const filteredBoards = state.boards.filter(function (e) {
-      return e.id !== id;
+  on(boardActions.deleteBoard, (state, { boardId }) => {
+    console.log('deleteBoard', state);
+    const changedBoards = state.boards.filter(function (curBoard) {
+      return curBoard.id !== boardId;
     });
-    return { ...state, boards: filteredBoards};
+    return { ...state, boards: changedBoards };
   }),
 
   on(boardActions.putBoard, (state, { modifiedBoard }) => {
     console.log('getBoards', state);
-    const filteredBoards = state.boards.map((e) => {
-      if (e.id === modifiedBoard.id) {
-        e.title = modifiedBoard.title;
-        e.order = modifiedBoard.order;
+    const changedBoards = state.boards.map((curBoard) => {
+      if (curBoard.id === modifiedBoard.id) {
+        curBoard.title = modifiedBoard.title;
+        curBoard.order = modifiedBoard.order;
       }
-      return e;
+      return curBoard;
     });
-    return { ...state, boards: filteredBoards };
+    return { ...state, boards: changedBoards };
   }),
 
   // COLUMNS
   on(boardActions.getColumns, (state, { boardId }) => {
-    console.log('getColumns', state);
+    console.log('getColumns', state, boardId);
     return { ...state };
   }),
 
-  on(boardActions.getColumn, (state, { boardId, id }) => {
-    console.log('getColumn', state);
+  on(boardActions.getColumn, (state, { boardId, columnId }) => {
+    console.log('getColumn', state, boardId, columnId);
     return { ...state };
   }),
 
   on(boardActions.postColumn, (state, { boardId, newColumn }) => {
     console.log('postColumn', state);
-    const filteredBoards = state.boards.map((e) => {
-      if (e.id === boardId) {
-        e.columns = [...e.columns, newColumn];
+    const changedBoards = state.boards.map((curBoard) => {
+      if (curBoard.id === boardId) {
+        curBoard.columns = [...curBoard.columns, newColumn];
       }
-      return e;
+      return curBoard;
     });
-    return { ...state, boards: filteredBoards };
+    return { ...state, boards: changedBoards };
   }),
 
-  on(boardActions.deleteColumn, (state, { boardId, id }) => {
+  on(boardActions.deleteColumn, (state, { boardId, columnId }) => {
     console.log('deleteColumn', state);
-    const filteredBoards = state.boards.map((curBoard) => {
+    const changedBoards = state.boards.map((curBoard) => {
       if (curBoard.id === boardId) {
         curBoard.columns = curBoard.columns.filter(function (curColumn) {
-          return curColumn.id !== id;
+          return curColumn.id !== columnId;
         });
       }
       return curBoard;
     });
-    return { ...state, boards: filteredBoards };
+    return { ...state, boards: changedBoards };
   }),
 
-  on(boardActions.putColumn, (state, { boardId, id, modifiedColumn }) => {
+  on(boardActions.putColumn, (state, { boardId, modifiedColumn }) => {
     console.log('putColumn', state);
-    const filteredBoards = state.boards.map((curBoard) => {
+    const changedBoards = state.boards.map((curBoard) => {
       if (curBoard.id === boardId) {
         curBoard.columns = curBoard.columns.map((curColumn) => {
-          if (curColumn.id === id) {
+          if (curColumn.id === modifiedColumn.id) {
             curColumn.order = modifiedColumn.order;
             curColumn.title = modifiedColumn.title;
           }
@@ -111,9 +109,77 @@ const reducer = createReducer(
       }
       return curBoard;
     });
-    return { ...state, boards: filteredBoards };
+    return { ...state, boards: changedBoards };
   }),
 
+  // TASKS
+  on(boardActions.getTasks, (state, { boardId, columnId }) => {
+    console.log('getTasks', state, boardId, columnId);
+    return { ...state };
+  }),
+
+  on(boardActions.getTask, (state, { boardId, columnId, idTask }) => {
+    console.log('getTask', state, boardId, columnId, idTask);
+    return { ...state };
+  }),
+
+  on(boardActions.postTask, (state, { boardId, columnId, newTask }) => {
+    console.log('postTask', state);
+    const changedBoards = state.boards.map((curBoard) => {
+      if (curBoard.id === boardId) {
+        curBoard.columns = curBoard.columns.map((curColumn) => {
+          if (curColumn.id === columnId) {
+            curColumn.tasks = [...curColumn.tasks, newTask];
+          }
+          return curColumn;
+        });
+      }
+      return curBoard;
+    });
+    return { ...state, boards: changedBoards };
+  }),
+
+  on(boardActions.deleteTask, (state, { boardId, columnId, idTask }) => {
+    console.log('deleteTask', state, boardId, columnId, idTask);
+    const changedBoards = state.boards.map((curBoard) => {
+      if (curBoard.id === boardId) {
+        curBoard.columns = curBoard.columns.map((curColumn) => {
+          if (curColumn.id === columnId) {
+            const changedTasks = curColumn.tasks.filter(function (curTask) {
+              return curTask.id !== idTask;
+            });
+            curColumn.tasks = changedTasks;
+          }
+          return curColumn;
+        });
+      }
+      return curBoard;
+    });
+    return { ...state, boards: changedBoards };
+  }),
+
+  on(boardActions.putTask, (state, { boardId, columnId, modifiedTask }) => {
+    console.log('putTask', state);
+    const changedBoards = state.boards.map((curBoard) => {
+      if (curBoard.id === boardId) {
+        curBoard.columns = curBoard.columns.map((curColumn) => {
+          if (curColumn.id === columnId) {
+            const changedTasks = curColumn.tasks.map((curTask) => {
+              if (curTask.id === modifiedTask.id) {
+                return modifiedTask;
+              } else {
+                return curTask;
+              }
+            });
+            curColumn.tasks = changedTasks;
+          }
+          return curColumn;
+        });
+      }
+      return curBoard;
+    });
+    return { ...state, boards: changedBoards };
+  }),
 );
 
 export function itemsReducer(state: BoardState, action: Action) {
