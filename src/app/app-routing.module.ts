@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
-import { MainComponent } from './task-manager/pages/main/main.component';
+import { TaskManagerComponent } from './task-manager/task-manager.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: TaskManagerComponent,
   },
   {
     path: 'auth',

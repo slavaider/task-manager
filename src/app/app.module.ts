@@ -14,6 +14,11 @@ import { interceptors } from './http-interceptors/interceptors';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CoreModule } from './core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { TaskManagerModule } from './task-manager/task-manager.module';
+import { reducers } from './store/reducers/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { BoardsEffects } from './store/effects/boards.effects';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,12 +26,15 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AuthModule,
     CoreModule,
+    TaskManagerModule,
     AppRoutingModule,
     AppI18nextModule,
     HttpClientModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([BoardsEffects]),
+    MaterialModule,
   ],
   providers: [interceptors, CookieService],
   bootstrap: [AppComponent],

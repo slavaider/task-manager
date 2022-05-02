@@ -1340,7 +1340,14 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@ngrx/store@^13.1.0":
+"@ngrx/effects@^13.1.0":
+  "integrity" "sha512-b0kaC1yly1WawtQils3Bxy2FhE9OwlQD/bptVd3s+bskdZ+iw9VlAMH9Spk2mfX+MyOEOk2FyrWlrOePtkw+7Q=="
+  "resolved" "https://registry.npmjs.org/@ngrx/effects/-/effects-13.1.0.tgz"
+  "version" "13.1.0"
+  dependencies:
+    "tslib" "^2.0.0"
+
+"@ngrx/store@^13.1.0", "@ngrx/store@13.1.0":
   "integrity" "sha512-2Phsd/CC5FcoS2VgC+Fo5VgfAUK3m7bjWTc8d6+h3UcoQpS3xyPnybGYifa/JYN1CFYmqypVDRWSMAgML2NU/A=="
   "resolved" "https://registry.npmjs.org/@ngrx/store/-/store-13.1.0.tgz"
   "version" "13.1.0"
