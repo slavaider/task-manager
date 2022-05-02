@@ -1,7 +1,5 @@
-import { BoardState } from "../redux/boardState";
+import { BoardState } from '../redux/boardState';
 
 export interface AppState {
-  doardState: BoardState;
+  boardState: BoardState;
 }
-
-
