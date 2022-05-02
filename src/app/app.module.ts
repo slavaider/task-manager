@@ -18,6 +18,7 @@ import { TaskManagerModule } from './task-manager/task-manager.module';
 import { reducers } from './store/reducers/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { BoardsEffects } from './store/effects/boards.effects';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { BoardsEffects } from './store/effects/boards.effects';
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([BoardsEffects]),
+    MaterialModule,
   ],
   providers: [interceptors, CookieService],
   bootstrap: [AppComponent],

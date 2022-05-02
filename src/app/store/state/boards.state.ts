@@ -1,4 +1,4 @@
-import { IBoard } from 'src/app/task-manager/models/board.model';
+import { IBoard } from 'src/app/store/models/board.model';
 
 export interface IBoardsState {
   boards: IBoard[];

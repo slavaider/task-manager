@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectBoards } from 'src/app/store/selectors/boards.selectors';
 import { IAppState } from 'src/app/store/state/app.state';
-import { IBoard } from '../../models/board.model';
+import { IBoard } from '../../../store/models/board.model';
 
 @Component({
   selector: 'app-board-list',
