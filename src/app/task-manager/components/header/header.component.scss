@@ -1,0 +1,19 @@
+header {
+  width: 100%;
+  border-bottom: 1px solid;
+
+  .actions {
+    display: flex;
+    column-gap: 1rem;
+    margin-left: auto;
+  }
+}
+
+.sticky {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  background: rgb(149, 149, 150);
+  border: none;
+  transition: all .5s ease-out;
+}

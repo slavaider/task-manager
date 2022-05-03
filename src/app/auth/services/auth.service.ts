@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { IAuthLogin, IAuthLoginRes, IAuthRegister, IAuthRegisterRes } from '../models/auth.models';
 
@@ -7,7 +8,11 @@ import { IAuthLogin, IAuthLoginRes, IAuthRegister, IAuthRegisterRes } from '../m
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private cookieService: CookieService) {}
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    private router: Router,
+  ) {}
 
   public register({ name, login, password }: IAuthRegister) {
     const body = { name, login, password };
@@ -33,6 +38,7 @@ export class AuthService {
 
   public logout() {
     this.cookieService.delete('token', '/');
+    this.router.navigateByUrl('/welcome');
   }
 
   public isLogged() {

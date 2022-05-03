@@ -8,6 +8,8 @@ import { BoardsPageComponent } from './pages/boards-page/boards-page.component';
 import { TaskManagerComponent } from './task-manager.component';
 import { TaskRoutingModule } from './task-manager-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { MaterialModule } from '../material/material.module';
     BoardPageComponent,
     BoardsPageComponent,
     TaskManagerComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   exports: [],
   schemas: [],

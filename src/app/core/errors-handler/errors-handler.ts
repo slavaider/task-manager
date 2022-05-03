@@ -12,7 +12,7 @@ export class ErrorsHandler implements ErrorHandler {
       switch (error.error.statusCode) {
         case 401:
           this.zone.run(() => {
-            this.router.navigate(['/auth/login']);
+            this.router.navigate(['/welcome']);
           });
           break;
         default:
