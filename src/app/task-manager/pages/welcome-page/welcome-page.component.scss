@@ -1,14 +1,39 @@
+$light-violet: #cd8eff;
+$dark-violet: #8759ab;
+$black-violet: #040305;
+
 .welcome {
   display: flex;
   flex-direction: column;
   caret-color: transparent;
   margin: 1vmin;
-  // align-items: center;
+  background-color: $light-violet;
+  padding: 5vmin;
 }
 
-.project {
-  // width: 40vw;
+.project-container {
   display: flex;
+}
+
+.welcome-buttons {
+  margin-bottom: 1vmin;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1vw;
+  position: absolute;
+  top: -4vmin;
+  right: 0;
+  button {
+    width: 10vmin;
+    height: 3vmin;
+  }
+  button:hover {
+    background-color: $dark-violet;
+  }
+}
+.project {
+  display: flex;
+  justify-content: center;
   column-gap: 1vmin;
 }
 
@@ -25,16 +50,35 @@
   }
 }
 
-.rss-logo {
-  margin-top: 30px;
-  width: 160px;
-   height: 60px;
-
+.rss-link {
+  width: 320px;
+  height: 120px;
 }
+rss-link:hover {
+  color: $dark-violet;
+}
+
+.rss-logo {
+  width: 20vw;
+}
+
+// .rss-logo:hover{
+//   fill: var(--light-violet);
+// }
 
 .project-img {
   width: 40%;
   max-width: 650px;
+  position: relative;
+}
+
+.cours {
+  width: 40%;
+  max-width: 650px;
+  margin-top: 1vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-img__svg {
@@ -49,7 +93,7 @@
   grid-template-columns: repeat(3,12vw);
   padding-left: 0;
   // margin: 0 auto;
-  margin-left: 5vw;
+  // margin-left: 5vw;
 }
 
 .team-member {
@@ -61,10 +105,12 @@
   }
 }
 
-// .team-member__container {
-//   width: 20vw;
-//   height: 27vw;
-// }
+.team-container {
+  margin-top: 1vmin;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
 
 .team-member__img {
   position: relative;
@@ -85,6 +131,10 @@
   column-gap: 1vw;
   margin-top: 2vmin;
   margin-bottom: 2vmin;
+}
+
+team-github:hover {
+  color: $dark-violet;
 }
 
 .team-github__img {
