@@ -1,1 +1,8 @@
-<p>board-page works!</p>
+<div cdkDropList cdkDropListOrientation="horizontal" class="board"(cdkDropListDropped)="dropColumn($event)">
+
+  <div class="column" *ngFor="let column of columns" cdkDrag>
+    {{column.title}}
+  </div>
+  <button (click)="update()">update</button>
+</div>
+

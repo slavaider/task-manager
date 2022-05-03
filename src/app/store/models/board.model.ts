@@ -1,7 +1,7 @@
 export interface IBoard {
   id: string;
   title: string;
-  order: number;
+  // order: number;
   columns: IColumn[];
 }
 

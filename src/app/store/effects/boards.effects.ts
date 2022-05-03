@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
 import { switchMap, map } from 'rxjs';
 import { RequestService } from 'src/app/core/services/request/request.service';
-import { loadBoards, loadBoardsSuccess } from '../actions/boards.actions';
+import {
+  loadBoard,
+  loadBoards,
+  loadBoardsSuccess,
+  loadBoardSuccess,
+} from '../actions/boards.actions';
 
 @Injectable()
 export class BoardsEffects {
@@ -11,6 +16,15 @@ export class BoardsEffects {
       ofType(loadBoards),
       switchMap(() =>
         this.request.getBoards().pipe(map((boards) => loadBoardsSuccess({ boards }))),
+      ),
+    );
+  });
+
+  loadBoard$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(loadBoard),
+      switchMap(({ id }) =>
+        this.request.getBoard(id).pipe(map((board) => loadBoardSuccess({ board }))),
       ),
     );
   });
