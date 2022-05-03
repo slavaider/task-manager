@@ -1,0 +1,92 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  caret-color: transparent;
+  margin: 1vmin;
+  // align-items: center;
+}
+
+.project {
+  // width: 40vw;
+  display: flex;
+  column-gap: 1vmin;
+}
+
+.project-description {
+  width: 60%;
+  padding: 5%;
+  h2 {
+    font-size: 3vw;
+  }
+  p {
+    font-size: 2vw;
+    line-height: 3vw;
+    margin-top: 3vw;
+  }
+}
+
+.rss-logo {
+  margin-top: 30px;
+  width: 160px;
+   height: 60px;
+
+}
+
+.project-img {
+  width: 40%;
+  max-width: 650px;
+}
+
+.project-img__svg {
+  width: 100%;
+}
+
+.team {
+  max-width: 70vw;
+  grid-gap: 5vmin;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3,12vw);
+  padding-left: 0;
+  // margin: 0 auto;
+  margin-left: 5vw;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  p {
+    font-size: 1vw;
+  }
+}
+
+// .team-member__container {
+//   width: 20vw;
+//   height: 27vw;
+// }
+
+.team-member__img {
+  position: relative;
+  width: 12vw;
+  height: 18vw;
+  max-height: 320px;
+}
+
+.team-member__person{
+  height: 100%;
+  padding-top: 1vh;
+}
+
+.team-github {
+  font-size: 1vw;
+  display: flex;
+  align-items: center;
+  column-gap: 1vw;
+  margin-top: 2vmin;
+  margin-bottom: 2vmin;
+}
+
+.team-github__img {
+  width: 2vw;
+}
