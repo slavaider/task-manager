@@ -10,6 +10,7 @@ import { TaskRoutingModule } from './task-manager-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateBoardFormComponent } from './components/create-board-form/create-board-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
     TaskManagerComponent,
     HeaderComponent,
     FooterComponent,
+    CreateBoardFormComponent,
   ],
   exports: [],
   schemas: [],

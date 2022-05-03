@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   exports: [
@@ -19,6 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
     DragDropModule,
     MatToolbarModule,
     MatMenuModule,
+    MatCardModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}
