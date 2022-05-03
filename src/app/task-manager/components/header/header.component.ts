@@ -7,7 +7,9 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isSticky: boolean = false;
+  public isSticky: boolean = false;
+
+  public isLogged: boolean = this.auth.isLogged();
 
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
@@ -16,9 +18,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(private auth: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth.trackLogin$.subscribe((value) => {
+      this.isLogged = value;
+    });
+  }
 
-  logout() {
+  public logout() {
     this.auth.logout();
   }
 }

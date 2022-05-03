@@ -41,6 +41,8 @@ export class LoginPageComponent {
         const path = '/';
         this.cookieService.set('token', token, expDate, path);
 
+        this.auth.updateTrackLogin(true);
+
         this.router.navigateByUrl(path);
       });
     }
