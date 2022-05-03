@@ -12,7 +12,6 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule,
   ],
 })
 export class MaterialModule {}
