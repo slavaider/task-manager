@@ -22,6 +22,8 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
   public columns: IColumn[] = [];
 
+  private order: 1 | -1 = 1;
+
   constructor(
     private route: ActivatedRoute,
     private store: Store<IAppState>,
@@ -36,7 +38,13 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     this.board$.subscribe((board) => {
       if (board) {
         this.board = board;
-        this.columns = [...board.columns].sort((a, b) => a.order - b.order);
+        const isMinusOrder = board.columns.some((item) => item.order < 0);
+        if (isMinusOrder) {
+          this.columns = [...board.columns].sort((a, b) => Math.abs(a.order) - Math.abs(b.order));
+          this.order = -1;
+        } else {
+          this.columns = [...board.columns].sort((a, b) => a.order - b.order);
+        }
       }
     });
   }
@@ -44,11 +52,19 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   public dropColumn(event: CdkDragDrop<IColumn[]>) {
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
     this.columns = this.columns.map((column, i) => ({ ...column, order: i + 1 }));
+    this.order = this.order === 1 ? -1 : 1;
   }
 
   public update() {
     from(this.columns)
-      .pipe(mergeMap((column) => this.request.updateColumn(this.board.id, column)))
+      .pipe(
+        mergeMap((column) =>
+          this.request.updateColumn(this.board.id, {
+            ...column,
+            order: (column.order + this.columns.length) * this.order,
+          }),
+        ),
+      )
       .subscribe();
   }
 
