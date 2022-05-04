@@ -19,7 +19,7 @@ $black-violet: #040305;
   margin-bottom: 1vmin;
   display: flex;
   justify-content: flex-end;
-  column-gap: 1vw;
+  column-gap: 1vmin;
   position: absolute;
   top: -4vmin;
   right: 0;
@@ -31,6 +31,12 @@ $black-violet: #040305;
     background-color: $dark-violet;
   }
 }
+
+.mat-raised-button {
+  line-height: 2vmin;
+  font-size: 2vmin;
+}
+
 .project {
   display: flex;
   justify-content: center;
@@ -41,12 +47,13 @@ $black-violet: #040305;
   width: 60%;
   padding: 5%;
   h2 {
-    font-size: 3vw;
+    font-size: 3vmin;
+    line-height: 4vmin;
   }
   p {
-    font-size: 2vw;
-    line-height: 3vw;
-    margin-top: 3vw;
+    font-size: 2vmin;
+    line-height: 3vmin;
+    margin-top: 2vmin;
   }
 }
 
@@ -59,12 +66,8 @@ rss-link:hover {
 }
 
 .rss-logo {
-  width: 20vw;
+  width: 20vmin;
 }
-
-// .rss-logo:hover{
-//   fill: var(--light-violet);
-// }
 
 .project-img {
   width: 40%;
@@ -86,14 +89,11 @@ rss-link:hover {
 }
 
 .team {
-  max-width: 70vw;
-  grid-gap: 5vmin;
+  grid-gap: 4vmin;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(3,12vw);
+  grid-template-columns: repeat(3,12vmin);
   padding-left: 0;
-  // margin: 0 auto;
-  // margin-left: 5vw;
 }
 
 .team-member {
@@ -101,7 +101,7 @@ rss-link:hover {
   flex-direction: column;
   justify-content: space-between;
   p {
-    font-size: 1vw;
+    font-size: 1vmin;
   }
 }
 
@@ -110,12 +110,13 @@ rss-link:hover {
   width: 60%;
   display: flex;
   justify-content: center;
+  padding: 2vmin;
 }
 
 .team-member__img {
   position: relative;
-  width: 12vw;
-  height: 18vw;
+  width: 12vmin;
+  height: 18vmin;
   max-height: 320px;
 }
 
@@ -125,10 +126,10 @@ rss-link:hover {
 }
 
 .team-github {
-  font-size: 1vw;
+  font-size: 1vmin;
   display: flex;
   align-items: center;
-  column-gap: 1vw;
+  column-gap: 1vmin;
   margin-top: 2vmin;
   margin-bottom: 2vmin;
 }
@@ -138,5 +139,5 @@ team-github:hover {
 }
 
 .team-github__img {
-  width: 2vw;
+  width: 2vmin;
 }
