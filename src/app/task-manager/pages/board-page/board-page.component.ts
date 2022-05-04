@@ -1,11 +1,12 @@
 /* eslint-disable ngrx/no-typed-global-store */
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { from, mergeMap } from 'rxjs';
 import { RequestService } from 'src/app/core/services/request/request.service';
-import { loadBoard } from 'src/app/store/actions/boards.actions';
+import { clearBoard, loadBoard } from 'src/app/store/actions/boards.actions';
 import { IBoard, IColumn } from 'src/app/store/models/board.model';
 import { selectBoard } from 'src/app/store/selectors/boards.selectors';
 import { IAppState } from 'src/app/store/state/app.state';
@@ -20,7 +21,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
   public board!: IBoard;
 
-  public columns: IColumn[] = [];
+  public columns!: IColumn[];
 
   private order: 1 | -1 = 1;
 
@@ -28,6 +29,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private store: Store<IAppState>,
     private request: RequestService,
+    public form: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +49,14 @@ export class BoardPageComponent implements OnInit, OnDestroy {
         }
       }
     });
+  }
+
+  public createColumn() {
+    // this.form.open(CreateColumnFormComponent);
+  }
+
+  public createTask() {
+    // this.form.open(CreateTaskFormComponent);
   }
 
   public dropColumn(event: CdkDragDrop<IColumn[]>) {
@@ -69,6 +79,6 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('bye');
+    this.store.dispatch(clearBoard());
   }
 }

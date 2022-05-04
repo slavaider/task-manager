@@ -14,3 +14,5 @@ export const loadBoardSuccess = createAction(
   '[Source] [Board API], Board Loaded Success',
   props<{ board: IBoard }>(),
 );
+
+export const clearBoard = createAction('[Source] [Board Page], Clear Board');

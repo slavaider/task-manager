@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadBoardsSuccess, loadBoardSuccess } from '../actions/boards.actions';
+import { clearBoard, loadBoardsSuccess, loadBoardSuccess } from '../actions/boards.actions';
 import { IBoardsState, initBoardsState } from '../state/boards.state';
 
 export const boardsReducer = createReducer(
@@ -14,6 +14,12 @@ export const boardsReducer = createReducer(
     return {
       ...state,
       currentBoard: board,
+    };
+  }),
+  on(clearBoard, (state): IBoardsState => {
+    return {
+      ...state,
+      currentBoard: null,
     };
   }),
 );

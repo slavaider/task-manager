@@ -16,7 +16,7 @@ export class BoardsPageComponent implements OnInit {
     this.store.dispatch(loadBoards());
   }
 
-  public create() {
+  public createBoard() {
     this.form.open(CreateBoardFormComponent);
   }
 }

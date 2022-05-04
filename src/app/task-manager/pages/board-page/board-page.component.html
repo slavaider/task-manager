@@ -1,8 +1,21 @@
-<div cdkDropList cdkDropListOrientation="horizontal" class="board"(cdkDropListDropped)="dropColumn($event)">
+<div class="container">
 
-  <div class="column" *ngFor="let column of columns" cdkDrag>
-    {{column.title}}
+  <button mat-raised-button color="primary" (click)="createColumn()">
+    <span> + Добавить колонку</span>
+  </button>
+  <div class="board" cdkDropListGroup>
+    <div cdkDropList cdkDropListOrientation="horizontal" class="columns-list" (cdkDropListDropped)="dropColumn($event)">
+
+      <div class="column" *ngFor="let column of columns" cdkDrag>
+        <button mat-raised-button (click)="createTask()">
+          <span> + Добавить карточку</span>
+        </button>
+        {{column.title}}
+      </div>
+      <!-- <button (click)="update()">update</button> -->
+    </div>
   </div>
-  <button (click)="update()">update</button>
 </div>
+
+
 
