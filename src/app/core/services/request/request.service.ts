@@ -38,6 +38,10 @@ export class RequestService {
     return this.http.put(`/api/boards/${id}`, body);
   }
 
+  deleteBoard(id: string) {
+    return this.http.delete(`/api/boards/${id}`);
+  }
+
   // COLUMN //
 
   updateColumn(boardId: string, column: IColumn) {
