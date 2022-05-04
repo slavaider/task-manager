@@ -12,6 +12,8 @@ import { StoreModule } from '@ngrx/store';
 import { AuthModule } from './auth/auth.module';
 import { interceptors } from './http-interceptors/interceptors';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { CoreModule } from './core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { TaskManagerModule } from './task-manager/task-manager.module';
@@ -31,6 +33,8 @@ import { MaterialModule } from './material/material.module';
     AppI18nextModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatCardModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([BoardsEffects]),

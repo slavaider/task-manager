@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateBoardFormComponent } from './components/create-board-form/create-board-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     CreateBoardFormComponent,
+    WelcomeComponent,
   ],
   exports: [],
   schemas: [],

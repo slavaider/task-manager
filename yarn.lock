@@ -1347,10 +1347,10 @@
   dependencies:
     "tslib" "^2.0.0"
 
-"@ngrx/store@^13.1.0", "@ngrx/store@13.1.0":
-  "integrity" "sha512-2Phsd/CC5FcoS2VgC+Fo5VgfAUK3m7bjWTc8d6+h3UcoQpS3xyPnybGYifa/JYN1CFYmqypVDRWSMAgML2NU/A=="
-  "resolved" "https://registry.npmjs.org/@ngrx/store/-/store-13.1.0.tgz"
-  "version" "13.1.0"
+"@ngrx/store@^13.2.0", "@ngrx/store@13.1.0":
+  "integrity" "sha512-3wlGMkfe0EXsiS6E6W0wCksuGapa5Z6JVFvKQMHFpXZ3XeixXKlULnemlcdMT7Yrnry+CGOtRHqkmKxLoQzhTw=="
+  "resolved" "https://registry.npmjs.org/@ngrx/store/-/store-13.2.0.tgz"
+  "version" "13.2.0"
   dependencies:
     "tslib" "^2.0.0"
 
