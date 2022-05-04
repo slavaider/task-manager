@@ -36,6 +36,7 @@ export class LoginPageComponent {
     const { login, password } = this.loginForm.value;
     if (login && password) {
       this.auth.login({ login, password }).subscribe((res) => {
+        console.log(res);
         const token = res.token;
         const expDate = new Date(Date.now() + 60 * 60 * 12 * 1000); // 12 hours
         const path = '/';

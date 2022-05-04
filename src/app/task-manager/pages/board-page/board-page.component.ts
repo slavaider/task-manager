@@ -10,6 +10,8 @@ import { clearBoard, loadBoard } from 'src/app/store/actions/boards.actions';
 import { IBoard, IColumn } from 'src/app/store/models/board.model';
 import { selectBoard } from 'src/app/store/selectors/boards.selectors';
 import { IAppState } from 'src/app/store/state/app.state';
+import { CreateColumnFormComponent } from '../../components/create-column-form/create-column-form.component';
+import { CreateTaskFormComponent } from '../../components/create-task-form/create-task-form.component';
 
 @Component({
   selector: 'app-board-page',
@@ -23,7 +25,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
   public columns!: IColumn[];
 
-  private order: 1 | -1 = 1;
+  // private order: 1 | -1 = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,43 +42,61 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     this.board$.subscribe((board) => {
       if (board) {
         this.board = board;
-        const isMinusOrder = board.columns.some((item) => item.order < 0);
-        if (isMinusOrder) {
-          this.columns = [...board.columns].sort((a, b) => Math.abs(a.order) - Math.abs(b.order));
-          this.order = -1;
-        } else {
-          this.columns = [...board.columns].sort((a, b) => a.order - b.order);
-        }
+        this.columns = [...board.columns].sort((a, b) => a.order - b.order);
+
+        // const isMinusOrder = board.columns.some((item) => item.order < 0);
+        // if (isMinusOrder) {
+        //   this.columns = [...board.columns].sort((a, b) => Math.abs(a.order) - Math.abs(b.order));
+        //   this.order = -1;
+        // } else {
+        //   this.columns = [...board.columns].sort((a, b) => a.order - b.order);
+        // }
       }
     });
   }
 
   public createColumn() {
-    // this.form.open(CreateColumnFormComponent);
+    this.form.open(CreateColumnFormComponent, {
+      data: {
+        boardId: this.board.id,
+        order: this.columns.length + 1,
+      },
+    });
   }
 
+  public deleteColumn() {}
+
   public createTask() {
-    // this.form.open(CreateTaskFormComponent);
+    this.form.open(CreateTaskFormComponent, {
+      data: {
+        
+      }
+    });
   }
+
+  public editTask() {}
+
+  public deleteTask() {}
 
   public dropColumn(event: CdkDragDrop<IColumn[]>) {
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
     this.columns = this.columns.map((column, i) => ({ ...column, order: i + 1 }));
-    this.order = this.order === 1 ? -1 : 1;
+    // this.columns = this.columns.map((column, i) => ({ ...column, order: i + 1 }));
+    // this.order = this.order === 1 ? -1 : 1;
   }
 
-  public update() {
-    from(this.columns)
-      .pipe(
-        mergeMap((column) =>
-          this.request.updateColumn(this.board.id, {
-            ...column,
-            order: (column.order + this.columns.length) * this.order,
-          }),
-        ),
-      )
-      .subscribe();
-  }
+  // public update() {
+  //   from(this.columns)
+  //     .pipe(
+  //       mergeMap((column) =>
+  //         this.request.updateColumn(this.board.id, {
+  //           ...column,
+  //           order: (column.order + this.columns.length) * this.order,
+  //         }),
+  //       ),
+  //     )
+  //     .subscribe();
+  // }
 
   ngOnDestroy(): void {
     this.store.dispatch(clearBoard());

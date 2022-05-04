@@ -1,21 +1,53 @@
 <div class="container">
-
   <button mat-raised-button color="primary" (click)="createColumn()">
-    <span> + Добавить колонку</span>
+    <span class="material-icons">post_add</span>
+    <span>Добавить колонку</span>
   </button>
-  <div class="board" cdkDropListGroup>
-    <div cdkDropList cdkDropListOrientation="horizontal" class="columns-list" (cdkDropListDropped)="dropColumn($event)">
 
-      <div class="column" *ngFor="let column of columns" cdkDrag>
-        <button mat-raised-button (click)="createTask()">
-          <span> + Добавить карточку</span>
+  <div class="board">
+    <div class="column" *ngFor="let column of columns">
+      <div class="column-header">
+        <div class="title">{{ column.title }}</div>
+        <button mat-mini-fab color="accent" (click)="deleteColumn()">
+          <span class="material-icons">delete_outline</span>
         </button>
-        {{column.title}}
       </div>
-      <!-- <button (click)="update()">update</button> -->
+
+      <div class="tasks-list">
+        <mat-card class="task" *ngFor="let task of column.tasks">
+          <mat-card-title>{{task.title}}</mat-card-title>
+          <mat-card-actions align="end">
+            <button mat-mini-fab color="warn" (click)="editTask()">
+              <span class="material-icons">mode_edit</span>
+            </button>
+            <button mat-mini-fab color="accent" (click)="deleteTask()">
+              <span class="material-icons">delete</span>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <button mat-raised-button (click)="createTask()" class="create-task-btn">
+        <span class="material-icons">add_card</span>
+        <span> Добавить задание</span>
+      </button>
+
     </div>
   </div>
+ 
 </div>
 
 
+<!--
+<div class="board" cdkDropListGroup>
+  <div cdkDropList cdkDropListOrientation="horizontal" class="columns-list" (cdkDropListDropped)="dropColumn($event)">
 
+    <div class="column" *ngFor="let column of columns" cdkDrag>
+      <button mat-raised-button (click)="createTask()">
+        <span> + Добавить карточку</span>
+      </button>
+      {{column.title}}
+    </div>
+    <button (click)="update()">update</button>
+  </div>
+</div> -->
