@@ -7,3 +7,5 @@ const selectBoardsState = (state: IAppState): IBoardsState => {
 };
 
 export const selectBoards = createSelector(selectBoardsState, (state) => state.boards);
+
+export const selectBoard = createSelector(selectBoardsState, (state) => state.currentBoard);
