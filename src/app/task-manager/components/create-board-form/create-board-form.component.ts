@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
+import { RequestService } from 'src/app/core/services/request/request.service';
+import { loadBoards } from 'src/app/store/actions/boards.actions';
 
 @Component({
   selector: 'app-create-board-form',
@@ -15,8 +17,24 @@ export class CreateBoardFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private readonly store: Store,
+    private store: Store,
     private notification: MatSnackBar,
+    private request: RequestService,
   ) {}
 
+  public get title(): AbstractControl | null {
+    return this.createForm.get('title');
+  }
+
+  public submit() {
+    const { title } = this.createForm.value;
+    this.request.createBoard(title).subscribe(() => {
+      this.store.dispatch(loadBoards());
+
+      this.notification.open(`Доска создана`, 'ok', {
+        duration: 4000,
+        panelClass: ['note-success'],
+      });
+    });
+  }
 }

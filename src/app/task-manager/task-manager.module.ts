@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateBoardFormComponent } from './components/create-board-form/create-board-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,6 @@ import { CreateBoardFormComponent } from './components/create-board-form/create-
   ],
   exports: [],
   schemas: [],
-  imports: [CommonModule, TaskRoutingModule, MaterialModule],
+  imports: [CommonModule, TaskRoutingModule, MaterialModule, ReactiveFormsModule, FormsModule],
 })
 export class TaskManagerModule {}

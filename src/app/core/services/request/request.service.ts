@@ -9,6 +9,8 @@ import { IBoard, IColumn } from 'src/app/store/models/board.model';
 export class RequestService {
   constructor(private http: HttpClient) {}
 
+  // BOARD //
+
   getBoards(): Observable<IBoard[]> {
     return this.http.get<IBoard[]>('/api/boards');
   }
@@ -17,12 +19,26 @@ export class RequestService {
     return this.http.get<IBoard>(`/api/boards/${id}`);
   }
 
+  createBoard(title: string): Observable<IBoard> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    const body = {
+      title,
+    };
+    return this.http.post<IBoard>('/api/boards', body, options);
+  }
+
   updateBoard(id: string, title: string) {
     const body = {
       title,
     };
     return this.http.put(`/api/boards/${id}`, body);
   }
+
+  // COLUMN //
 
   updateColumn(boardId: string, column: IColumn) {
     const options = {

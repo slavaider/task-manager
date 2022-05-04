@@ -41,7 +41,7 @@ export class RegisterPageComponent {
     const { name, login, password } = this.registerForm.value;
     if (name && login && password) {
       this.auth.register({ name, login, password }).subscribe(() => {
-        this.notification.open(`${name} was registered`, 'ok', {
+        this.notification.open(`${name} зарегистрирован`, 'ok', {
           duration: 4000,
           panelClass: ['note-success'],
         });
