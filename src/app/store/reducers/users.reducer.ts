@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { deleteUser, loadUsersSuccess, loadUserSuccess, setUser } from '../actions/users.actions';
+import { deleteUser, loadUsersSuccess, loadUserSuccess, setUser, editUser } from '../actions/users.actions';
 import { initUsersState, IUsersState } from '../state/users.state';
 
 export const usersReducer = createReducer(
@@ -20,6 +20,11 @@ export const usersReducer = createReducer(
     return {
       ...state,
       currentUser: state.users.find((user) => user.login === login) || null,
+    };
+  }),
+  on(editUser, (state, { modifiedUser }): IUsersState => {
+    return {
+      ...state, users: state.users.map(oldUser => oldUser.id === modifiedUser.id ? modifiedUser : oldUser)
     };
   }),
   on(deleteUser, (state): IUsersState => {
