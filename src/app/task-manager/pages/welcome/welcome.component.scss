@@ -5,14 +5,18 @@ $black-violet: #040305;
 .welcome {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
   caret-color: transparent;
-  margin: 1vmin;
+  margin: 1vh;
   background-color: $light-violet;
   padding: 5vmin;
+  height: 84vh;
 }
 
-.project-container {
-  display: flex;
+.welcome-container {
+  max-width: 1920px;
 }
 
 .welcome-buttons {
@@ -86,6 +90,7 @@ rss-link:hover {
 
 .project-img__svg {
   width: 100%;
+  max-height: 40vh;
 }
 
 .team {
@@ -118,6 +123,7 @@ rss-link:hover {
   width: 12vmin;
   height: 18vmin;
   max-height: 320px;
+  max-height: 35vh;
 }
 
 .team-member__person{
