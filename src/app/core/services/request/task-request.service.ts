@@ -7,6 +7,7 @@ export interface ITaskProps {
   userId: string;
   boardId: string;
   columnId: string;
+  taskId?: string;
   title: string;
   description: string;
 }
@@ -33,6 +34,27 @@ export class TaskRequestService {
       userId,
     };
     return this.http.post(`/api/boards/${boardId}/columns/${columnId}/tasks`, body, options);
+  }
+
+  editTask({
+    userId, boardId, columnId, taskId, order, title, description
+  }: ITaskProps): Observable<object> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    const body = {
+      title,
+      order,
+      description,
+      userId,
+      boardId,
+      columnId,
+    };
+
+    console.log()
+    return this.http.put(`/api/boards/${boardId}/columns/${columnId}/tasks/${taskId}`, body, options);
   }
 
   deleteTask(boardId: string, columnId: string, taskId: string): Observable<object> {

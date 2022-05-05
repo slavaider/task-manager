@@ -18,7 +18,7 @@
           <mat-card-title>{{task.title}}</mat-card-title>
           <mat-card-content>{{task.description}}</mat-card-content>
           <mat-card-actions align="end">
-            <button mat-mini-fab color="warn" (click)="editTask()">
+            <button mat-mini-fab color="warn" (click)="editTask(task, column.id)">
               <span class="material-icons">mode_edit</span>
             </button>
             <button mat-mini-fab color="accent" (click)="deleteTask(task.id, column.id)">

@@ -19,6 +19,7 @@ export interface ITask {
   description: string;
   userId: string;
   boardId: string;
+  columnId: string;
   files: IFile[];
 }
 

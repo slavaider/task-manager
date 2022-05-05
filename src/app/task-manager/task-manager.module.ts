@@ -16,6 +16,7 @@ import { CreateColumnFormComponent } from './components/create-column-form/creat
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { EditTaskFormComponent } from './components/edit-task-form/edit-task-form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     CreateTaskFormComponent,
     UserPageComponent,
     WelcomeComponent,
+    EditTaskFormComponent,
   ],
   exports: [],
   schemas: [],

@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, AbstractControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
 import { loadBoard } from 'src/app/store/actions/boards.actions';
@@ -27,7 +26,6 @@ export class CreateTaskFormComponent {
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private notification: MatSnackBar,
     private request: TaskRequestService,
     @Inject(MAT_DIALOG_DATA) public data: ITaskData,
   ) {}

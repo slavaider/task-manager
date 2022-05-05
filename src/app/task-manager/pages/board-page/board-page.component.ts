@@ -10,13 +10,14 @@ import { DialogService } from 'src/app/core/services/dialog/dialog.service';
 import { RequestService } from 'src/app/core/services/request/request.service';
 import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
 import { clearBoard, loadBoard, loadBoards } from 'src/app/store/actions/boards.actions';
-import { IBoard, IColumn } from 'src/app/store/models/board.model';
+import { IBoard, IColumn, ITask } from 'src/app/store/models/board.model';
 import { IUser } from 'src/app/store/models/user.model';
 import { selectBoard } from 'src/app/store/selectors/boards.selectors';
 import { selectUser } from 'src/app/store/selectors/users.selectors';
 import { IAppState } from 'src/app/store/state/app.state';
 import { CreateColumnFormComponent } from '../../components/create-column-form/create-column-form.component';
 import { CreateTaskFormComponent } from '../../components/create-task-form/create-task-form.component';
+import { EditTaskFormComponent } from '../../components/edit-task-form/edit-task-form.component';
 
 @Component({
   selector: 'app-board-page',
@@ -91,7 +92,15 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  public editTask() {}
+  public editTask(task: ITask, columnId: string) {
+    this.form.open(EditTaskFormComponent, {
+      data: { 
+        task,
+        boardId: this.board.id,
+        columnId,
+      }
+    });
+  }
 
   public deleteTask(taskId: string, columnId: string) {
     this.dialogService
