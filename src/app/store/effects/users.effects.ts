@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
 import { switchMap, map } from 'rxjs';
-import { RequestService } from 'src/app/core/services/request/request.service';
+import { UserRequestService } from 'src/app/core/services/request/user-request.service';
 import { loadUsers, loadUsersSuccess } from '../actions/users.actions';
 
 @Injectable()
@@ -9,8 +9,12 @@ export class UserEffects {
   loadUsers$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadUsers),
-      switchMap(() => this.request.getUsers().pipe(map((users) => loadUsersSuccess({ users })))),
-    );
+      switchMap(({ login }) => {
+        return this.request.getUsers().pipe(
+          map((users) => loadUsersSuccess({ users, login })),
+        );
+      }) 
+    )
   });
 
   // loadUser$ = createEffect(() => {
@@ -22,5 +26,5 @@ export class UserEffects {
   //   );
   // });
 
-  constructor(private actions$: Actions, private request: RequestService) {}
+  constructor(private actions$: Actions, private request: UserRequestService) {}
 }

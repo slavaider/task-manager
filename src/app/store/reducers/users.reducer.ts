@@ -1,25 +1,20 @@
 import { createReducer, on } from '@ngrx/store';
-import { deleteUser, loadUsersSuccess, loadUserSuccess, setUser, editUser } from '../actions/users.actions';
+import { deleteUser, loadUsersSuccess, loadUserSuccess, editUser } from '../actions/users.actions';
 import { initUsersState, IUsersState } from '../state/users.state';
 
 export const usersReducer = createReducer(
   initUsersState,
-  on(loadUsersSuccess, (state, { users }): IUsersState => {
+  on(loadUsersSuccess, (state, { users, login }): IUsersState => {
     return {
       ...state,
       users,
+      currentUser: users.find((user) => user.login === login) || null,
     };
   }),
   on(loadUserSuccess, (state, { user }): IUsersState => {
     return {
       ...state,
       currentUser: user,
-    };
-  }),
-  on(setUser, (state, { login }): IUsersState => {
-    return {
-      ...state,
-      currentUser: state.users.find((user) => user.login === login) || null,
     };
   }),
   on(editUser, (state, { modifiedUser }): IUsersState => {

@@ -7,9 +7,5 @@ export interface IUsersState {
 
 export const initUsersState: IUsersState = {
   users: [],
-  currentUser: {
-    id: 'ddd',
-    name: 'fff',
-    login: 'fff',
-  },
+  currentUser: null,
 };

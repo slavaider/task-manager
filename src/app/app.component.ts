@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { CookieService } from 'ngx-cookie-service';
 import { loadUsers } from './store/actions/users.actions';
 
 @Component({
@@ -8,9 +9,13 @@ import { loadUsers } from './store/actions/users.actions';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private store: Store) {}
+  
+  constructor(private store: Store, private cookieService: CookieService) {}
 
   ngOnInit() {
-    this.store.dispatch(loadUsers());
+    const login = this.cookieService.get('login');
+    if (login) {
+      this.store.dispatch(loadUsers({ login }));
+    } 
   }
 }

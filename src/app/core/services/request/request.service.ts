@@ -11,58 +11,50 @@ export class RequestService {
   constructor(private http: HttpClient) {}
 
   // USER //
-
-  getUsers(): Observable<IUser[]> {
-    return this.http.get<IUser[]>('/api/users');
-  }
-
+  // getUsers(): Observable<IUser[]> {
+  //   return this.http.get<IUser[]>('/api/users');
+  // }
   // BOARD //
 
-  getBoards(): Observable<IBoard[]> {
-    return this.http.get<IBoard[]>('/api/boards');
-  }
+  // getBoards(): Observable<IBoard[]> {
+  //   return this.http.get<IBoard[]>('/api/boards');
+  // }
 
-  getBoard(id: string): Observable<IBoard> {
-    return this.http.get<IBoard>(`/api/boards/${id}`);
-  }
+  // getBoard(id: string): Observable<IBoard> {
+  //   return this.http.get<IBoard>(`/api/boards/${id}`);
+  // }
 
-  createBoard(title: string): Observable<object> {
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
-    const body = {
-      title,
-    };
-    return this.http.post('/api/boards', body, options);
-  }
-
-  // updateBoard(id: string, title: string) {
+  // createBoard(title: string): Observable<object> {
+  //   const options = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //     }),
+  //   };
   //   const body = {
   //     title,
   //   };
-  //   return this.http.put(`/api/boards/${id}`, body);
+  //   return this.http.post('/api/boards', body, options);
   // }
 
-  deleteBoard(id: string): Observable<object> {
-    return this.http.delete(`/api/boards/${id}`);
-  }
+
+  // deleteBoard(id: string): Observable<object> {
+  //   return this.http.delete(`/api/boards/${id}`);
+  // }
 
   // COLUMN //
 
-  createColumn(boardId: string, title: string, order: number): Observable<object> {
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
-    const body = {
-      title,
-      order,
-    };
-    return this.http.post(`/api/boards/${boardId}/columns`, body, options);
-  }
+  // createColumn(boardId: string, title: string, order: number): Observable<object> {
+  //   const options = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //     }),
+  //   };
+  //   const body = {
+  //     title,
+  //     order,
+  //   };
+  //   return this.http.post(`/api/boards/${boardId}/columns`, body, options);
+  // }
 
   // updateColumn(boardId: string, column: IColumn) {
   //   const options = {

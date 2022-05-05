@@ -54,6 +54,8 @@ export class AuthService {
 
   public logout() {
     this.cookieService.delete('token', '/');
+    this.cookieService.delete('login', '/');
+
     this.updateTrackLogin(false);
     this.router.navigateByUrl('/welcome');
   }

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { DialogService } from 'src/app/core/services/dialog/dialog.service';
-import { RequestService } from 'src/app/core/services/request/request.service';
+import { BoardRequestService } from 'src/app/core/services/request/board-request.service';
 import { loadBoards } from 'src/app/store/actions/boards.actions';
 import { IBoard } from '../../../store/models/board.model';
 
@@ -18,7 +18,7 @@ export class BoardComponent {
   constructor(
     private dialogService: DialogService,
     private store: Store,
-    private request: RequestService,
+    private request: BoardRequestService,
     private notification: MatSnackBar,
   ) {}
 
