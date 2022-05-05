@@ -1,5 +1,7 @@
 <a mat-raised-button routerLink="/boards/{{ board?.id }}" class="route-btn">
   <span class="material-icons">dashboard</span>
-  <p>{{board?.title}}</p>
+  {{board?.title}}
 </a>
-<button mat-raised-button color="warn" class="delete-btn">-</button>
+<button mat-raised-button (click)="deleteBoard()">
+  <span class="material-icons">remove_circle_outline</span>
+</button>

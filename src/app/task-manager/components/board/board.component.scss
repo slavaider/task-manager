@@ -1,9 +1,13 @@
 :host {
   display: flex;
-  align-items: stretch;
 }
 
 .route-btn {
   display: flex;
+  align-items: center;
   min-width: 20rem;
+
+  .title {
+    margin: 0;
+  }
 }

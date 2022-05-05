@@ -12,6 +12,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateBoardFormComponent } from './components/create-board-form/create-board-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CreateColumnFormComponent } from './components/create-column-form/create-column-form.component';
+import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 @NgModule({
@@ -25,6 +28,9 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     HeaderComponent,
     FooterComponent,
     CreateBoardFormComponent,
+    CreateColumnFormComponent,
+    CreateTaskFormComponent,
+    UserPageComponent,
     WelcomeComponent,
   ],
   exports: [],

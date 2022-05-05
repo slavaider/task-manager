@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth/auth.guard';
 import { BoardPageComponent } from './pages/board-page/board-page.component';
 import { BoardsPageComponent } from './pages/boards-page/boards-page.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 // import { MainComponent } from './pages/main/main.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { TaskManagerComponent } from './task-manager.component';
@@ -26,6 +27,11 @@ const routes: Routes = [
         path: 'welcome',
         component: WelcomeComponent,
         // component: MainComponent,
+      },
+      {
+        path: 'user',
+        component: UserPageComponent,
+        canActivate: [AuthGuard],
       },
     ],
   },

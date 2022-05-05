@@ -1,7 +1,6 @@
-<div>
-  <mat-card 
-    *ngFor="let board of boards$ | async" 
-  >
-    <app-board [board]="board"></app-board>
-  </mat-card>
-</div>
+<mat-card 
+  *ngFor="let board of boards$ | async" 
+>
+  <app-board [board]="board"></app-board>
+</mat-card>
+
