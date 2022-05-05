@@ -49,8 +49,6 @@ export class RegisterPageComponent {
           panelClass: ['note-success'],
         });
 
-        this.store.dispatch(loadUsers());
-
         this.router.navigateByUrl('/auth/login');
       });
     }

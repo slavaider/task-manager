@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder, AbstractControl } from '@angular/fo
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
-import { RequestService } from 'src/app/core/services/request/request.service';
+import { ColumnRequestService } from 'src/app/core/services/request/column-request.service';
 import { loadBoard } from 'src/app/store/actions/boards.actions';
 
 @Component({
@@ -20,7 +20,7 @@ export class CreateColumnFormComponent {
     private fb: FormBuilder,
     private store: Store,
     private notification: MatSnackBar,
-    private request: RequestService,
+    private request: ColumnRequestService,
     @Inject(MAT_DIALOG_DATA) public data: { boardId: string; order: number },
   ) {}
 
