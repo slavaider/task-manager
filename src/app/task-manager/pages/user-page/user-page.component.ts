@@ -22,8 +22,8 @@ export class UserPageComponent implements OnInit {
   public hide: boolean = true;
 
   public editForm: FormGroup = this.fb.group({
-    name: [this.user?.name, [Validators.required]],
-    login: [this.user?.login, [Validators.required]],
+    name: ['', [Validators.required]],
+    login: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
 
@@ -34,7 +34,14 @@ export class UserPageComponent implements OnInit {
     private store: Store) {}
 
   ngOnInit(): void {
-    this.user$.subscribe((user) => (this.user = user));
+    this.user$.subscribe((user) => {
+      this.user = user;
+      this.editForm = this.fb.group({
+        name: [user?.name, [Validators.required]],
+        login: [user?.login, [Validators.required]],
+        password: ['', [Validators.required]],
+      });
+    });
   }
 
   public get name(): AbstractControl | null {

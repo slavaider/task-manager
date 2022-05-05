@@ -15,7 +15,7 @@
     <mat-label>
       Enter your name
     </mat-label>
-    <input matInput formControlName="name" [value]="this.user?.name" required>
+    <input matInput formControlName="name" required>
     <mat-error *ngIf="name?.invalid">
       Please enter a name
     </mat-error>
