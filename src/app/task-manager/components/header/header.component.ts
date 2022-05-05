@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
     this.isSticky = window.pageYOffset >= 50;
   }
 
-  constructor(private auth: AuthService) {}
+  constructor(public auth: AuthService) {}
 
   ngOnInit(): void {
     this.auth.trackLogin$.subscribe((value) => {
