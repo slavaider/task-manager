@@ -15,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CreateColumnFormComponent } from './components/create-column-form/create-column-form.component';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
     CreateColumnFormComponent,
     CreateTaskFormComponent,
     UserPageComponent,
+    WelcomeComponent,
   ],
   exports: [],
   schemas: [],
