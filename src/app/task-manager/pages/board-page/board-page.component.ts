@@ -19,7 +19,7 @@ import { CreateTaskFormComponent } from '../../components/create-task-form/creat
   styleUrls: ['./board-page.component.scss'],
 })
 export class BoardPageComponent implements OnInit, OnDestroy {
-  public board$ = this.store.select(selectBoard);
+  private board$ = this.store.select(selectBoard);
 
   public board!: IBoard;
 

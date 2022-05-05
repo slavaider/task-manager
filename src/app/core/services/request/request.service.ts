@@ -1,13 +1,20 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBoard, IColumn } from 'src/app/store/models/board.model';
+import { IBoard } from 'src/app/store/models/board.model';
+import { IUser } from 'src/app/store/models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RequestService {
   constructor(private http: HttpClient) {}
+
+  // USER //
+
+  getUsers(): Observable<IUser[]> {
+    return this.http.get<IUser[]>('/api/users');
+  }
 
   // BOARD //
 

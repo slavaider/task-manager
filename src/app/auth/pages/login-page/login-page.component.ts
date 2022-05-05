@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { CookieService } from 'ngx-cookie-service';
+import { setUser } from 'src/app/store/actions/users.actions';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -22,6 +24,7 @@ export class LoginPageComponent {
     private auth: AuthService,
     private router: Router,
     private cookieService: CookieService,
+    private store: Store,
   ) {}
 
   public get login(): AbstractControl | null {
@@ -36,11 +39,12 @@ export class LoginPageComponent {
     const { login, password } = this.loginForm.value;
     if (login && password) {
       this.auth.login({ login, password }).subscribe((res) => {
-        console.log(res);
         const token = res.token;
         const expDate = new Date(Date.now() + 60 * 60 * 12 * 1000); // 12 hours
         const path = '/';
         this.cookieService.set('token', token, expDate, path);
+
+        this.store.dispatch(setUser({ login }));
 
         this.auth.updateTrackLogin(true);
 

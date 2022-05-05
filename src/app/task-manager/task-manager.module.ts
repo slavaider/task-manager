@@ -14,6 +14,7 @@ import { CreateBoardFormComponent } from './components/create-board-form/create-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CreateColumnFormComponent } from './components/create-column-form/create-column-form.component';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CreateTaskFormComponent } from './components/create-task-form/create-ta
     CreateBoardFormComponent,
     CreateColumnFormComponent,
     CreateTaskFormComponent,
+    UserPageComponent,
   ],
   exports: [],
   schemas: [],

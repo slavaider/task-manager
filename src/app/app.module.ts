@@ -19,6 +19,7 @@ import { reducers } from './store/reducers/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { BoardsEffects } from './store/effects/boards.effects';
 import { MaterialModule } from './material/material.module';
+import { UserEffects } from './store/effects/users.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +34,7 @@ import { MaterialModule } from './material/material.module';
     MatSnackBarModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([BoardsEffects]),
+    EffectsModule.forRoot([BoardsEffects, UserEffects]),
     MaterialModule,
   ],
   providers: [interceptors, CookieService],

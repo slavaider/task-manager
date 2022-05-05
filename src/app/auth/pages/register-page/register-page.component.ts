@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadUsers } from 'src/app/store/actions/users.actions';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -23,6 +25,7 @@ export class RegisterPageComponent {
     private auth: AuthService,
     private notification: MatSnackBar,
     private router: Router,
+    private store: Store,
   ) {}
 
   public get name(): AbstractControl | null {
@@ -45,6 +48,8 @@ export class RegisterPageComponent {
           duration: 4000,
           panelClass: ['note-success'],
         });
+
+        this.store.dispatch(loadUsers());
 
         this.router.navigateByUrl('/auth/login');
       });
