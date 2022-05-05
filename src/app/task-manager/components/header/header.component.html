@@ -1,8 +1,12 @@
 <header mat-toolbar [ngClass]="{'mat-elevation-z5' : isSticky, 'sticky' : isSticky}">
-  <div class="container flex align-center">
-     <div>logo</div>
+  <div class="flex align-center header-container">
+     <div class="header-logo">
+       <!-- <img src="./assets/img/logo.png" width="60" alt="logo"> -->
+       <!-- <img src="./assets/img/logo_1824.png" width="60" alt="logo"> -->
+       <img src="./assets/img/logo_144088.png" width="60" alt="logo">
+    </div>
      <div class="actions">
-      
+
       <button *ngIf="isLogged" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
         <mat-icon>account_circle</mat-icon>
       </button>
@@ -16,7 +20,7 @@
           <span>Выйти</span>
         </button>
       </mat-menu>
-      
+
       <a mat-raised-button routerLink="/auth/login">Войти</a>
       <a mat-raised-button routerLink="/auth/register">Регистрация</a>
      </div>
