@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
 import { switchMap, map } from 'rxjs';
-import { RequestService } from 'src/app/core/services/request/request.service';
+import { BoardRequestService } from 'src/app/core/services/request/board-request.service';
 import {
   loadBoard,
   loadBoards,
@@ -29,5 +29,5 @@ export class BoardsEffects {
     );
   });
 
-  constructor(private actions$: Actions, private request: RequestService) {}
+  constructor(private actions$: Actions, private request: BoardRequestService) {}
 }

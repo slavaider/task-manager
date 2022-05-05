@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
-import { RequestService } from 'src/app/core/services/request/request.service';
+import { BoardRequestService } from 'src/app/core/services/request/board-request.service';
 import { loadBoards } from 'src/app/store/actions/boards.actions';
 
 @Component({
@@ -19,7 +19,7 @@ export class CreateBoardFormComponent {
     private fb: FormBuilder,
     private store: Store,
     private notification: MatSnackBar,
-    private request: RequestService,
+    private request: BoardRequestService,
   ) {}
 
   public get title(): AbstractControl | null {

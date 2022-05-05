@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { CookieService } from 'ngx-cookie-service';
-import { setUser } from 'src/app/store/actions/users.actions';
+import { loadUsers } from 'src/app/store/actions/users.actions';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -43,8 +43,9 @@ export class LoginPageComponent {
         const expDate = new Date(Date.now() + 60 * 60 * 12 * 1000); // 12 hours
         const path = '/';
         this.cookieService.set('token', token, expDate, path);
+        this.cookieService.set('login', login, expDate, path);
 
-        this.store.dispatch(setUser({ login }));
+        this.store.dispatch(loadUsers({ login }));
 
         this.auth.updateTrackLogin(true);
 
