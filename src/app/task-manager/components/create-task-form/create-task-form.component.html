@@ -1,1 +1,28 @@
-<p>create-task-form works!</p>
+<h2 mat-dialog-title>Создать задачу</h2>
+<div mat-dialog-content>
+  <form class="form" [formGroup]="createForm" (ngSubmit)="submit()">
+    
+    <mat-form-field>
+      <mat-label>Заголовок</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="title?.hasError('required')">
+        Введите заголовок
+      </mat-error>
+    </mat-form-field>
+    
+
+    <mat-form-field>
+      <mat-label>Описание</mat-label>
+      <input matInput formControlName="description">
+      <mat-error *ngIf="description?.hasError('required')">
+        Добавьте описание
+      </mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions align="end">
+      <button mat-raised-button mat-dialog-close>Отмена</button>
+      <button mat-raised-button [mat-dialog-close]="true" type="submit" [disabled]="!createForm.valid">Создать</button>
+    </mat-dialog-actions>
+
+  </form>
+</div>

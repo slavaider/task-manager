@@ -2,13 +2,18 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { from, mergeMap } from 'rxjs';
+import { DialogService } from 'src/app/core/services/dialog/dialog.service';
 import { RequestService } from 'src/app/core/services/request/request.service';
-import { clearBoard, loadBoard } from 'src/app/store/actions/boards.actions';
+import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
+import { clearBoard, loadBoard, loadBoards } from 'src/app/store/actions/boards.actions';
 import { IBoard, IColumn } from 'src/app/store/models/board.model';
+import { IUser } from 'src/app/store/models/user.model';
 import { selectBoard } from 'src/app/store/selectors/boards.selectors';
+import { selectUser } from 'src/app/store/selectors/users.selectors';
 import { IAppState } from 'src/app/store/state/app.state';
 import { CreateColumnFormComponent } from '../../components/create-column-form/create-column-form.component';
 import { CreateTaskFormComponent } from '../../components/create-task-form/create-task-form.component';
@@ -19,8 +24,11 @@ import { CreateTaskFormComponent } from '../../components/create-task-form/creat
   styleUrls: ['./board-page.component.scss'],
 })
 export class BoardPageComponent implements OnInit, OnDestroy {
-  private board$ = this.store.select(selectBoard);
+  private user$ = this.store.select(selectUser);
+  public user!: IUser;
 
+  
+  private board$ = this.store.select(selectBoard);
   public board!: IBoard;
 
   public columns!: IColumn[];
@@ -30,8 +38,10 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private store: Store<IAppState>,
-    private request: RequestService,
+    private taskRequest: TaskRequestService,
     public form: MatDialog,
+    private dialogService: DialogService,
+    private notification: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +63,10 @@ export class BoardPageComponent implements OnInit, OnDestroy {
         // }
       }
     });
+
+    this.user$.subscribe((user) => {
+      if (user) this.user = user;
+    });
   }
 
   public createColumn() {
@@ -66,17 +80,34 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
   public deleteColumn() {}
 
-  public createTask() {
+  public createTask(columnId: string) {
     this.form.open(CreateTaskFormComponent, {
       data: {
-        
+        userId: this.user.id,
+        boardId: this.board.id,
+        columnId,
+        order: Number(this.columns.find((column) => column.id === columnId)?.tasks.length) + 1
       }
     });
   }
 
   public editTask() {}
 
-  public deleteTask() {}
+  public deleteTask(taskId: string, columnId: string) {
+    this.dialogService
+      .confirm({
+        message: 'Вы уверены, что хотите удалить задачу?',
+      })
+      .subscribe((answer) => {
+        if (answer) {
+          this.taskRequest.deleteTask(
+            this.board.id, columnId, taskId,
+          ).subscribe(() => {
+            this.store.dispatch(loadBoard({ id: this.board.id }));
+          });
+        }
+      });
+  }
 
   public dropColumn(event: CdkDragDrop<IColumn[]>) {
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
