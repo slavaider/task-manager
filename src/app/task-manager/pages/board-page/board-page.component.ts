@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { from, mergeMap } from 'rxjs';
 import { DialogService } from 'src/app/core/services/dialog/dialog.service';
+import { ColumnRequestService } from 'src/app/core/services/request/column-request.service';
 import { RequestService } from 'src/app/core/services/request/request.service';
 import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
 import { clearBoard, loadBoard, loadBoards } from 'src/app/store/actions/boards.actions';
@@ -40,6 +41,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private store: Store<IAppState>,
     private taskRequest: TaskRequestService,
+    private columnRequest: ColumnRequestService,
     public form: MatDialog,
     private dialogService: DialogService,
     private notification: MatSnackBar,
@@ -71,23 +73,44 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   }
 
   public createColumn() {
+    const lastColumn = this.columns[this.columns.length-1];
+    const order = (lastColumn ? lastColumn.order : 0) + 1;
+  
     this.form.open(CreateColumnFormComponent, {
       data: {
         boardId: this.board.id,
-        order: this.columns.length + 1,
+        order,
       },
     });
   }
 
-  public deleteColumn() {}
+  public deleteColumn(columnId: string) {
+    this.dialogService
+      .confirm({
+        message: 'Вы уверены, что хотите удалить колонку?',
+      })
+      .subscribe((answer) => {
+        if (answer) {
+          this.columnRequest.deleteColumn(
+            this.board.id, columnId,
+          ).subscribe(() => {
+            this.store.dispatch(loadBoard({ id: this.board.id }));
+          });
+        }
+      });
+  }
 
   public createTask(columnId: string) {
+    const currentColumn = this.columns.find((column) => column.id === columnId);
+    const lastTask = currentColumn?.tasks[currentColumn?.tasks.length - 1];
+    const order = (lastTask ? lastTask.order : 0) + 1
+  
     this.form.open(CreateTaskFormComponent, {
       data: {
         userId: this.user.id,
         boardId: this.board.id,
         columnId,
-        order: Number(this.columns.find((column) => column.id === columnId)?.tasks.length) + 1
+        order,
       }
     });
   }

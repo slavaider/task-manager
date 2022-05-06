@@ -1,0 +1,16 @@
+<div *ngIf="!isShowField" class="title" (click)="show()">{{ column.title }}</div>
+
+<form *ngIf="isShowField" class="form" [formGroup]="editForm" (ngSubmit)="submit(column)">    
+  <mat-form-field>
+    <input matInput formControlName="title">
+    <mat-error *ngIf="title?.hasError('required')">
+      Введите заголовок
+    </mat-error>
+    <button mat-mini-fab matPrefix (click)="hide()">
+      <mat-icon>highlight_off</mat-icon>
+    </button>
+    <button mat-mini-fab type="submit" matPrefix [disabled]="!editForm.valid">
+      <mat-icon>check_circle_outline</mat-icon>
+    </button>
+  </mat-form-field>
+</form>

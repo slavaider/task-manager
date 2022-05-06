@@ -17,6 +17,8 @@ import { CreateTaskFormComponent } from './components/create-task-form/create-ta
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { EditTaskFormComponent } from './components/edit-task-form/edit-task-form.component';
+import { SortPipe } from './pipes/sort/sort.pipe';
+import { ColumnTitleComponent } from './components/column-title/column-title.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { EditTaskFormComponent } from './components/edit-task-form/edit-task-for
     UserPageComponent,
     WelcomeComponent,
     EditTaskFormComponent,
+    SortPipe,
+    ColumnTitleComponent,
   ],
   exports: [],
   schemas: [],

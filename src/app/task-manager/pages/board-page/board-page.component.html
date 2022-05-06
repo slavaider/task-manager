@@ -7,14 +7,14 @@
   <div class="board">
     <div class="column" *ngFor="let column of columns">
       <div class="column-header">
-        <div class="title">{{ column.title }}</div>
-        <button mat-mini-fab color="accent" (click)="deleteColumn()">
+        <app-column-title [column]="column" [boardId]="board.id"></app-column-title>
+        <button mat-mini-fab color="accent" (click)="deleteColumn(column.id)">
           <span class="material-icons">delete_outline</span>
         </button>
       </div>
 
       <div class="tasks-list">
-        <mat-card class="task" *ngFor="let task of column.tasks">
+        <mat-card class="task" *ngFor="let task of column.tasks | sort">
           <mat-card-title>{{task.title}}</mat-card-title>
           <mat-card-content>{{task.description}}</mat-card-content>
           <mat-card-actions align="end">

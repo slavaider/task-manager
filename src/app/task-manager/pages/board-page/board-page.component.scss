@@ -26,14 +26,7 @@
 
     .column-header {
       display: flex;
-      justify-content: flex-end;
       width: 100%;
-
-      .title {
-        font-size: 1.4rem;
-        font-weight: 500;
-        margin: 0 auto;
-      }
     }
 
     .tasks-list {

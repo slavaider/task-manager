@@ -53,7 +53,6 @@ export class TaskRequestService {
       columnId,
     };
 
-    console.log()
     return this.http.put(`/api/boards/${boardId}/columns/${columnId}/tasks/${taskId}`, body, options);
   }
 
