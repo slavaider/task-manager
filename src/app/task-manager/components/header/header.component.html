@@ -9,7 +9,7 @@
         <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <a mat-menu-item routerLink="/user">
+        <a mat-menu-item (click)="editUser()">
           <mat-icon>manage_accounts</mat-icon>
           <span>Профиль</span>
         </a>

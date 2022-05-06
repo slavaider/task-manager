@@ -28,7 +28,8 @@ export class UserPageComponent implements OnInit {
   });
 
   constructor(private iAppStateStore: Store<IAppState>,
-    private fb: FormBuilder, private auth: AuthService,
+    private fb: FormBuilder,
+    private auth: AuthService,
     private notification: MatSnackBar,
     private router: Router,
     private store: Store) {}
@@ -56,11 +57,15 @@ export class UserPageComponent implements OnInit {
     return this.editForm.get('password');
   }
 
+  public deleteUser() {
+    console.log('deleteUser');
+  }
+
   public submit() {
     const { name, login, password } = this.editForm.value;
     if (this.user && name && login) {
       this.auth.editUser( this.user.id, { name, login, password }).subscribe(() => {
-        this.notification.open(`${name} зарегистрирован`, 'ok', {
+        this.notification.open(`${name} изменения сохранены`, 'ok', {
           duration: 4000,
           panelClass: ['note-success'],
         });

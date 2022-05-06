@@ -37,11 +37,13 @@
         Please enter a password
       </mat-error>
     </mat-form-field>
-    <div class="controls">
-      <button mat-raised-button [disabled]="!editForm.valid" type="submit">
-        Save
+    <mat-dialog-actions align="end" class="controls">
+      <button mat-raised-button mat-dialog-close>Отмена</button>
+      <button mat-raised-button mat-dialog-close (click)="deleteUser()">Удалить пользователя</button>
+      <button mat-raised-button [mat-dialog-close]="true" [disabled]="!editForm.valid" type="submit">
+        Сохранить
       </button>
-    </div>
+    </mat-dialog-actions>
   </form>
 </div>
 
