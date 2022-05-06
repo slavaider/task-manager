@@ -10,6 +10,7 @@ export interface IColumn {
   order: number;
   tasks: ITask[];
 }
+
 export interface ITask {
   id: string;
   title: string;
@@ -18,6 +19,7 @@ export interface ITask {
   description: string;
   userId: string;
   boardId: string;
+  columnId: string;
   files: IFile[];
 }
 

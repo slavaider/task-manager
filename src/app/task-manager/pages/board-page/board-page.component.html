@@ -7,29 +7,30 @@
   <div class="board">
     <div class="column" *ngFor="let column of columns">
       <div class="column-header">
-        <div class="title">{{ column.title }}</div>
-        <button mat-mini-fab color="accent" (click)="deleteColumn()">
+        <app-column-title [column]="column" [boardId]="board.id"></app-column-title>
+        <button mat-mini-fab color="accent" (click)="deleteColumn(column.id)">
           <span class="material-icons">delete_outline</span>
         </button>
       </div>
 
       <div class="tasks-list">
-        <mat-card class="task" *ngFor="let task of column.tasks">
+        <mat-card class="task" *ngFor="let task of column.tasks | sort">
           <mat-card-title>{{task.title}}</mat-card-title>
+          <mat-card-content>{{task.description}}</mat-card-content>
           <mat-card-actions align="end">
-            <button mat-mini-fab color="warn" (click)="editTask()">
+            <button mat-mini-fab color="warn" (click)="editTask(task, column.id)">
               <span class="material-icons">mode_edit</span>
             </button>
-            <button mat-mini-fab color="accent" (click)="deleteTask()">
+            <button mat-mini-fab color="accent" (click)="deleteTask(task.id, column.id)">
               <span class="material-icons">delete</span>
             </button>
           </mat-card-actions>
         </mat-card>
       </div>
 
-      <button mat-raised-button (click)="createTask()" class="create-task-btn">
+      <button mat-raised-button (click)="createTask(column.id)" class="create-task-btn">
         <span class="material-icons">add_card</span>
-        <span> Добавить задание</span>
+        <span> Добавить задачу</span>
       </button>
 
     </div>
