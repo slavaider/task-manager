@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { UserPageComponent } from '../../pages/user-page/user-page.component';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +18,7 @@ export class HeaderComponent implements OnInit {
     this.isSticky = window.pageYOffset >= 50;
   }
 
-  constructor(private auth: AuthService) {}
+  constructor(public auth: AuthService, public form: MatDialog) {}
 
   ngOnInit(): void {
     this.auth.trackLogin$.subscribe((value) => {
@@ -26,5 +28,9 @@ export class HeaderComponent implements OnInit {
 
   public logout() {
     this.auth.logout();
+  }
+
+  public editUser() {
+    this.form.open(UserPageComponent);
   }
 }
