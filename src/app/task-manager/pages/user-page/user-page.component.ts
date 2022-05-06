@@ -4,7 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { editUser } from 'src/app/store/actions/users.actions';
+import { UserRequestService } from 'src/app/core/services/request/user-request.service';
+import { editUser, deleteUser } from 'src/app/store/actions/users.actions';
 import { IUser } from 'src/app/store/models/user.model';
 import { selectUser } from 'src/app/store/selectors/users.selectors';
 import { IAppState } from 'src/app/store/state/app.state';
@@ -29,7 +30,7 @@ export class UserPageComponent implements OnInit {
 
   constructor(private iAppStateStore: Store<IAppState>,
     private fb: FormBuilder,
-    private auth: AuthService,
+    private userService: UserRequestService,
     private notification: MatSnackBar,
     private router: Router,
     private store: Store) {}
@@ -58,18 +59,28 @@ export class UserPageComponent implements OnInit {
   }
 
   public deleteUser() {
-    console.log('deleteUser');
+    if (this.user) {
+      const id = this.user.id;
+      this.userService.deleteUser(id).subscribe(() => {
+        this.notification.open(`пользователь удален`, 'ok', {
+          duration: 4000,
+          panelClass: ['note-success'],
+        });
+        this.store.dispatch(deleteUser({ id }));
+        this.router.navigateByUrl('/auth/login');
+      });
+    }
   }
 
   public submit() {
     const { name, login, password } = this.editForm.value;
     if (this.user && name && login) {
-      this.auth.editUser( this.user.id, { name, login, password }).subscribe(() => {
+      this.userService.editUser( this.user.id, { name, login, password }).subscribe(() => {
         this.notification.open(`${name} изменения сохранены`, 'ok', {
           duration: 4000,
           panelClass: ['note-success'],
         });
-        if (this.user !== null) {
+        if (this.user) {
           const modifiedUser: IUser = {id: this.user.id, name, login}
           this.store.dispatch(editUser({ modifiedUser }));
           this.router.navigateByUrl('/auth/login');

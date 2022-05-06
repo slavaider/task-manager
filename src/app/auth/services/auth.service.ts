@@ -33,16 +33,6 @@ export class AuthService {
     return this.http.post<IAuthRegisterRes>('/api/signup', body, options);
   }
 
-  public editUser(id: string, { name, login, password }: IAuthRegister) {
-    const body = { name, login, password };
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-    };
-    return this.http.put<IAuthRegister>(`/api/users/${id}`, body, options);
-  }
-
   public login({ login, password }: IAuthLogin) {
     const body = { login, password };
     const options = {

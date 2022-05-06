@@ -21,4 +21,4 @@ export const loadUserSuccess = createAction(
 
 export const editUser = createAction('[Source] [Login Page], Edit User', props<{ modifiedUser: IUser }>());
 
-export const deleteUser = createAction('[Source] [User Page], Delete User');
+export const deleteUser = createAction('[Source] [User Page], Delete User', props<{ id: string }>());
