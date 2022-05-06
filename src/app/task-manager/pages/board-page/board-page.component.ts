@@ -1,5 +1,4 @@
-/* eslint-disable ngrx/no-typed-global-store */
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,7 +7,6 @@ import { Store } from '@ngrx/store';
 import { from, mergeMap } from 'rxjs';
 import { DialogService } from 'src/app/core/services/dialog/dialog.service';
 import { ColumnRequestService } from 'src/app/core/services/request/column-request.service';
-import { RequestService } from 'src/app/core/services/request/request.service';
 import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
 import { clearBoard, loadBoard, loadBoards } from 'src/app/store/actions/boards.actions';
 import { IBoard, IColumn, ITask } from 'src/app/store/models/board.model';
@@ -29,11 +27,10 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   private user$ = this.store.select(selectUser);
   public user!: IUser;
 
-  
   private board$ = this.store.select(selectBoard);
   public board!: IBoard;
 
-  public columns!: IColumn[];
+  public columns: IColumn[] = [];
 
   // private order: 1 | -1 = 1;
 
@@ -64,6 +61,13 @@ export class BoardPageComponent implements OnInit, OnDestroy {
         // } else {
         //   this.columns = [...board.columns].sort((a, b) => a.order - b.order);
         // }
+
+        this.columns= this.columns.map((column) => {
+          return {
+            ...column,
+            tasks: [...column.tasks].sort((a, b) => a.order - b.order)
+          }
+        });
       }
     });
 
@@ -141,9 +145,33 @@ export class BoardPageComponent implements OnInit, OnDestroy {
       });
   }
 
+  public dropTask(event: CdkDragDrop<ITask[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      // TODO
+      // re-write orders in the tasks (change two tasks' orders) in the current column
+      // request to update column
+      // request to update board
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+        // TODO
+        // re-write order in the drag task in the drop column
+        // re-write orders all tasks in the drop column
+        // request to update column
+        // update data in the drag column
+        // request to update column
+        // request to update board
+      );
+    }
+  }
+
   public dropColumn(event: CdkDragDrop<IColumn[]>) {
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
-    this.columns = this.columns.map((column, i) => ({ ...column, order: i + 1 }));
+    // this.columns = this.columns.map((column, i) => ({ ...column, order: i + 1 }));
     // this.columns = this.columns.map((column, i) => ({ ...column, order: i + 1 }));
     // this.order = this.order === 1 ? -1 : 1;
   }
