@@ -21,7 +21,7 @@
         </div>
         <div class="tasks-list"
           cdkDropList
-          [cdkDropListData]="column.tasks"        
+          [cdkDropListData]="column"        
           (cdkDropListDropped)="dropTask($event)"
         >
           <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
