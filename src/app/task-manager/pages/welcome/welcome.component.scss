@@ -5,19 +5,19 @@ $black-violet: #040305;
 .welcome {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
-  caret-color: transparent;
-  margin: 1vh;
-  background-color: $light-violet;
-  padding: 5vmin;
-  height: 84vh;
+  // justify-content: flex-start;
+  // align-content: center;
+  // align-items: center;
+  // caret-color: transparent;
+  // margin: 1vh;
+  // background-color: $light-violet;
+  // padding: 5vmin;
+  // height: 84vh;
 }
 
-.welcome-container {
-  max-width: 1920px;
-}
+// .welcome-container {
+//   max-width: 1920px;
+// }
 
 .welcome-buttons {
   margin-bottom: 1vmin;
@@ -146,4 +146,72 @@ team-github:hover {
 
 .team-github__img {
   width: 2vmin;
+}
+
+.start-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../../../assets/image/start-scection-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.start-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  height: 60%;
+  background-image: url(../../../../assets/image/start-section-illustration.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+.intro-text {
+  margin: 0;
+  width: 40%;
+  font-size: 6rem;
+  font-weight: 900;
+}
+
+.intro-link-about {
+  padding: 0.5rem 2rem;
+  margin-right: 2rem;
+  font-size: 2rem;
+  text-decoration: none;
+  // color: var(--color-third-text);
+  // border: 1px solid var(--color-line);
+  border-radius: 0.4rem;
+}
+
+.intro-link-about:hover {
+  // background: var(--color-button);
+  // color: var(--color-second-text);
+}
+
+.intro-link-project {
+  padding: 0.5rem 2rem;
+  margin-right: 2rem;
+  font-size: 2rem;
+  text-decoration: none;
+  // color: var(--color-second-text);
+  // border: 1px solid var(--color-line);
+  // background: var(--color-button);
+  border-radius: 0.4rem;
+}
+
+.intro-link-project:hover {
+  background: transparent;
+  // color: var(--color-third-text);
 }

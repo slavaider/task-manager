@@ -1,8 +1,8 @@
 <header mat-toolbar [ngClass]="{'mat-elevation-z5' : isSticky, 'sticky' : isSticky}">
   <div class="flex align-center header-container">
-     <div class="header-logo">
-       <img src="./assets/img/logo_144088.png" width="48" alt="logo">
-    </div>
+     <div class="header-logo material-icons" routerLink="/welcome">
+        home
+     </div>
      <div class="actions">
       <div class="user-login">{{this.auth.currentUserLogin}}</div>
       <button *ngIf="isLogged" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">

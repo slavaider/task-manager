@@ -1,7 +1,9 @@
+@import '../../../shared/variables/variables.scss';
+
 header {
   width: 100%;
-  border-bottom: 1px solid;
-  background: #EDD7FF;
+  // border-bottom: 1px solid;
+  background: $color-header-bg;
   height: 7vh;
   padding: 1vh calc(1vh + 5vmin);
   margin: 0 auto;
@@ -12,12 +14,14 @@ header {
     display: flex;
     column-gap: 1rem;
     margin-left: auto;
+
     .user-login {
       font-size: 2vh;
       font-weight: bold;
       display: flex;
       align-items: center;
     }
+
     mat-icon {
       line-height: 3.5vh;
       width: 3.5vh;
@@ -33,18 +37,20 @@ header {
 }
 
 .header-logo {
-  height: 4vh;
-  img {
-    max-height: 4vh;
-    width: auto;
-  }
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.header-logo:hover {
+  color: $color-hover-first;
 }
 
 .sticky {
   position: fixed;
   z-index: 100;
   top: 0;
-  background: rgb(149, 149, 150);
+  background: $color-header-bg-sticky;
   border: none;
   transition: all .5s ease-out;
 }
