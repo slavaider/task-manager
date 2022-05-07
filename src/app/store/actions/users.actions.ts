@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { IAuthRegister } from 'src/app/auth/models/auth.models';
 import { IUser } from '../models/user.model';
 
 export const loadUsers = createAction(
@@ -18,4 +19,6 @@ export const loadUserSuccess = createAction(
   props<{ user: IUser }>(),
 );
 
-export const deleteUser = createAction('[Source] [User Page], Delete User');
+export const editUser = createAction('[Source] [Login Page], Edit User', props<{ modifiedUser: IUser }>());
+
+export const deleteUser = createAction('[Source] [User Page], Delete User', props<{ id: string }>());
