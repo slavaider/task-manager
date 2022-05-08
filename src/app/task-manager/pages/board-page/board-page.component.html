@@ -1,54 +1,59 @@
 <div class="container">
+  
   <button mat-raised-button color="primary" (click)="createColumn()">
     <span class="material-icons">post_add</span>
     <span>Добавить колонку</span>
   </button>
 
-  <div class="board">
-    <div class="column" *ngFor="let column of columns">
-      <div class="column-header">
-        <app-column-title [column]="column" [boardId]="board.id"></app-column-title>
-        <button mat-mini-fab color="accent" (click)="deleteColumn(column.id)">
-          <span class="material-icons">delete_outline</span>
+  <div class="board"
+    cdkDropList
+    [cdkDropListData]="columns"      
+    cdkDropListOrientation="horizontal"  
+    (cdkDropListDropped)="dropColumn($event)"
+  >
+    <div cdkDropListGroup class="group-wrapper">
+      <div class="column" *ngFor="let column of columns" cdkDrag>
+        <div class="column-header">
+          <app-column-title [column]="column" [boardId]="board.id"></app-column-title>
+          <button mat-mini-fab color="accent" (click)="deleteColumn(column.id)">
+            <span class="material-icons">delete_outline</span>
+          </button>
+        </div>
+        <div class="tasks-list"
+          cdkDropList
+          [cdkDropListData]="column"        
+          (cdkDropListDropped)="dropTask($event)"
+        >
+          <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
+            <mat-card-title>{{task.title}}</mat-card-title>
+            <mat-card-content>{{task.description}}</mat-card-content>
+            <mat-card-actions align="end">
+              <button mat-mini-fab color="warn" (click)="editTask(task, column.id)">
+                <span class="material-icons">mode_edit</span>
+              </button>
+              <button mat-mini-fab color="accent" (click)="deleteTask(task.id, column.id)">
+                <span class="material-icons">delete</span>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+
+        <button mat-raised-button (click)="createTask(column.id)" class="create-task-btn">
+          <span class="material-icons">add_card</span>
+          <span> Добавить задачу</span>
         </button>
       </div>
-
-      <div class="tasks-list">
-        <mat-card class="task" *ngFor="let task of column.tasks | sort">
-          <mat-card-title>{{task.title}}</mat-card-title>
-          <mat-card-content>{{task.description}}</mat-card-content>
-          <mat-card-actions align="end">
-            <button mat-mini-fab color="warn" (click)="editTask(task, column.id)">
-              <span class="material-icons">mode_edit</span>
-            </button>
-            <button mat-mini-fab color="accent" (click)="deleteTask(task.id, column.id)">
-              <span class="material-icons">delete</span>
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-
-      <button mat-raised-button (click)="createTask(column.id)" class="create-task-btn">
-        <span class="material-icons">add_card</span>
-        <span> Добавить задачу</span>
-      </button>
-
     </div>
   </div>
- 
+  
 </div>
 
-
-<!--
-<div class="board" cdkDropListGroup>
-  <div cdkDropList cdkDropListOrientation="horizontal" class="columns-list" (cdkDropListDropped)="dropColumn($event)">
-
-    <div class="column" *ngFor="let column of columns" cdkDrag>
-      <button mat-raised-button (click)="createTask()">
-        <span> + Добавить карточку</span>
-      </button>
-      {{column.title}}
+<!-- 
+  <div cdkDropList class="example-list" [cdkDropListData]="movies" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      {{movie.title}}
     </div>
-    <button (click)="update()">update</button>
   </div>
-</div> -->
+  -->
+
