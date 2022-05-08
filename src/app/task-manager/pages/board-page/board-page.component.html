@@ -34,14 +34,16 @@
             <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
               <mat-card-title>{{task.title}}</mat-card-title>
               <mat-card-content>{{task.description}}</mat-card-content>
-              <mat-card-actions align="end">
-                <button (click)="editTask(task, column.id)">
-                  <span class="material-icons">mode_edit</span>
+              <div class="flex">
+                <button class="edit-task-btn" (click)="editTask(task, column.id)">
+                  <mat-icon>mode_edit</mat-icon>
                 </button>
-                <button (click)="deleteTask(task.id, column.id)">
-                  <mat-icon (click)="deleteTask(task.id, column.id)">delete_outline</mat-icon>
+                <button class="delete-task-btn" (click)="deleteTask(task.id, column.id)">
+                  <mat-icon>delete_outline</mat-icon>
                 </button>
-              </mat-card-actions>
+              </div>
+              <mat-divider></mat-divider>
+              <app-task-user [id]="task.userId"></app-task-user>
             </mat-card>
           </div>
   

@@ -19,6 +19,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { EditTaskFormComponent } from './components/edit-task-form/edit-task-form.component';
 import { SortPipe } from './pipes/sort/sort.pipe';
 import { ColumnTitleComponent } from './components/column-title/column-title.component';
+import { TaskUserComponent } from './components/task-user/task-user.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ColumnTitleComponent } from './components/column-title/column-title.com
     EditTaskFormComponent,
     SortPipe,
     ColumnTitleComponent,
+    TaskUserComponent,
   ],
   exports: [HeaderComponent, FooterComponent],
   schemas: [],

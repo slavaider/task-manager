@@ -46,43 +46,34 @@
     padding-bottom: 0.5rem;
     overflow-x: auto;
   }
+}
 
-  .column {
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  max-width: 18rem;
+  min-width: 18rem;
+  padding: 0.5rem;
+  background-color: $color-bg-board;
+  overflow-y: auto;
+  border-radius: 4px;
+
+  .column-header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 2rem;
-    max-width: 18rem;
-    min-width: 18rem;
-    padding: 0.5rem;
-    background-color: $color-bg-board;
-    overflow-y: auto;
-    border-radius: 4px;
+    width: 100%;
 
-    .column-header {
-      display: flex;
-      width: 100%;
+    .delete-column-btn {
+      font-size: rem;
 
-      .delete-column-btn {
-        font-size: rem;
-
-        .mat-icon {
-          font-size: 2rem;
-        }
-      }
-
-      .delete-column-btn:hover {
-        color: $color-hover-first;
+      .mat-icon {
+        font-size: 2rem;
       }
     }
 
-    .tasks-list {
-      display: flex;
-      flex-direction: column;
-      row-gap: 1rem;
-      min-height: 10rem;
-      width: 100%;
-      overflow: auto;
+    .delete-column-btn:hover {
+      color: $color-hover-first;
     }
 
     .create-task-btn {
@@ -90,6 +81,30 @@
     }
   }
 }
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  min-height: 8rem;
+  width: 100%;
+  overflow: auto;
+}
+
+.task {
+  .edit-task-btn {
+    margin-left: auto;
+  }
+
+  .edit-task-btn:hover {
+    color: $color-hover-second;
+  }
+
+  .delete-task-btn:hover {
+    color: $color-hover-first;
+  }
+}
+
 
 //////////////////////////////////////////////////////
 
