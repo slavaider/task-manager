@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UserPageComponent } from '../../pages/user-page/user-page.component';
 
@@ -32,5 +33,9 @@ export class HeaderComponent implements OnInit {
 
   public editUser() {
     this.form.open(UserPageComponent);
+  }
+
+  public switchToggle(event: MatSlideToggleChange) {
+    console.log(event.checked)
   }
 }
