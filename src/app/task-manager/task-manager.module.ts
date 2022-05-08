@@ -39,7 +39,7 @@ import { ColumnTitleComponent } from './components/column-title/column-title.com
     SortPipe,
     ColumnTitleComponent,
   ],
-  exports: [],
+  exports: [HeaderComponent, FooterComponent],
   schemas: [],
   imports: [CommonModule, TaskRoutingModule, MaterialModule, ReactiveFormsModule, FormsModule],
 })
