@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
-    this.isSticky = window.pageYOffset >= 50;
+    this.isSticky = window.pageYOffset >= 1;
   }
 
   constructor(public auth: AuthService, public form: MatDialog) {}

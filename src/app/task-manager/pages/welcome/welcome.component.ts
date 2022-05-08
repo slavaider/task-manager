@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  public isLogged: boolean = this.auth.isLogged();
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.trackLogin$.subscribe((value) => {
+      this.isLogged = value;
+    });
   }
 
 }

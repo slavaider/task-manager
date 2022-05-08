@@ -5,21 +5,27 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
-.small{
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
+html,
+body { 
+  height: 100%; 
 }
+
+body { 
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 
 .container{
   max-width: 1920px;
-  padding: 30px;
+  padding: 2rem;
   margin: 0 auto;
 }
 
@@ -39,9 +45,9 @@ body {
   justify-content: flex-end;
 }
 
-img{
-  min-height: 100%;
-}
+// img{
+//   min-height: 100%;
+// }
 
 .white-background {
   background-color: white;
@@ -54,9 +60,6 @@ img{
 .align-left{
   align-self: flex-start;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .note-error {
   color: #ffffff;
