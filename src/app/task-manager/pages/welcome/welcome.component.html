@@ -1,51 +1,17 @@
 <div class="welcome">
   <section class="start-section">
     <div class="container">
-      <div class="intro">
-        <p class="intro-text">
-          Enjoy studying with RS Lang
+      <div class="content">
+        <p class="text">
+          Система <br> управления <br> проектами
         </p>
-        <div>
-          <!-- <NavLink
-            to="/about"
-            className="intro-link-about"
-          >
-            about us
-          </NavLink>
-          {/* <NavLink
-            to="/project"
-            className="intro-link-project"
-          >
-            about project
-          </NavLink> */} -->
-        </div>
+        <button *ngIf="!isLogged" class="action-btn">войти</button>
+        <button *ngIf="isLogged" class="action-btn">продолжить</button>
       </div>
     </div>
   </section>
-  <section class="start-section">
-    <div class="container">
-      <div class="intro">
-        <p class="intro-text">
-          Enjoy studying with RS Lang
-        </p>
-        <div>
-          <!-- <NavLink
-            to="/about"
-            className="intro-link-about"
-          >
-            about us
-          </NavLink>
-          {/* <NavLink
-            to="/project"
-            className="intro-link-project"
-          >
-            about project
-          </NavLink> */} -->
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- <div class="project">
+  
+      <!-- <div class="project">
       <mat-card class="project-description">
         <h2>Система управления проектами</h2>
         <p> - набор инструментов, методов, методологий, ресурсов и процедур, используемых для управления проектом.</p>
