@@ -78,7 +78,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "task-manager:build:production"
+              "browserTarget": "task-manager:build:production",
+              "proxyConfig": "./proxy.conf.json"
             },
             "development": {
               "browserTarget": "task-manager:build:development"
