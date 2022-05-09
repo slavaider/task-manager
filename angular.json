@@ -16,11 +16,17 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "ru",
+        "locales": {
+          "en-US": "src/i18n/messages.en-US.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/task-manager",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -38,6 +44,9 @@
             "scripts": []
           },
           "configurations": {
+            "en-US": {
+              "localize": ["en-US"]
+            },
             "production": {
               "budgets": [
                 {
@@ -79,6 +88,9 @@
           "configurations": {
             "production": {
               "browserTarget": "task-manager:build:production"
+            },
+            "en-US": {
+              "browserTarget": "task-manager:build:en-US"
             },
             "development": {
               "browserTarget": "task-manager:build:development"
