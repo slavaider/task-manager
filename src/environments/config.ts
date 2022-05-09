@@ -1,5 +1,1 @@
-const getHost = () => {
-  return `${window.location.protocol}//${window.location.host}`;
-};
-
-export const BASE_URL = getHost();
+export const BASE_URL = 'http://localhost:4200';
