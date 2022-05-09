@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@ngrx/effects": "^13.1.0",
-    "@ngrx/store": "^13.2.0",
+    "@ngrx/store": "^13.1.0",
     "@types/uuid": "^8.3.4",
     "angular-i18next": "^11.0.0",
     "cookies": "^0.8.0",
