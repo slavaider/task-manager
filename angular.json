@@ -77,6 +77,9 @@
             "proxyConfig": "./proxy.conf.json"
           },
           "configurations": {
+            "production": {
+              "browserTarget": "task-manager:build:production"
+            },
             "development": {
               "browserTarget": "task-manager:build:development"
             }
