@@ -1,7 +1,10 @@
-<a mat-raised-button routerLink="/boards/{{ board?.id }}" class="route-btn">
-  <span class="material-icons">dashboard</span>
-  {{board?.title}}
-</a>
-<button mat-raised-button (click)="deleteBoard()">
-  <span class="material-icons">remove_circle_outline</span>
-</button>
+<mat-card class="board">
+  <a class="route-btn" routerLink="/boards/{{ board?.id }}">
+    <mat-icon>dashboard</mat-icon>
+    <p class="title">{{board?.title}}</p>
+  </a>
+  <button class="delete-btn"  (click)="deleteBoard()">
+    <span class="material-icons">delete_outline</span>
+  </button>
+</mat-card>
+

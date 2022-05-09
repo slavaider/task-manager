@@ -6,9 +6,17 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { TaskManagerModule } from '../task-manager/task-manager.module';
 
 @NgModule({
   declarations: [AuthComponent, LoginPageComponent, RegisterPageComponent],
-  imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule, FormsModule, MaterialModule],
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MaterialModule,
+    TaskManagerModule,
+  ],
 })
 export class AuthModule {}

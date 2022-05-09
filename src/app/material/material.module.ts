@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDividerModule } from '@angular/material/divider'; 
 
 @NgModule({
   exports: [
@@ -23,6 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatMenuModule,
     MatCardModule,
     MatDialogModule,
+    MatSlideToggleModule,
+    MatDividerModule,
   ],
 })
 export class MaterialModule {}

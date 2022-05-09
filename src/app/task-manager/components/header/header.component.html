@@ -1,26 +1,41 @@
 <header mat-toolbar [ngClass]="{'mat-elevation-z5' : isSticky, 'sticky' : isSticky}">
-  <div class="flex align-center header-container">
-     <div class="header-logo">
-       <img src="./assets/img/logo_144088.png" width="48" alt="logo">
+  <div class="container">
+    <div class="home material-icons" routerLink="/welcome">
+      home
     </div>
-     <div class="actions">
+    <div class="actions">
       <div class="user-login">{{this.auth.currentUserLogin}}</div>
       <button *ngIf="isLogged" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
-        <mat-icon>account_circle</mat-icon>
+        <mat-icon class="user-icon">person_outline</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <a mat-menu-item (click)="editUser()">
+        <button mat-menu-item (click)="editUser()">
           <mat-icon>manage_accounts</mat-icon>
-          <span>Профиль</span>
+          <span>Редактировать</span>
+        </button>
+        <a mat-menu-item  routerLink="/">
+          <mat-icon>dashboard</mat-icon>
+          <span>Доски</span>
         </a>
+        <!-- <button mat-menu-item>
+          <mat-icon>credit_card</mat-icon>
+          <span>Мои задачи</span>
+        </button> -->
         <button mat-menu-item (click)="logout()">
           <mat-icon>logout</mat-icon>
           <span>Выйти</span>
         </button>
       </mat-menu>
 
-      <a mat-raised-button routerLink="/auth/login">Войти</a>
-      <a mat-raised-button routerLink="/auth/register">Регистрация</a>
-     </div>
+      <button class="action-btn" routerLink="/auth/login">Войти</button>
+      <button class="action-btn" routerLink="/auth/register">Регистрация</button>
+      
+      <div class="toggle">
+        <mat-label ngClass="before">ru</mat-label>
+        <mat-slide-toggle color="primary" (change)="switchToggle($event)"></mat-slide-toggle>
+        <mat-label ngClass="after">en</mat-label>
+      </div>
+      
+    </div>
   </div>
 </header>
