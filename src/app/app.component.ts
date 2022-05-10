@@ -33,6 +33,6 @@ export class AppComponent implements OnInit {
         "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
       }),
     };
-    this.http.get('/boards', options).subscribe((res) => console.log(res));
+    this.http.get('/api/boards', options).subscribe((res) => console.log(res));
   }
 }
