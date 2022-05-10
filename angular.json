@@ -29,7 +29,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/_redirects"
+              "src/_redirects",
+              "src/vercel.json"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -74,12 +75,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "projectname:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "./proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "task-manager:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "task-manager:build:production"
             },
             "development": {
               "browserTarget": "task-manager:build:development"
