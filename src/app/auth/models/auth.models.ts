@@ -5,6 +5,7 @@ export interface IAuthRegister {
 }
 
 export interface IAuthRegisterRes {
+  id: string;
   name: string;
   login: string;
 }
