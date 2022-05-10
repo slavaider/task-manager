@@ -23,13 +23,13 @@ export class AuthService {
 
   public register({ name, login, password }: IAuthRegister) {
     const body = { name, login, password };
-    // const options = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json',
-    //   }),
-    // };
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
 
-    return this.http.post<IAuthRegisterRes>('/api/signup', body);
+    return this.http.post<IAuthRegisterRes>('/api/signup', body, options);
   }
 
   public login({ login, password }: IAuthLogin) {
