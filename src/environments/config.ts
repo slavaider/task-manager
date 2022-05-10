@@ -1,6 +1,6 @@
 // export const BASE_URL = 'http://localhost:4200';
 
-export const BASE_URL = 'https://task-manager-slavaider.vercel.app'
+export const BASE_URL = 'https://task-manager-rda86ohjw-slavaider.vercel.app'
 
 // export const BASE_URL = 'https://regal-madeleine-686958.netlify.app'
 
