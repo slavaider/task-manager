@@ -18,7 +18,7 @@ export class BoardRequestService {
     return this.http.get<IBoard>(`/api/boards/${id}`);
   }
 
-  createBoard(title: string): Observable<object> {
+  createBoard(title: string, description: string): Observable<object> {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -26,6 +26,7 @@ export class BoardRequestService {
     };
     const body = {
       title,
+      description,
     };
     return this.http.post('/api/boards', body, options);
   }

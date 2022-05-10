@@ -3,34 +3,52 @@
 .board {
   display: flex;
   align-items: center;
+  max-width: 30rem;
+  height: 10rem;
   background-color: $color-bg-board;
 }
 
 .route-btn {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   min-width: 20rem;
-  height: 2rem;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 
-  .mat-icon {
-    font-size: 1.8rem;
+  .title-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+
+    .mat-icon {
+      font-size: 1.8rem;
+    }
+  
+    .title {
+      margin: 0 1rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
   }
 
-  .title {
-    margin: 0 1rem;
-    font-size: 1.4rem;
+  .description {
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    border-top: 1px solid;
   }
 }
 
 .delete-btn {
-  border: 1px solid  transparent;
+  align-self: flex-start;
+  color: $color-icon;
   transition: 0.2s ease-in-out;
+
+  .mat-icon {
+    font-size: 2.1rem;
+  }
 }
 
-
 .delete-btn:hover {
-  border: 1px solid $color-hover-first;
   color: $color-hover-first;
 }

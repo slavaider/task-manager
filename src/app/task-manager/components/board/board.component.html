@@ -1,10 +1,13 @@
 <mat-card class="board">
-  <a class="route-btn" routerLink="/boards/{{ board?.id }}">
-    <mat-icon>dashboard</mat-icon>
-    <p class="title">{{board?.title}}</p>
-  </a>
+  <div class="route-btn" routerLink="/boards/{{ board?.id }}">
+    <div class="title-container">
+      <mat-icon>dashboard</mat-icon>
+      <p class="title">{{board?.title}}</p>
+    </div>
+    <p class="description">{{board.description}}</p>
+  </div>
   <button class="delete-btn"  (click)="deleteBoard()">
-    <span class="material-icons">delete_outline</span>
+    <mat-icon>delete_outline</mat-icon>
   </button>
 </mat-card>
 
