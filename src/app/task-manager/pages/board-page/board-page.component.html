@@ -20,6 +20,7 @@
     >
       <div cdkDropListGroup class="group-wrapper">
         <div class="column" *ngFor="let column of columns" cdkDrag>
+          <div class="column-placeholder" *cdkDragPlaceholder></div>
           <div class="column-header">
             <app-column-title [column]="column" [boardId]="board.id"></app-column-title>
             <button class="delete-column-btn" (click)="deleteColumn(column.id)">
@@ -56,14 +57,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- 
-  <div cdkDropList class="example-list" [cdkDropListData]="movies" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-      {{movie.title}}
-    </div>
-  </div>
-  -->
-
