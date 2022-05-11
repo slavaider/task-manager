@@ -6,8 +6,13 @@
     </div>
     <p class="description">{{board.description}}</p>
   </div>
-  <button class="delete-btn"  (click)="deleteBoard()">
-    <mat-icon>delete_outline</mat-icon>
-  </button>
+  <div class="actions">
+    <button class="edit-btn"  (click)="editBoard()">
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+    <button class="delete-btn"  (click)="deleteBoard()">
+      <mat-icon>delete_outline</mat-icon>
+    </button>
+  </div>
 </mat-card>
 

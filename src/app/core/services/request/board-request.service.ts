@@ -31,6 +31,19 @@ export class BoardRequestService {
     return this.http.post('/api/boards', body, options);
   }
 
+  editBoard(id: string, title: string, description: string): Observable<object> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    const body = {
+      title,
+      description,
+    };
+    return this.http.put(`/api/boards/${id}`, body, options);
+  }
+
 
   deleteBoard(id: string): Observable<object> {
     return this.http.delete(`/api/boards/${id}`);
