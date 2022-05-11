@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ru" source-target="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="edit" datatype="html">
+        <source>Редактировать</source>
+        <target>Edit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="boards" datatype="html">
+        <source>Доски</source>
+        <target>Boards</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logOut" datatype="html">
+        <source>Выйти</source>
+        <target>Log out</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signIn" datatype="html">
+        <source>Войти</source>
+        <target>Sign in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">main header</note>
+      </trans-unit>
+      <trans-unit id="signUp" datatype="html">
+        <source>Регистрация</source>
+        <target>Sign up</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">main header</note>
+      </trans-unit>
+      <trans-unit id="addColumn" datatype="html">
+        <source>Добавить колонку</source>
+        <target>Add column</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/board-page/board-page.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">main header</note>
+      </trans-unit>
+      <trans-unit id="addTask" datatype="html">
+        <source>Добавить задачу</source>
+        <target>Add task</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/boards-page/boards-page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">main header</note>
+      </trans-unit>
+      <trans-unit id="addBoard" datatype="html">
+        <source>Добавить доску</source>
+        <target>Add board</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/boards-page/boards-page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">main header</note>
+      </trans-unit>
+      <trans-unit id="SMP" datatype="html">
+        <source> Система <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> управления <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> проектами </source>
+        <target> Project <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> management <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> system </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signInWelcom" datatype="html">
+        <source>войти</source>
+        <target>sign in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="return" datatype="html">
+        <source>продолжить</source>
+        <target>proceed</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">main header</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

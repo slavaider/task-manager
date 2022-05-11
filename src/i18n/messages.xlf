@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ru" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="edit" datatype="html">
+        <source>Редактировать</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="boards" datatype="html">
+        <source>Доски</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logOut" datatype="html">
+        <source>Выйти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signIn" datatype="html">
+        <source>Войти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signUp" datatype="html">
+        <source>Регистрация</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/components/header/header.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addColumn" datatype="html">
+        <source>Добавить колонку</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/board-page/board-page.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addTask" datatype="html">
+        <source> Добавить задачу</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/board-page/board-page.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addBoard" datatype="html">
+        <source>Добавить доску</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/boards-page/boards-page.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="SMP" datatype="html">
+        <source> Система <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> управления <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> проектами </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      <trans-unit id="return" datatype="html">
+        <source>продолжить</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
