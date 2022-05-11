@@ -33,6 +33,7 @@ export class TaskRequestService {
       order,
       description,
       userId,
+      done: false,
     };
     return this.http.post(`/api/boards/${boardId}/columns/${columnId}/tasks`, body, options);
   }

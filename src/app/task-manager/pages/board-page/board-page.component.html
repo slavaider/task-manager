@@ -35,7 +35,11 @@
             <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
               <mat-card-title>{{task.title}}</mat-card-title>
               <mat-card-content>{{task.description}}</mat-card-content>
-              <div class="flex">
+              <div class="actions">
+                <mat-icon class="done-mark" *ngIf="task.done">done</mat-icon>
+                <button class="edit-task-btn">
+                  <mat-icon>published_with_changes</mat-icon>
+                </button>
                 <button class="edit-task-btn" (click)="editTask(task, column.id)">
                   <mat-icon>mode_edit</mat-icon>
                 </button>

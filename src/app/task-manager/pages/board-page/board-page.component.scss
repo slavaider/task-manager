@@ -45,6 +45,19 @@
     height: 100%;
     padding-bottom: 0.5rem;
     overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-bg-scroll;
+      border-radius: 1rem;
+    }
   }
 }
 
@@ -59,7 +72,7 @@
   background-color: $color-bg-board;
   overflow-y: auto;
   border-radius: 4px;
-  cursor: move;
+  // cursor: move;
 
   .column-header {
     display: flex;
@@ -94,16 +107,39 @@
 }
 
 .task {
-  .edit-task-btn {
-    margin-left: auto;
+  .mat-card-title {
+    font-size: 1.1rem;
   }
 
-  .edit-task-btn:hover {
-    color: $color-hover-second;
-  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
 
-  .delete-task-btn:hover {
-    color: $color-hover-first;
+
+    .done-mark {
+      margin-right: auto;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: green;
+    }
+
+    .edit-task-btn {
+      margin-left: -1rem;
+      color: $color-icon;
+      
+      &:hover {
+        color: $color-hover-second;
+      }
+    }
+  
+    .delete-task-btn {
+      margin-left: -1rem;
+      color: $color-icon;
+
+      &:hover {
+        color: $color-hover-first;
+      }
+    }
   }
 }
 
