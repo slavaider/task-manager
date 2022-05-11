@@ -10,12 +10,15 @@ import { loadUsers } from './store/actions/users.actions';
 })
 export class AppComponent implements OnInit {
   
-  constructor(private store: Store, private cookieService: CookieService) {}
+  constructor(
+    private store: Store,
+    private cookieService: CookieService,
+  ) {}
 
   ngOnInit() {
     const login = this.cookieService.get('login');
     if (login) {
       this.store.dispatch(loadUsers({ login }));
-    } 
+    }
   }
 }
