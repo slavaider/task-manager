@@ -13,8 +13,6 @@ export class AuthService {
 
   public trackLogin$ = this.trackLogin.asObservable();
 
-  public currentUserLogin: string = '';
-
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
@@ -49,7 +47,6 @@ export class AuthService {
 
     this.updateTrackLogin(false);
     this.router.navigateByUrl('/welcome');
-    this.currentUserLogin = '';
   }
 
   public updateTrackLogin(value: boolean) {

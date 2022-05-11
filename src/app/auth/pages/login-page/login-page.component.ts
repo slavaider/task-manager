@@ -48,7 +48,6 @@ export class LoginPageComponent {
         this.store.dispatch(loadUsers({ login }));
 
         this.auth.updateTrackLogin(true);
-        this.auth.currentUserLogin = login;
 
         this.router.navigateByUrl(path);
       });
