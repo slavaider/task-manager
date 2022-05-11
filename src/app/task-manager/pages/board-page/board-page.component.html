@@ -7,15 +7,15 @@
       </button>
       <button mat-raised-button color="primary" (click)="createColumn()">
         <mat-icon>post_add</mat-icon>
-        <span>Добавить колонку</span>
+        <span i18n="@@addColumn">Добавить колонку</span>
       </button>
       <input class="search-field" matInput type="search" placeholder="Поиск" >
     </div>
-    
+
     <div class="board"
       cdkDropList
-      [cdkDropListData]="columns"      
-      cdkDropListOrientation="horizontal"  
+      [cdkDropListData]="columns"
+      cdkDropListOrientation="horizontal"
       (cdkDropListDropped)="dropColumn($event)"
     >
       <div cdkDropListGroup class="group-wrapper">
@@ -28,7 +28,7 @@
           </div>
           <div class="tasks-list"
             cdkDropList
-            [cdkDropListData]="column"        
+            [cdkDropListData]="column"
             (cdkDropListDropped)="dropTask($event)"
           >
             <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
@@ -46,10 +46,10 @@
               <app-task-user [id]="task.userId"></app-task-user>
             </mat-card>
           </div>
-  
+
           <button mat-raised-button (click)="createTask(column.id)" class="create-task-btn">
             <span class="material-icons">add_card</span>
-            <span> Добавить задачу</span>
+            <span i18n="@@addTask"> Добавить задачу</span>
           </button>
         </div>
       </div>
@@ -58,7 +58,7 @@
 </div>
 
 
-<!-- 
+<!--
   <div cdkDropList class="example-list" [cdkDropListData]="movies" (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let movie of movies" cdkDrag>
       <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
