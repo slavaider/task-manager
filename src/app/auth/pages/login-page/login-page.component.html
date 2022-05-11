@@ -4,39 +4,46 @@
     [formGroup]="loginForm"
     (ngSubmit)="submit()"
   >
-    <p class="title">
+    <p class="title" i18n="@@logIn">
       Вход
     </p>
     <mat-form-field>
-      <mat-label>
+      <mat-label i18n="@@enterLogin1">
         Введите логин
       </mat-label>
       <input matInput formControlName="login" required>
-      <mat-error *ngIf="login?.invalid">
+      <mat-error *ngIf="login?.invalid" i18n="@@enterLogin2">
         введите логин
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>
+      <mat-label i18n="@@enterPassword1">
         Введите пароль
       </mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error *ngIf="password?.invalid">
+      <mat-error *ngIf="password?.invalid" i18n="@@enterPassword2">
         введите пароль
       </mat-error>
     </mat-form-field>
     <div class="controls">
-      <button mat-raised-button [disabled]="!loginForm.valid" type="submit">
+      <button mat-raised-button [disabled]="!loginForm.valid" type="submit" i18n="@@logIn">
         Вход
       </button>
       <div class="flex space-between">
-        Нет аккаунта? 
-        <a routerLink="/auth/register">
+        <p i18n="@@notAccount">Нет аккаунта?</p>
+        <!-- <a routerLink="/auth/register">
           Регистрация
+        </a> -->
+        <a i18n="@@registration" routerLink="/auth/register">
+           Регистрация
         </a>
+        <!-- <a outerLink="/auth/register">
+          <p i18n="@@registration">Регистрация</p>
+
+        </a> -->
       </div>
     </div>
   </form>
