@@ -96,6 +96,73 @@
         </context-group>
         <note priority="1" from="description">main header</note>
       </trans-unit>
+      <trans-unit id="WhyUs" datatype="html">
+
+
+
+        <source>Почему мы?</source>
+        <target>Why us?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tools" datatype="html">
+        <source>- современные инструменты</source>
+        <target>- modern tools</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="methods" datatype="html">
+        <source>- современные методы</source>
+        <target>- modern modern</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="resources" datatype="html">
+        <source>- специальные ресурсы и процедуры, используемых для управления проектом</source>
+        <target>- special resources and procedures used to manage the project</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="team" datatype="html">
+        <source>Команда</source>
+        <target>Team</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="temLeader" datatype="html">
+        <source>лидер команды</source>
+        <target>team leader</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="softwareDeveloper1" datatype="html">
+        <source>программист-разработчик</source>
+        <target>software developer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="softwareDeveloper2" datatype="html">
+        <source>программист-разработчик</source>
+        <target>software developer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/task-manager/pages/welcome/welcome.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

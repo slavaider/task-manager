@@ -2,44 +2,44 @@
   <section class="start-section">
     <div class="container">
       <div class="content">
-        <h1 class="text">
+        <h1 class="text" i18n="@@SMP">
           Система <br> управления <br> проектами
         </h1>
-        <button *ngIf="!isLogged" class="action-btn" routerLink="/auth/login">войти</button>
-        <button *ngIf="isLogged" class="action-btn" routerLink="/">продолжить</button>
+        <button *ngIf="!isLogged" class="action-btn" routerLink="/auth/login" i18n="@@signInWelcom">войти</button>
+        <button *ngIf="isLogged" class="action-btn" routerLink="/" i18n="@@return">продолжить</button>
       </div>
     </div>
   </section>
   <section class="desc-section">
     <div class="container">
       <div class="content">
-        <h2>Почему мы?</h2>
+        <h2 i18n="@@WhyUs">Почему мы?</h2>
         <ul>
-          <li>- современные инструменты</li>
-          <li>- современные методы</li>
-          <li>- специальные ресурсы и процедуры, используемых для управления проектом</li>
+          <li i18n="@@tools">- современные инструменты</li>
+          <li i18n="@@methods">- современные методы</li>
+          <li i18n="@@resources">- специальные ресурсы и процедуры, используемых для управления проектом</li>
         </ul>
       </div>
     </div>
   </section>
   <section class="team-section">
     <div class="container">
-      <h2 class="title">Команда</h2>
+      <h2 class="title" i18n="@@team">Команда</h2>
       <div class="team">
         <div class="team-member">
           <img class="image" src="./assets/img/person1.svg">
           <p class="name">Vyacheslav Otinov</p>
-          <p class="role">team leader</p>
+          <p class="role" i18n="@@temLeader">лидер команды</p>
         </div>
         <div class="team-member">
           <img class="image" src="./assets/img/person2.svg">
           <p class="name">Vitali Santalau</p>
-          <p class="role">software developer</p>
+          <p class="role" i18n="@@softwareDeveloper1">программист-разработчик</p>
         </div>
         <div class="team-member">
           <img class="image" src="./assets/img/person3.svg">
           <p class="name">Anna Rybakova</p>
-          <p class="role">software developer</p>
+          <p class="role" i18n="@@softwareDeveloper2">программист-разработчик</p>
         </div>
       </div>
       <p class="course">RS School, Angular 2022Q1</p>
