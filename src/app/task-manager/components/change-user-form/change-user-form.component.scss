@@ -9,12 +9,15 @@
     display: flex;
     align-items: center;
     column-gap: 1rem;
+
+    p {
+      margin: 0;
+    }
   
     .user-login {
-      font-size: 2rem;
+      font-size: 1.4rem;
     }
   }
-  
 }
 
 .mat-dialog-content {

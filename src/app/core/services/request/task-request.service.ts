@@ -51,7 +51,7 @@ export class TaskRequestService {
       title,
       order,
       description,
-      userId,
+      userId: userId,
       boardId,
       columnId,
       done: false,

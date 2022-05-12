@@ -24,7 +24,7 @@ export class ChangeUserFormComponent {
     private request: TaskRequestService,
     private notification: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: {
-      users: IUser[], user: IUser, boardId: string, columnId: string, task: ITask
+      users: IUser[], owner: string, boardId: string, columnId: string, task: ITask
     },
   ) {}
 

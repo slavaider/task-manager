@@ -16,7 +16,7 @@ export class TaskUserComponent implements OnInit {
   private users$ = this.store.select(selectUsers);
   public users!: IUser[];
 
-  public user: IUser | undefined;
+  public owner!: string;
 
   @Input() public boardId!: string;
   @Input() public columnId!: string;
@@ -30,7 +30,8 @@ export class TaskUserComponent implements OnInit {
   ngOnInit(): void {
     this.users$.subscribe((users) => {
       this.users = users;
-      this.user = users.find((user) => user.id === this.task.userId);
+      const user = users.find((user) => user.id === this.task.userId);
+      this.owner = user ? user.login : 'без владельца'
     })
   }
 
@@ -38,7 +39,7 @@ export class TaskUserComponent implements OnInit {
     this.form.open(ChangeUserFormComponent, {
       data: { 
         users: this.users,
-        user: this.user,
+        owner: this.owner,
         boardId: this.boardId,
         columnId: this.columnId,
         task: this.task,
