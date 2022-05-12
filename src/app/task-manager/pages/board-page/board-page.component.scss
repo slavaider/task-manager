@@ -129,10 +129,15 @@
 
     .edit-task-btn {
       margin-left: -1rem;
+      font-size: 1.2rem;
       color: $color-icon;
       
       &:hover {
         color: $color-hover-second;
+      }
+
+      .mat-icon {
+        font-size: 1.3rem;
       }
     }
   

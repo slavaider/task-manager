@@ -45,7 +45,11 @@
                 </button>
               </div>
               <mat-divider></mat-divider>
-              <app-task-user [id]="task.userId"></app-task-user>
+              <app-task-user
+                [boardId]="board.id"
+                [columnId]="column.id"
+                [task]="task"
+              ></app-task-user>
             </mat-card>
           </div>
   

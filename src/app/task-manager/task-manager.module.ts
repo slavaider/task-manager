@@ -21,6 +21,7 @@ import { SortPipe } from './pipes/sort/sort.pipe';
 import { ColumnTitleComponent } from './components/column-title/column-title.component';
 import { TaskUserComponent } from './components/task-user/task-user.component';
 import { EditBoardFormComponent } from './components/edit-board-form/edit-board-form.component';
+import { ChangeUserFormComponent } from './components/change-user-form/change-user-form.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { EditBoardFormComponent } from './components/edit-board-form/edit-board-
     ColumnTitleComponent,
     TaskUserComponent,
     EditBoardFormComponent,
+    ChangeUserFormComponent,
   ],
   exports: [HeaderComponent, FooterComponent],
   schemas: [],
