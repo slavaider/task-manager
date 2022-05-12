@@ -20,6 +20,7 @@
     >
       <div cdkDropListGroup class="group-wrapper">
         <div class="column" *ngFor="let column of columns" cdkDrag>
+          <div class="column-placeholder" *cdkDragPlaceholder></div>
           <div class="column-header">
             <app-column-title [column]="column" [boardId]="board.id"></app-column-title>
             <button class="delete-column-btn" (click)="deleteColumn(column.id)">
@@ -32,9 +33,10 @@
             (cdkDropListDropped)="dropTask($event)"
           >
             <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
+              <div class="task-placeholder" *cdkDragPlaceholder></div>
               <mat-card-title>{{task.title}}</mat-card-title>
               <mat-card-content>{{task.description}}</mat-card-content>
-              <div class="flex">
+              <div class="actions">
                 <button class="edit-task-btn" (click)="editTask(task, column.id)">
                   <mat-icon>mode_edit</mat-icon>
                 </button>
@@ -43,7 +45,11 @@
                 </button>
               </div>
               <mat-divider></mat-divider>
-              <app-task-user [id]="task.userId"></app-task-user>
+              <app-task-user
+                [boardId]="board.id"
+                [columnId]="column.id"
+                [task]="task"
+              ></app-task-user>
             </mat-card>
           </div>
   
@@ -56,14 +62,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- 
-  <div cdkDropList class="example-list" [cdkDropListData]="movies" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-      {{movie.title}}
-    </div>
-  </div>
-  -->
-

@@ -10,7 +10,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatDividerModule } from '@angular/material/divider'; 
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select'; 
 
 @NgModule({
   exports: [
@@ -27,6 +28,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatDialogModule,
     MatSlideToggleModule,
     MatDividerModule,
+    MatSelectModule,
   ],
 })
 export class MaterialModule {}
