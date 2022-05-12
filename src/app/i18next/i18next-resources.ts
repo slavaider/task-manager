@@ -5,17 +5,26 @@ export const resources = {
               header: {
                 "signIn": "Sign in",
                 "signUp": "Sign Up",
-
               },
               loginPage: {
                 "signIn": "Sign in",
-                "Login": "Enter login",
-                "login": "enter login",
-                "Password": "Enter password",
-                "password": "enter password",
-                "Enter": "Sign in",
+                "loginPlaceholder": "Enter login",
+                "loginMissing": "login cannot be empty",
+                "passwordPlaceholder": "Enter password",
+                "passwordMissing": "password cannot be empty",
                 "notAccount": "Don't have an account?",
-                "Registration": "Sign Up",
+                "signUp": "Sign Up",
+              },
+              registerPage: {
+                "signUp": "Sign Up",
+                "namePlaceholder": "Enter name",
+                "nameMissing": "name cannot be empty",
+                "loginPlaceholder": "Enter login",
+                "loginMissing": "login cannot be empty",
+                "passwordPlaceholder": "Enter password",
+                "passwordMissing": "password cannot be empty",
+                "accountQuestion": "Have an account?",
+                "signIn": "Sign in",
               }
             }
           },
@@ -25,17 +34,26 @@ export const resources = {
               header: {
                 "signIn": "Войти",
                 "signUp": "Регистрация",
-
               },
               loginPage: {
                 "signIn": "Вход",
-                "Login": "Введите логин",
-                "login": "введите логин",
-                "Password": "Введите пароль",
-                "password": "введите пароль",
-                "Enter": "Вход",
+                "loginPlaceholder": "Введите логин",
+                "loginMissing": "введите логин",
+                "passwordPlaceholder": "Введите пароль",
+                "passwordMissing": "введите пароль",
                 "notAccount": "Нет аккаунта?",
-                "Registration": "Регистрация",
+                "signUp": "Регистрация",
+              },
+              registerPage: {
+                "signUp": "Регистрация",
+                "namePlaceholder": "Введите имя",
+                "nameMissing": "введите имя",
+                "loginPlaceholder": "Введите логин",
+                "loginMissing": "введите логин",
+                "passwordPlaceholder": "Введите пароль",
+                "passwordMissing": "введите пароль",
+                "accountQuestion": "Есть аккаунт?",
+                "signIn": "Вход",
               }
             }
           }
