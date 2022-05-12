@@ -4,46 +4,46 @@
     [formGroup]="registerForm"
     (ngSubmit)="submit()"
   >
-    <p class="title">
+    <p class="title" i18n="@@register-page_registration">
       Регистрация
     </p>
     <mat-form-field>
-      <mat-label>
+      <mat-label i18n="@@register-page_name1">
         Введите имя
       </mat-label>
       <input matInput formControlName="name" required>
-      <mat-error *ngIf="name?.invalid">
+      <mat-error *ngIf="name?.invalid" i18n="@@register-page_name2">
         введите имя
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>
+      <mat-label i18n="@@register-page_login1">
         Введите логин
       </mat-label>
       <input matInput formControlName="login" required>
-      <mat-error *ngIf="login?.invalid">
+      <mat-error *ngIf="login?.invalid" i18n="@@register-page_login2">
         введите логин
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>
+      <mat-label i18n="@@register-page_password1">
         Введите пароль
       </mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error *ngIf="password?.invalid">
+      <mat-error *ngIf="password?.invalid" i18n="@@register-page_page_password2">
         введите пароль
       </mat-error>
     </mat-form-field>
     <div class="controls">
-      <button mat-raised-button [disabled]="!registerForm.valid" type="submit">
+      <button mat-raised-button [disabled]="!registerForm.valid" type="submit" i18n="@@register-page_registration">
         Регистрация
       </button>
       <div class="flex space-between">
-        Есть аккаунт? 
-        <a routerLink="/auth/login">
+        <p i18n="@@register-page_HaveAccount?">Есть аккаунт?</p>
+        <a i18n="@@register-page_login3" routerLink="/auth/login">
           Вход
         </a>
       </div>
