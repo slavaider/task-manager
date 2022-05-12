@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
 import { loadBoard } from 'src/app/store/actions/boards.actions';
@@ -21,6 +22,7 @@ export class ChangeUserFormComponent {
     private fb: FormBuilder,
     private store: Store,
     private request: TaskRequestService,
+    private notification: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: {
       users: IUser[], user: IUser, boardId: string, columnId: string, task: ITask
     },
@@ -35,6 +37,11 @@ export class ChangeUserFormComponent {
       userId: nextOwner, boardId, columnId, taskId, order, title, description,
     }).subscribe(() => {
       this.store.dispatch(loadBoard({ id: boardId }));
+
+      this.notification.open(`Владелец задачи ${title} изменен`, 'ok', {
+        duration: 4000,
+        panelClass: ['note-success'],
+      });
     });
   }
 }
