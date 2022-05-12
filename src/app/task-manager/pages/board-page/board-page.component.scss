@@ -79,7 +79,6 @@
     width: 100%;
 
     .delete-column-btn {
-      font-size: rem;
       color: $color-icon;
 
       .mat-icon {
@@ -104,6 +103,19 @@
   min-height: 8rem;
   width: 100%;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-bg-scroll;
+    border-radius: 1rem;
+  }
 }
 
 .task {
@@ -114,14 +126,6 @@
   .actions {
     display: flex;
     justify-content: flex-end;
-
-
-    .done-mark {
-      margin-right: auto;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: green;
-    }
 
     .edit-task-btn {
       margin-left: -1rem;
@@ -163,12 +167,23 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.column:last-child {
+.tasks-list.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.column:last-child,
+.task:last-child {
   border: none;
 }
 
 .column-placeholder {
   width: 18rem;
+  background: $color-bg-placeholder;
+  border: dotted 1px $color-icon;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.task-placeholder {
   background: $color-bg-placeholder;
   border: dotted 1px $color-icon;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
