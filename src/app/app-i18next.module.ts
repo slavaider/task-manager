@@ -1,13 +1,35 @@
 import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
-import { I18NEXT_SERVICE, I18NextModule, ITranslationService } from 'angular-i18next';
+import { I18NEXT_SERVICE, I18NextModule, ITranslationService, defaultInterpolationFormat } from 'angular-i18next';
 
 export function appInit(i18next: ITranslationService) {
   return () =>
     i18next.init({
+      supportedLngs: ['en', 'ru'],
       fallbackLng: 'ru',
       debug: true,
       returnEmptyString: false,
       ns: ['translation', 'validation', 'error'],
+      resources: {
+        en: {
+          translation: {
+            anykey: "en",
+            login: {
+              "signup": "en"
+            }
+          }
+        },
+        ru: {
+          translation: {
+            anykey: "ru",
+            login: {
+              "signup": "ru"
+            }
+          }
+        }
+      },
+      interpolation: {
+        format: I18NextModule.interpolationFormat(defaultInterpolationFormat),
+      }
     });
 }
 
@@ -34,4 +56,4 @@ export const I18N_PROVIDERS = [
   providers: [I18N_PROVIDERS],
   exports: [I18NextModule],
 })
-export class AppI18nextModule {}
+export class AppI18nextModule { }

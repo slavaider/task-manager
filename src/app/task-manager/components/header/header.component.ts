@@ -1,6 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UserPageComponent } from '../../pages/user-page/user-page.component';
 
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
     this.isSticky = window.pageYOffset >= 1;
   }
 
-  constructor(public auth: AuthService, public form: MatDialog) {}
+  constructor(public auth: AuthService, public form: MatDialog, @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService) {}
 
   ngOnInit(): void {
     this.auth.trackLogin$.subscribe((value) => {
@@ -37,5 +38,10 @@ export class HeaderComponent implements OnInit {
 
   public switchToggle(event: MatSlideToggleChange) {
     console.log(event.checked)
+    // if (lang !== this.i18NextService.language) {
+      this.i18NextService.changeLanguage(event.checked ? 'en' : 'ru').then(x => {
+        document.location.reload();
+      });
+    // }
   }
 }
