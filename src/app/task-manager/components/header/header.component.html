@@ -27,13 +27,12 @@
         </button>
       </mat-menu>
 
-      <button class="action-btn" routerLink="/auth/login">Войти</button>
-      <button class="action-btn" routerLink="/auth/register">Регистрация</button>
+      <button class="action-btn" routerLink="/auth/login">{{ "header.signIn" | i18next }}</button>
+      <button class="action-btn" routerLink="/auth/register">{{ "header.signup" | i18next }}</button>
 
       <div class="toggle">
-        <div>{{ "login.signup" | i18next }}</div>
         <mat-label ngClass="before">ru</mat-label>
-        <mat-slide-toggle color="primary" (change)="switchToggle($event)"></mat-slide-toggle>
+        <mat-slide-toggle color="primary" (change)="switchToggle($event)" [(ngModel)]="isChecked"></mat-slide-toggle>
         <mat-label ngClass="after">en</mat-label>
       </div>
 

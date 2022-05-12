@@ -1,6 +1,7 @@
 import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { I18NEXT_SERVICE, I18NextModule, ITranslationService, defaultInterpolationFormat } from 'angular-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { resources } from './i18next/i18next-resources';
 
 export function appInit(i18next: ITranslationService) {
   return () =>
@@ -12,24 +13,7 @@ export function appInit(i18next: ITranslationService) {
         debug: true,
         returnEmptyString: false,
         ns: ['translation', 'validation', 'error'],
-        resources: {
-          en: {
-            translation: {
-              anykey: "en",
-              login: {
-                "signup": "en"
-              }
-            }
-          },
-          ru: {
-            translation: {
-              anykey: "ru",
-              login: {
-                "signup": "ru"
-              }
-            }
-          }
-        },
+        resources: resources,
         interpolation: {
           format: I18NextModule.interpolationFormat(defaultInterpolationFormat),
         }

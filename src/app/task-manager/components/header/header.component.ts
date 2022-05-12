@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit {
 
   public isLogged: boolean = this.auth.isLogged();
 
+  public isChecked = this.i18NextService.language === 'en';
+
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
     this.isSticky = window.pageYOffset >= 1;
