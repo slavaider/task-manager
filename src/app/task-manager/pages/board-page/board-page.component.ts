@@ -1,8 +1,9 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { DialogService } from 'src/app/core/services/dialog/dialog.service';
 import { ColumnRequestService } from 'src/app/core/services/request/column-request.service';
 import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
@@ -24,6 +25,7 @@ import { EditTaskFormComponent } from '../../components/edit-task-form/edit-task
 export class BoardPageComponent implements OnInit, OnDestroy {
   private user$ = this.store.select(selectUser);
   public user!: IUser;
+  public searchWord = "";
 
   private board$ = this.store.select(selectBoard);
   public board!: IBoard;
@@ -37,10 +39,13 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     private columnRequest: ColumnRequestService,
     public form: MatDialog,
     private dialogService: DialogService,
+    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService,
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+
+    this.searchWord = this.i18NextService.t('boardPage.search');
 
     if (id) this.store.dispatch(loadBoard({ id }));
 
@@ -66,7 +71,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   public createColumn() {
     const lastColumn = this.columns[this.columns.length-1];
     const order = (lastColumn ? lastColumn.order : 0) + 1;
-  
+
     this.form.open(CreateColumnFormComponent, {
       data: {
         boardId: this.board.id,
@@ -78,7 +83,8 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   public deleteColumn(columnId: string) {
     this.dialogService
       .confirm({
-        message: 'Вы уверены, что хотите удалить колонку?',
+        message: this.i18NextService.t('questionsDelete.column'),
+        // message: 'Вы уверены, что хотите удалить колонку?',
       })
       .subscribe((answer) => {
         if (answer) {
@@ -95,7 +101,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     const currentColumn = this.columns.find((column) => column.id === columnId);
     const lastTask = currentColumn?.tasks[currentColumn?.tasks.length - 1];
     const order = (lastTask ? lastTask.order : 0) + 1
-  
+
     this.form.open(CreateTaskFormComponent, {
       data: {
         userId: this.user.id,
@@ -108,7 +114,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
   public editTask(task: ITask, columnId: string) {
     this.form.open(EditTaskFormComponent, {
-      data: { 
+      data: {
         task,
         boardId: this.board.id,
         columnId,
@@ -119,7 +125,8 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   public deleteTask(taskId: string, columnId: string) {
     this.dialogService
       .confirm({
-        message: 'Вы уверены, что хотите удалить задачу?',
+        message: this.i18NextService.t('questionsDelete.task'),
+        // message: 'Вы уверены, что хотите удалить задачу?',
       })
       .subscribe((answer) => {
         if (answer) {
@@ -135,7 +142,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   public dropTask(event: CdkDragDrop<IColumn>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data.tasks, event.previousIndex, event.currentIndex);
-  
+
       event.container.data.tasks.forEach((task, i) => {
         const {
           userId, id: taskId, title, description, done,
@@ -151,7 +158,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
           description,
         }).subscribe();
       })
-      
+
     } else {
       transferArrayItem(
         event.previousContainer.data.tasks,
@@ -188,7 +195,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
         this.taskRequest.editMovedTask({
           userId,
           boardId: this.board.id,
-          previousColumnId, 
+          previousColumnId,
           columnId: event.container.data.id,
           taskId,
           order: (i + 1),

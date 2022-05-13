@@ -87,6 +87,7 @@ export const resources = {
       boardPage: {
         "addColumn": " Add column",
         "addTask": " Add task",
+        "search": "Search",
       },
       boardsPage: {
         "addBoard": " Add board"
@@ -119,6 +120,21 @@ export const resources = {
         "memeber1": "Vyacheslav Otinov",
         "memeber2": "Vitali Santalau",
         "memeber3": "Anna Rybakova",
+      },
+      questionsDelete: {
+        "board": "Are you sure you want to delete the board?",
+        "column": "Are you sure you want to delete the column?",
+        "task": "Are you sure you want to delete the task?",
+      },
+      words: {
+        "board": "Board",
+        "updated": "updated",
+        "boardCreated": "Board created",
+        "registered": "registered",
+        "oops": "oops",
+        "taskOwner": "Task owner",
+        "changed": "changed",
+        "withoutOwner": "without owner"
       }
     }
   },
@@ -210,6 +226,7 @@ export const resources = {
       boardPage: {
         "addColumn": " Добавить колонку",
         "addTask": " Добавить задачу",
+        "search": " Поиск",
       },
       boardsPage: {
         "addBoard": " Добавить доску"
@@ -242,6 +259,21 @@ export const resources = {
         "memeber1": "Вячеслав Отинов",
         "memeber2": "Виталий Санталов",
         "memeber3": "Анна Рыбакова",
+      },
+      questionsDelete: {
+        "board": "Вы уверены, что хотите удалить доску?",
+        "column": "Вы уверены, что хотите удалить колонку?",
+        "task": "Вы уверены, что хотите удалить задачу?",
+      },
+      words: {
+        "board": "Доска",
+        "updated": "обновлена",
+        "boardCreated": "Доска создана",
+        "registered": "зарегистрирован",
+        "oops": "Упс! Попробуйте еще раз.",
+        "taskOwner": "Владелец задачи",
+        "changed": "изменен",
+        "withoutOwner": "без владельца"
       }
     }
   }

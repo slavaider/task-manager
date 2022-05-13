@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
+import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { DialogService } from 'src/app/core/services/dialog/dialog.service';
 import { BoardRequestService } from 'src/app/core/services/request/board-request.service';
 import { loadBoards } from 'src/app/store/actions/boards.actions';
@@ -23,11 +24,12 @@ export class BoardComponent {
     private request: BoardRequestService,
     private notification: MatSnackBar,
     public form: MatDialog,
+    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService,
   ) {}
 
   public editBoard() {
     this.form.open(EditBoardFormComponent, {
-      data: { 
+      data: {
         id: this.board.id,
         title: this.board.title,
         description: this.board.description,
@@ -38,7 +40,8 @@ export class BoardComponent {
   public deleteBoard() {
     this.dialogService
       .confirm({
-        message: 'Вы уверены, что хотите удалить доску?',
+        message: this.i18NextService.t('questionsDelete.board'),
+        // message: 'Вы уверены, что хотите удалить доску?',
       })
       .subscribe((answer) => {
         if (answer) {
