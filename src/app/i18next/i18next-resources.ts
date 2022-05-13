@@ -74,6 +74,15 @@ export const resources = {
         "descriptionMissing": "Description cannot be emptyе",
         "cancel": "Cancel",
         "edit": "Edit",
+      },
+      editTask: {
+        "title": "Edit task",
+        "titlePlaceholder": "Title",
+        "titleMissing": "Title cannot be empty",
+        "descriptionPlaceholder": "Description",
+        "descriptionMissing": "Description cannot be emptyе",
+        "cancel": "Cancel",
+        "edit": "Edit",
       }
     }
   },
@@ -146,6 +155,15 @@ export const resources = {
       },
       editBoard: {
         "title": "Редактировать доску",
+        "titlePlaceholder": "Заголовок",
+        "titleMissing": "Введите заголовок",
+        "descriptionPlaceholder": "Описание",
+        "descriptionMissing": "Добавьте описание",
+        "cancel": "Отмена",
+        "edit": "Редактировать",
+      },
+      editTask: {
+        "title": "Редактировать задачу",
         "titlePlaceholder": "Заголовок",
         "titleMissing": "Введите заголовок",
         "descriptionPlaceholder": "Описание",
