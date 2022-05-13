@@ -49,6 +49,13 @@ export const resources = {
         "descriptionMissing": "Description cannot be empty",
         "cancel": "Cancel",
         "create": "Create",
+      },
+      createColumn: {
+        "title": "Create column",
+        "titlePlaceholder": "Title",
+        "titleMissing": "Title cannot be empty",
+        "cancel": "Cancel",
+        "create": "Create",
       }
     }
   },
@@ -100,6 +107,13 @@ export const resources = {
         "titleMissing": "Введите заголовок",
         "descriptionPlaceholder": "Описание",
         "descriptionMissing": "Введите описание",
+        "cancel": "Отмена",
+        "create": "Создать",
+      },
+      createColumn: {
+        "title": "Создать колонку",
+        "titlePlaceholder": "Заголовок",
+        "titleMissing": "введите заголовок",
         "cancel": "Отмена",
         "create": "Создать",
       }
