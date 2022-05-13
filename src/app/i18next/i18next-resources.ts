@@ -30,6 +30,13 @@ export const resources = {
         "confirmation": "Confirm action",
         "yes": "Yes",
         "no": "No"
+      },
+      changeUser: {
+        "changeOwnership": "Change of ownership",
+        "owner": "Owner",
+        "changeOwner": "Change owner",
+        "cancel": "Cancel",
+        "change": "Change",
       }
     }
   },
@@ -64,6 +71,13 @@ export const resources = {
         "confirmation": "Подтвердите действие",
         "yes": "Да",
         "no": "Нет"
+      },
+      changeUser: {
+        "changeOwnership": "Смена владельца",
+        "owner": "Владелец",
+        "changeOwner": "Сменить владельца",
+        "cancel": "Отмена",
+        "change": "Сменить",
       }
     }
   }
