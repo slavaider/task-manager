@@ -2,9 +2,10 @@
   <div class="container">
       <button mat-raised-button color="primary" (click)="createBoard()">
         <mat-icon>dashboard_customize</mat-icon>
-        <span class="name">Добавить доску</span>
+        <span class="name">{{ "boardsPage.addBoard" | i18next }}</span>
+        <!-- Добавить доску -->
       </button>
-    
+
     <app-board-list></app-board-list>
   </div>
 </div>

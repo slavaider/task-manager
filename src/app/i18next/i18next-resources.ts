@@ -85,8 +85,11 @@ export const resources = {
         "edit": "Edit",
       },
       boardPage: {
-        "addColumn": "Add column",
-        "addTask": "Add task",
+        "addColumn": " Add column",
+        "addTask": " Add task",
+      },
+      boardsPage: {
+        "addBoard": " Add board"
       }
     }
   },
@@ -176,8 +179,11 @@ export const resources = {
         "edit": "Редактировать",
       },
       boardPage: {
-        "addColumn": "Добавить колонку",
-        "addTask": "Добавить задачу",
+        "addColumn": " Добавить колонку",
+        "addTask": " Добавить задачу",
+      },
+      boardsPage: {
+        "addBoard": " Добавить доску"
       }
     }
   }
