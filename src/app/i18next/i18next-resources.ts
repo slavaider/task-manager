@@ -37,6 +37,9 @@ export const resources = {
         "changeOwner": "Change owner",
         "cancel": "Cancel",
         "change": "Change",
+      },
+      columnTitle: {
+        "title": "Enter title"
       }
     }
   },
@@ -78,6 +81,9 @@ export const resources = {
         "changeOwner": "Сменить владельца",
         "cancel": "Отмена",
         "change": "Сменить",
+      },
+      columnTitle: {
+        "title": "Введите заголовок"
       }
     }
   }
