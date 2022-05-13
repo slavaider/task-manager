@@ -56,6 +56,15 @@ export const resources = {
         "titleMissing": "Title cannot be empty",
         "cancel": "Cancel",
         "create": "Create",
+      },
+      createTask: {
+        "title": "Create task",
+        "titlePlaceholder": "Title",
+        "titleMissing": "Title cannot be empty",
+        "descriptionPlaceholder": "Description",
+        "descriptionMissing": "Description cannot be empty",
+        "cancel": "Cancel",
+        "create": "Create",
       }
     }
   },
@@ -114,6 +123,15 @@ export const resources = {
         "title": "Создать колонку",
         "titlePlaceholder": "Заголовок",
         "titleMissing": "введите заголовок",
+        "cancel": "Отмена",
+        "create": "Создать",
+      },
+      createTask: {
+        "title": "Создать задачу",
+        "titlePlaceholder": "Заголовок",
+        "titleMissing": "Введите заголовок",
+        "descriptionPlaceholder": "Описание",
+        "descriptionMissing": "Добавьте описание",
         "cancel": "Отмена",
         "create": "Создать",
       }
