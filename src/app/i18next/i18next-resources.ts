@@ -40,6 +40,15 @@ export const resources = {
       },
       columnTitle: {
         "title": "Enter title"
+      },
+      createBoard: {
+        "createBoard": "Create board",
+        "titlePlaceholder": "Title",
+        "titleMissing": "Title cannot be empty",
+        "descriptionPlaceholder": "Description",
+        "descriptionMissing": "Description cannot be empty",
+        "cancel": "Cancel",
+        "create": "Create",
       }
     }
   },
@@ -84,6 +93,15 @@ export const resources = {
       },
       columnTitle: {
         "title": "Введите заголовок"
+      },
+      createBoard: {
+        "createBoard": "Создать доску",
+        "titlePlaceholder": "Заголовок",
+        "titleMissing": "Введите заголовок",
+        "descriptionPlaceholder": "Описание",
+        "descriptionMissing": "Введите описание",
+        "cancel": "Отмена",
+        "create": "Создать",
       }
     }
   }
