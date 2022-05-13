@@ -38,8 +38,9 @@ export class LoginPageComponent {
   public submit() {
     const { login, password } = this.loginForm.value;
     if (login && password) {
-      this.auth.login({ login, password }).subscribe((res) => {
-        const token = res.token;
+      this.auth.login({ login, password }).subscribe((response) => {
+        const { token }  = response;
+  
         const expDate = new Date(Date.now() + 60 * 60 * 12 * 1000); // 12 hours
         const path = '/';
         this.cookieService.set('token', token, expDate, path);

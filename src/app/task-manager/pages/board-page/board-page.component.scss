@@ -45,6 +45,19 @@
     height: 100%;
     padding-bottom: 0.5rem;
     overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-bg-scroll;
+      border-radius: 1rem;
+    }
   }
 }
 
@@ -59,13 +72,14 @@
   background-color: $color-bg-board;
   overflow-y: auto;
   border-radius: 4px;
+  // cursor: move;
 
   .column-header {
     display: flex;
     width: 100%;
 
     .delete-column-btn {
-      font-size: rem;
+      color: $color-icon;
 
       .mat-icon {
         font-size: 2rem;
@@ -89,78 +103,93 @@
   min-height: 8rem;
   width: 100%;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-bg-scroll;
+    border-radius: 1rem;
+  }
 }
 
 .task {
-  .edit-task-btn {
-    margin-left: auto;
+  .mat-card-title {
+    font-size: 1.1rem;
   }
 
-  .edit-task-btn:hover {
-    color: $color-hover-second;
-  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
 
-  .delete-task-btn:hover {
-    color: $color-hover-first;
+    .edit-task-btn {
+      margin-left: -1rem;
+      font-size: 1.2rem;
+      color: $color-icon;
+      
+      &:hover {
+        color: $color-hover-second;
+      }
+
+      .mat-icon {
+        font-size: 1.3rem;
+      }
+    }
+  
+    .delete-task-btn {
+      margin-left: -1rem;
+      color: $color-icon;
+
+      &:hover {
+        color: $color-hover-first;
+      }
+    }
   }
 }
 
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
 
-//////////////////////////////////////////////////////
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
 
-// .example-list {
-//   width: 500px;
-//   max-width: 100%;
-//   border: solid 1px #ccc;
-//   min-height: 60px;
-//   display: block;
-//   background: white;
-//   border-radius: 4px;
-//   overflow: hidden;
-// }
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
 
-// .example-box {
-//   padding: 20px 10px;
-//   border-bottom: solid 1px #ccc;
-//   color: rgba(0, 0, 0, 0.87);
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: space-between;
-//   box-sizing: border-box;
+.group-wrapper.cdk-drop-list-dragging .column:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
 
-//   cursor: move;
-//   background: white;
-//   font-size: 14px;
-// }
+.tasks-list.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
 
-// .cdk-drag-preview {
-//   box-sizing: border-box;
-//   border-radius: 4px;
-//   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-//               0 8px 10px 1px rgba(0, 0, 0, 0.14),
-//               0 3px 14px 2px rgba(0, 0, 0, 0.12);
-// }
+.column:last-child,
+.task:last-child {
+  border: none;
+}
 
-// .cdk-drag-placeholder {
-//   opacity: 0;
-// }
+.column-placeholder {
+  width: 18rem;
+  background: $color-bg-placeholder;
+  border: dotted 1px $color-icon;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
 
-// .cdk-drag-animating {
-//   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-// }
-
-// .example-box:last-child {
-//   border: none;
-// }
-
-// .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
-//   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-// }
-
-// .example-custom-placeholder {
-//   background: #ccc;
-//   border: dotted 3px #999;
-//   min-height: 60px;
-//   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-// }
+.task-placeholder {
+  background: $color-bg-placeholder;
+  border: dotted 1px $color-icon;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

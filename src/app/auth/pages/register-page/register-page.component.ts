@@ -40,13 +40,21 @@ export class RegisterPageComponent {
   public submit() {
     const { name, login, password } = this.registerForm.value;
     if (name && login && password) {
-      this.auth.register({ name, login, password }).subscribe(() => {
-        this.notification.open(`${name} зарегистрирован`, 'ok', {
-          duration: 4000,
-          panelClass: ['note-success'],
-        });
-
-        this.router.navigateByUrl('/auth/login');
+      this.auth.register({ name, login, password }).subscribe((response) => {
+        const { name } = response;
+        if (name) {
+          this.notification.open(`${name} зарегистрирован`, 'ok', {
+            duration: 4000,
+            panelClass: ['note-success'],
+          });
+  
+          this.router.navigateByUrl('/auth/login');
+        } else {
+          this.notification.open('Упс! Попробуйте еще раз.', 'ok', {
+            duration: 4000,
+            panelClass: ['note-error'],
+          });
+        }
       });
     }
   }

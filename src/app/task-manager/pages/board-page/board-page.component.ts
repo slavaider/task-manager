@@ -138,7 +138,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   
       event.container.data.tasks.forEach((task, i) => {
         const {
-          userId, id: taskId, title, description,
+          userId, id: taskId, title, description, done,
         } = task;
 
         this.taskRequest.editTask({
@@ -162,7 +162,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
       event.previousContainer.data.tasks.forEach((task, i) => {
         const {
-          userId, id: taskId, title, description,
+          userId, id: taskId, title, description, done,
         } = task;
 
         this.taskRequest.editTask({
@@ -178,7 +178,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
 
       event.container.data.tasks.forEach((task, i) => {
         const {
-          userId, id: taskId, title, description,
+          userId, id: taskId, title, description, done,
         } = task;
 
         const previousColumnId = event.currentIndex === i

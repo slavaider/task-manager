@@ -11,6 +11,7 @@ export interface ITaskProps {
   taskId?: string;
   title: string;
   description: string;
+  done?: boolean,
 }
 
 @Injectable({
@@ -33,12 +34,13 @@ export class TaskRequestService {
       order,
       description,
       userId,
+      done: false,
     };
     return this.http.post(`/api/boards/${boardId}/columns/${columnId}/tasks`, body, options);
   }
 
   editTask({
-    userId, boardId, columnId, taskId, order, title, description
+    userId, boardId, columnId, taskId, order, title, description,
   }: ITaskProps): Observable<object> {
     const options = {
       headers: new HttpHeaders({
@@ -49,16 +51,17 @@ export class TaskRequestService {
       title,
       order,
       description,
-      userId,
+      userId: userId,
       boardId,
       columnId,
+      done: false,
     };
 
     return this.http.put(`/api/boards/${boardId}/columns/${columnId}/tasks/${taskId}`, body, options);
   }
 
   editMovedTask({
-    userId, boardId, previousColumnId, columnId, taskId, order, title, description
+    userId, boardId, previousColumnId, columnId, taskId, order, title, description,
   }: ITaskProps): Observable<object> {
     const options = {
       headers: new HttpHeaders({
@@ -72,6 +75,7 @@ export class TaskRequestService {
       userId,
       boardId,
       columnId,
+      done: false,
     };
 
     return this.http.put(`/api/boards/${boardId}/columns/${previousColumnId}/tasks/${taskId}`, body, options);

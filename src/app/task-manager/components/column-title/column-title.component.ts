@@ -47,8 +47,6 @@ export class ColumnTitleComponent implements OnInit {
     const { title } = this.editForm.value;
     const { id: columnId, order } = column;
 
-    // this.hide();
-
     this.request.updateColumn(
       this.boardId, columnId, title, order
     ).subscribe(() => {

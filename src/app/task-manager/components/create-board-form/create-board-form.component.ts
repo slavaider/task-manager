@@ -13,6 +13,7 @@ import { loadBoards } from 'src/app/store/actions/boards.actions';
 export class CreateBoardFormComponent {
   public createForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
+    description: ['', Validators.required],
   });
 
   constructor(
@@ -26,9 +27,13 @@ export class CreateBoardFormComponent {
     return this.createForm.get('title');
   }
 
+  public get description(): AbstractControl | null {
+    return this.createForm.get('description');
+  }
+
   public submit() {
-    const { title } = this.createForm.value;
-    this.request.createBoard(title).subscribe(() => {
+    const { title, description } = this.createForm.value;
+    this.request.createBoard(title, description).subscribe(() => {
       this.store.dispatch(loadBoards());
 
       this.notification.open(`Доска создана`, 'ok', {
