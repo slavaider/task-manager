@@ -83,6 +83,10 @@ export const resources = {
         "descriptionMissing": "Description cannot be emptyе",
         "cancel": "Cancel",
         "edit": "Edit",
+      },
+      boardPage: {
+        "addColumn": "Add column",
+        "addTask": "Add task",
       }
     }
   },
@@ -170,6 +174,10 @@ export const resources = {
         "descriptionMissing": "Добавьте описание",
         "cancel": "Отмена",
         "edit": "Редактировать",
+      },
+      boardPage: {
+        "addColumn": "Добавить колонку",
+        "addTask": "Добавить задачу",
       }
     }
   }
