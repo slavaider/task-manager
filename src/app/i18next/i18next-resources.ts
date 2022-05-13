@@ -90,6 +90,18 @@ export const resources = {
       },
       boardsPage: {
         "addBoard": " Add board"
+      },
+      userPage: {
+        "title": "Edit profile",
+        "namePlaceholder": "Enter your name",
+        "nameMissing": "Name cannot be empty",
+        "loginPlaceholder": "Enter your login",
+        "loginMissing": "Login cannot be empty",
+        "passwordPlaceholder": "Enter password",
+        "passwordMissing": "Password cannot be empty",
+        "cancel": "Cancel",
+        "delete": "Delete user",
+        "save": "Save",
       }
     }
   },
@@ -184,6 +196,18 @@ export const resources = {
       },
       boardsPage: {
         "addBoard": " Добавить доску"
+      },
+      userPage: {
+        "title": "Редактирование профиля",
+        "namePlaceholder": "Ведите имя",
+        "nameMissing": "Пожалуйста, введите имя",
+        "loginPlaceholder": "Ведите логин",
+        "loginMissing": "Пожалуйста, введите логин",
+        "passwordPlaceholder": "Ведите пароль",
+        "passwordMissing": "Пожалуйста, введите пароль",
+        "cancel": "Отмена",
+        "delete": "Удалить пользователя",
+        "save": "Сохранить",
       }
     }
   }
