@@ -102,6 +102,23 @@ export const resources = {
         "cancel": "Cancel",
         "delete": "Delete user",
         "save": "Save",
+      },
+      welcome: {
+        "title1": "Project",
+        "title2": "Management",
+        "title3": "System",
+        "signIn": "sign in",
+        "continue": "continue",
+        "whyUs": "Why us?",
+        "description1": "- modern instruments",
+        "description2": "- modern methods",
+        "description3": "- specific resources and procedures used to manage the project",
+        "team": "Team",
+        "leader": "team leader",
+        "developer": "software developer",
+        "memeber1": "Vyacheslav Otinov",
+        "memeber2": "Vitali Santalau",
+        "memeber3": "Anna Rybakova",
       }
     }
   },
@@ -208,6 +225,23 @@ export const resources = {
         "cancel": "Отмена",
         "delete": "Удалить пользователя",
         "save": "Сохранить",
+      },
+      welcome: {
+        "title1": "Система",
+        "title2": "управления",
+        "title3": "проектами",
+        "signIn": "войти",
+        "continue": "продолжить",
+        "whyUs": "Почему мы?",
+        "description1": "- современные инструменты",
+        "description2": "- современные методы",
+        "description3": "- специальные ресурсы и процедуры, используемых для управления проектом",
+        "team": "Команда",
+        "leader": "лидер команды",
+        "developer": "программист-разработчик",
+        "memeber1": "Вячеслав Отинов",
+        "memeber2": "Виталий Санталов",
+        "memeber3": "Анна Рыбакова",
       }
     }
   }

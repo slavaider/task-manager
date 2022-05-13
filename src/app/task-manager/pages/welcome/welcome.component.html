@@ -3,43 +3,60 @@
     <div class="container">
       <div class="content">
         <h1 class="text">
-          Система <br> управления <br> проектами
+          {{ "welcome.title1" | i18next }} <br> {{ "welcome.title2" | i18next }} <br> {{ "welcome.title3" | i18next }}
+          <!-- Система <br> управления <br> проектами -->
         </h1>
-        <button *ngIf="!isLogged" class="action-btn" routerLink="/auth/login">войти</button>
-        <button *ngIf="isLogged" class="action-btn" routerLink="/">продолжить</button>
+        <button *ngIf="!isLogged" class="action-btn" routerLink="/auth/login">
+          {{ "welcome.signIn" | i18next }}
+          <!-- войти -->
+        </button>
+        <button *ngIf="isLogged" class="action-btn" routerLink="/">
+          {{ "welcome.continue" | i18next }}
+          <!-- продолжить -->
+        </button>
       </div>
     </div>
   </section>
   <section class="desc-section">
     <div class="container">
       <div class="content">
-        <h2>Почему мы?</h2>
+        <h2>{{ "welcome.whyUs" | i18next }}</h2>
+        <!-- Почему мы? -->
         <ul>
-          <li>- современные инструменты</li>
-          <li>- современные методы</li>
-          <li>- специальные ресурсы и процедуры, используемых для управления проектом</li>
+          <li>{{ "welcome.description1" | i18next }}</li>
+          <li>{{ "welcome.description2" | i18next }}</li>
+          <li>{{ "welcome.description3" | i18next }}</li>
+          <!-- - современные инструменты
+          - современные методы
+          - специальные ресурсы и процедуры, используемых для управления проектом -->
         </ul>
       </div>
     </div>
   </section>
   <section class="team-section">
     <div class="container">
-      <h2 class="title">Команда</h2>
+      <h2 class="title">{{ "welcome.team" | i18next }}</h2>
+      <!-- Команда -->
       <div class="team">
         <div class="team-member">
           <img class="image" src="./assets/img/person1.svg">
-          <p class="name">Vyacheslav Otinov</p>
-          <p class="role">team leader</p>
+          <p class="name">{{ "welcome.memeber1" | i18next }}</p>
+          <!-- Vyacheslav Otinov -->
+          <p class="role">{{ "welcome.leader" | i18next }}</p>
+          <!-- team leader -->
         </div>
         <div class="team-member">
           <img class="image" src="./assets/img/person2.svg">
-          <p class="name">Vitali Santalau</p>
-          <p class="role">software developer</p>
+          <p class="name">{{ "welcome.memeber2" | i18next }}</p>
+          <!-- Vitali Santalau -->
+          <p class="role">{{ "welcome.developer" | i18next }}</p>
+          <!-- software developer -->
         </div>
         <div class="team-member">
           <img class="image" src="./assets/img/person3.svg">
-          <p class="name">Anna Rybakova</p>
-          <p class="role">software developer</p>
+          <p class="name">{{ "welcome.memeber3" | i18next }}</p>
+          <!-- Anna Rybakova -->
+          <p class="role">{{ "welcome.developer" | i18next }}</p>
         </div>
       </div>
       <p class="course">RS School, Angular 2022Q1</p>
