@@ -11,19 +11,18 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="editUser()">
           <mat-icon>manage_accounts</mat-icon>
-          <span>Редактировать</span>
+          <span>{{ "header.edit" | i18next }}</span>
+          <!-- <span>Редактировать</span> -->
         </button>
         <a mat-menu-item  routerLink="/">
           <mat-icon>dashboard</mat-icon>
-          <span>Доски</span>
+          <span>{{ "header.boards" | i18next }}</span>
+          <!-- <span>Доски</span> -->
         </a>
-        <!-- <button mat-menu-item>
-          <mat-icon>credit_card</mat-icon>
-          <span>Мои задачи</span>
-        </button> -->
         <button mat-menu-item (click)="logout()">
           <mat-icon>logout</mat-icon>
-          <span>Выйти</span>
+          <span>{{ "header.logOut" | i18next }}</span>
+          <!-- <span>Выйти</span> -->
         </button>
       </mat-menu>
 

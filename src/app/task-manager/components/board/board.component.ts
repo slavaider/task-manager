@@ -48,7 +48,8 @@ export class BoardComponent {
           this.request.deleteBoard(this.board.id).subscribe(() => {
             this.store.dispatch(loadBoards());
 
-            this.notification.open(`Доска удалена`, 'ok', {
+             this.notification.open(this.i18NextService.t('words.boardRemoved'), 'ok', {
+            // Доска удалена
               duration: 4000,
               panelClass: ['note-success'],
             });
