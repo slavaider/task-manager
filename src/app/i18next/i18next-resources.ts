@@ -134,7 +134,7 @@ export const resources = {
         "updated": "updated",
         "boardCreated": "Board created",
         "registered": "registered",
-        "oops": "oops",
+        "oops": "Oops! Try again.",
         "taskOwner": "Task owner",
         "changed": "changed",
         "withoutOwner": "without owner",
