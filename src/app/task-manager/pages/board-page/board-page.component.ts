@@ -10,11 +10,12 @@ import { clearBoard, loadBoard } from 'src/app/store/actions/boards.actions';
 import { IBoard, IColumn, ITask } from 'src/app/store/models/board.model';
 import { IUser } from 'src/app/store/models/user.model';
 import { selectBoard } from 'src/app/store/selectors/boards.selectors';
-import { selectUser } from 'src/app/store/selectors/users.selectors';
+import { selectUser, selectUsers } from 'src/app/store/selectors/users.selectors';
 import { IAppState } from 'src/app/store/state/app.state';
 import { CreateColumnFormComponent } from '../../components/create-column-form/create-column-form.component';
 import { CreateTaskFormComponent } from '../../components/create-task-form/create-task-form.component';
 import { EditTaskFormComponent } from '../../components/edit-task-form/edit-task-form.component';
+import { SearchService } from '../../services/search/search.service';
 
 @Component({
   selector: 'app-board-page',
@@ -25,10 +26,14 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   private user$ = this.store.select(selectUser);
   public user!: IUser;
 
+  private users$ = this.store.select(selectUsers);
+  public users!: IUser[];
+
   private board$ = this.store.select(selectBoard);
   public board!: IBoard;
 
   public columns: IColumn[] = [];
+  private tempColumns: IColumn[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +42,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     private columnRequest: ColumnRequestService,
     public form: MatDialog,
     private dialogService: DialogService,
+    private search: SearchService,
   ) {}
 
   ngOnInit(): void {
@@ -49,18 +55,37 @@ export class BoardPageComponent implements OnInit, OnDestroy {
         this.board = board;
         this.columns = [...board.columns].sort((a, b) => a.order - b.order);
 
-        this.columns= this.columns.map((column) => {
+        this.columns = this.columns.map((column) => {
           return {
             ...column,
             tasks: [...column.tasks].sort((a, b) => a.order - b.order)
           }
         });
+
+        this.tempColumns = this.columns;
       }
     });
 
     this.user$.subscribe((user) => {
       if (user) this.user = user;
     });
+
+    this.users$.subscribe((users) => {
+      this.users = users;
+    })
+
+    this.search.value$.subscribe((value) => {
+      this.columns = this.tempColumns.map((column) => {
+        return {
+          ...column,
+          tasks: column.tasks.filter((task: ITask) => {
+            return task.title.includes(value)
+              || task.description.includes(value)
+              || (this.users.filter((user) => user.login.includes(value)).map((user) => user.id).includes(task.userId))
+          }),
+        }
+      })
+    })
   }
 
   public createColumn() {
@@ -174,7 +199,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
           title,
           description,
         }).subscribe();
-      })
+      });
 
       event.container.data.tasks.forEach((task, i) => {
         const {
@@ -195,7 +220,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
           title,
           description,
         }).subscribe();
-      })
+      });
     }
   }
 

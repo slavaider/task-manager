@@ -22,6 +22,8 @@ import { ColumnTitleComponent } from './components/column-title/column-title.com
 import { TaskUserComponent } from './components/task-user/task-user.component';
 import { EditBoardFormComponent } from './components/edit-board-form/edit-board-form.component';
 import { ChangeUserFormComponent } from './components/change-user-form/change-user-form.component';
+import { SearchComponent } from './components/search/search.component';
+import { SearchPipe } from './pipes/search/search.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ChangeUserFormComponent } from './components/change-user-form/change-us
     TaskUserComponent,
     EditBoardFormComponent,
     ChangeUserFormComponent,
+    SearchComponent,
+    SearchPipe,
   ],
   exports: [HeaderComponent, FooterComponent],
   schemas: [],
