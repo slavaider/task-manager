@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
+import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { TaskRequestService } from 'src/app/core/services/request/task-request.service';
 import { loadBoard } from 'src/app/store/actions/boards.actions';
 import { ITask } from 'src/app/store/models/board.model';
@@ -26,6 +27,7 @@ export class ChangeUserFormComponent {
     @Inject(MAT_DIALOG_DATA) public data: {
       users: IUser[], owner: string, boardId: string, columnId: string, task: ITask
     },
+    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService,
   ) {}
 
   public submit() {
@@ -38,7 +40,8 @@ export class ChangeUserFormComponent {
     }).subscribe(() => {
       this.store.dispatch(loadBoard({ id: boardId }));
 
-      this.notification.open(`Владелец задачи ${title} изменен`, 'ok', {
+      this.notification.open(`${this.i18NextService.t('words.taskOwner')} ${title} ${this.i18NextService.t('words.changed')}`, 'ok', {
+      // this.notification.open(`Владелец задачи ${title} изменен`, 'ok', {
         duration: 4000,
         panelClass: ['note-success'],
       });

@@ -7,15 +7,16 @@
       </button>
       <button mat-raised-button color="primary" (click)="createColumn()">
         <mat-icon>post_add</mat-icon>
-        <span>Добавить колонку</span>
+        <span>{{ "boardPage.addColumn" | i18next }}</span>
+        <!-- Добавить колонку -->
       </button>
-      <input class="search-field" matInput type="search" placeholder="Поиск" >
+      <input class="search-field" matInput type="search" [placeholder]="searchWord" >
     </div>
-    
+
     <div class="board"
       cdkDropList
-      [cdkDropListData]="columns"      
-      cdkDropListOrientation="horizontal"  
+      [cdkDropListData]="columns"
+      cdkDropListOrientation="horizontal"
       (cdkDropListDropped)="dropColumn($event)"
     >
       <div cdkDropListGroup class="group-wrapper">
@@ -29,7 +30,7 @@
           </div>
           <div class="tasks-list"
             cdkDropList
-            [cdkDropListData]="column"        
+            [cdkDropListData]="column"
             (cdkDropListDropped)="dropTask($event)"
           >
             <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
@@ -52,10 +53,11 @@
               ></app-task-user>
             </mat-card>
           </div>
-  
+
           <button mat-raised-button (click)="createTask(column.id)" class="create-task-btn">
             <span class="material-icons">add_card</span>
-            <span> Добавить задачу</span>
+            <span>{{ "boardPage.addTask" | i18next }} </span>
+            <!-- Добавить задачу -->
           </button>
         </div>
       </div>

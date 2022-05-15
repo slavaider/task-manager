@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UserRequestService } from 'src/app/core/services/request/user-request.service';
 import { editUser, deleteUser } from 'src/app/store/actions/users.actions';
@@ -33,7 +34,8 @@ export class UserPageComponent implements OnInit {
     private userService: UserRequestService,
     private notification: MatSnackBar,
     private router: Router,
-    private store: Store) {}
+    private store: Store,
+    @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService,) {}
 
   ngOnInit(): void {
     this.user$.subscribe((user) => {
@@ -62,7 +64,8 @@ export class UserPageComponent implements OnInit {
     if (this.user) {
       const id = this.user.id;
       this.userService.deleteUser(id).subscribe(() => {
-        this.notification.open(`пользователь удален`, 'ok', {
+        this.notification.open(this.i18NextService.t('words.userRemoved'), 'ok', {
+        // this.notification.open(`пользователь удален`, 'ok', {
           duration: 4000,
           panelClass: ['note-success'],
         });
@@ -76,7 +79,8 @@ export class UserPageComponent implements OnInit {
     const { name, login, password } = this.editForm.value;
     if (this.user && name && login) {
       this.userService.editUser( this.user.id, { name, login, password }).subscribe(() => {
-        this.notification.open(`${name} изменения сохранены`, 'ok', {
+        this.notification.open(`${name} ${this.i18NextService.t('words.changesSaved')}`, 'ok', {
+        // this.notification.open(`${name} изменения сохранены`, 'ok', {
           duration: 4000,
           panelClass: ['note-success'],
         });

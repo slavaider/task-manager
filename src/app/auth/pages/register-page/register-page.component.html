@@ -5,46 +5,56 @@
     (ngSubmit)="submit()"
   >
     <p class="title">
-      Регистрация
+      {{ "registerPage.signUp" | i18next }}
+      <!-- Регистрация -->
     </p>
     <mat-form-field>
       <mat-label>
-        Введите имя
+        {{ "registerPage.namePlaceholder" | i18next }}
+        <!-- Введите имя -->
       </mat-label>
       <input matInput formControlName="name" required>
       <mat-error *ngIf="name?.invalid">
-        введите имя
+        {{ "registerPage.nameMissing" | i18next }}
+        <!-- введите имя -->
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>
-        Введите логин
+        {{ "registerPage.loginPlaceholder" | i18next }}
+        <!-- Введите логин -->
       </mat-label>
       <input matInput formControlName="login" required>
       <mat-error *ngIf="login?.invalid">
-        введите логин
+        {{ "registerPage.loginMissing" | i18next }}
+        <!-- введите логин -->
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>
-        Введите пароль
+        {{ "registerPage.passwordPlaceholder" | i18next }}
+        <!-- Введите пароль -->
       </mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
       <mat-error *ngIf="password?.invalid">
-        введите пароль
+        {{ "registerPage.passwordMissing" | i18next }}
+        <!-- введите пароль -->
       </mat-error>
     </mat-form-field>
     <div class="controls">
       <button mat-raised-button [disabled]="!registerForm.valid" type="submit">
-        Регистрация
+        {{ "registerPage.signUp" | i18next }}
+        <!-- Регистрация -->
       </button>
       <div class="flex space-between">
-        Есть аккаунт? 
+        {{ "registerPage.accountQuestion" | i18next }}
+        <!-- Есть аккаунт? -->
         <a routerLink="/auth/login">
-          Вход
+          {{ "registerPage.signIn" | i18next }}
+          <!-- Вход -->
         </a>
       </div>
     </div>

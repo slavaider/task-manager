@@ -1,11 +1,12 @@
 <div class="column-header">
   <div *ngIf="!isShowField" class="title" (click)="show()">{{ column.title }}</div>
 
-  <form *ngIf="isShowField" class="form" [formGroup]="editForm" (ngSubmit)="submit(column)">    
+  <form *ngIf="isShowField" class="form" [formGroup]="editForm" (ngSubmit)="submit(column)">
     <mat-form-field>
       <input class="input-field" matInput formControlName="title">
       <mat-error *ngIf="title?.hasError('required')">
-        Введите заголовок
+        {{ "columnTitle.title" | i18next }}
+        <!-- Введите заголовок -->
       </mat-error>
       <button matPrefix (click)="hide()">
         <mat-icon>highlight_off</mat-icon>

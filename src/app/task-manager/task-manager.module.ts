@@ -20,6 +20,7 @@ import { EditTaskFormComponent } from './components/edit-task-form/edit-task-for
 import { SortPipe } from './pipes/sort/sort.pipe';
 import { ColumnTitleComponent } from './components/column-title/column-title.component';
 import { TaskUserComponent } from './components/task-user/task-user.component';
+import { AppI18nextModule } from '../app-i18next.module';
 import { EditBoardFormComponent } from './components/edit-board-form/edit-board-form.component';
 import { ChangeUserFormComponent } from './components/change-user-form/change-user-form.component';
 
@@ -47,6 +48,6 @@ import { ChangeUserFormComponent } from './components/change-user-form/change-us
   ],
   exports: [HeaderComponent, FooterComponent],
   schemas: [],
-  imports: [CommonModule, TaskRoutingModule, MaterialModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, TaskRoutingModule, MaterialModule, ReactiveFormsModule, FormsModule, AppI18nextModule],
 })
 export class TaskManagerModule {}
