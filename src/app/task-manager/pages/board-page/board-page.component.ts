@@ -24,9 +24,10 @@ import { SearchService } from '../../services/search/search.service';
   styleUrls: ['./board-page.component.scss'],
 })
 export class BoardPageComponent implements OnInit, OnDestroy {
+  private id!: string | null;
+
   private user$ = this.store.select(selectUser);
   public user!: IUser;
-  // public searchWord = "";
 
   private users$ = this.store.select(selectUsers);
   public users!: IUser[];
@@ -35,7 +36,8 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   public board!: IBoard;
 
   public columns: IColumn[] = [];
-  private tempColumns: IColumn[] = [];
+
+  private searchValue!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,11 +51,12 @@ export class BoardPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
 
-    // this.searchWord = this.i18NextService.t('boardPage.search');
-
-    if (id) this.store.dispatch(loadBoard({ id }));
+    if (this.id) {
+      const id = this.id;
+      this.store.dispatch(loadBoard({ id }));
+    } 
 
     this.board$.subscribe((board) => {
       if (board) {
@@ -67,7 +70,18 @@ export class BoardPageComponent implements OnInit, OnDestroy {
           }
         });
 
-        this.tempColumns = this.columns;
+        if (this.searchValue) {
+          this.columns = this.columns.map((column) => {
+            return {
+              ...column,
+              tasks: column.tasks.filter((task: ITask) => {
+                return task.title.includes(this.searchValue)
+                  || task.description.includes(this.searchValue)
+                  || (this.users.filter((user) => user.login.includes(this.searchValue)).map((user) => user.id).includes(task.userId))
+              }),
+            }
+          })
+        }
       }
     });
 
@@ -80,16 +94,11 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     })
 
     this.search.value$.subscribe((value) => {
-      this.columns = this.tempColumns.map((column) => {
-        return {
-          ...column,
-          tasks: column.tasks.filter((task: ITask) => {
-            return task.title.includes(value)
-              || task.description.includes(value)
-              || (this.users.filter((user) => user.login.includes(value)).map((user) => user.id).includes(task.userId))
-          }),
-        }
-      })
+      this.searchValue = value;
+      if (this.id) {
+        const id = this.id;
+        this.store.dispatch(loadBoard({ id }));
+      }
     })
   }
 
