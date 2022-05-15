@@ -5,37 +5,37 @@
     (ngSubmit)="submit()"
   >
     <p class="title">
-      Вход
+      {{ "loginPage.signIn" | i18next }}
     </p>
     <mat-form-field>
       <mat-label>
-        Введите логин
+        {{ "loginPage.loginPlaceholder" | i18next }}
       </mat-label>
       <input matInput formControlName="login" required>
       <mat-error *ngIf="login?.invalid">
-        введите логин
+        {{ "loginPage.loginMissing" | i18next }}
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>
-        Введите пароль
+        {{ "loginPage.passwordPlaceholder" | i18next }}
       </mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
       <mat-error *ngIf="password?.invalid">
-        введите пароль
+        {{ "loginPage.passwordMissing" | i18next }}
       </mat-error>
     </mat-form-field>
     <div class="controls">
       <button mat-raised-button [disabled]="!loginForm.valid" type="submit">
-        Вход
+        {{ "loginPage.signIn" | i18next }}
       </button>
       <div class="flex space-between">
-        Нет аккаунта? 
+        {{ "loginPage.notAccount" | i18next }}
         <a routerLink="/auth/register">
-          Регистрация
+          {{ "loginPage.signUp" | i18next }}
         </a>
       </div>
     </div>

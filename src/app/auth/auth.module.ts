@@ -7,6 +7,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { TaskManagerModule } from '../task-manager/task-manager.module';
+import { AppI18nextModule } from './../app-i18next.module';
 
 @NgModule({
   declarations: [AuthComponent, LoginPageComponent, RegisterPageComponent],
@@ -17,6 +18,7 @@ import { TaskManagerModule } from '../task-manager/task-manager.module';
     FormsModule,
     MaterialModule,
     TaskManagerModule,
+    AppI18nextModule
   ],
 })
 export class AuthModule {}

@@ -11,31 +11,30 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="editUser()">
           <mat-icon>manage_accounts</mat-icon>
-          <span>Редактировать</span>
+          <span>{{ "header.edit" | i18next }}</span>
+          <!-- <span>Редактировать</span> -->
         </button>
         <a mat-menu-item  routerLink="/">
           <mat-icon>dashboard</mat-icon>
-          <span>Доски</span>
+          <span>{{ "header.boards" | i18next }}</span>
+          <!-- <span>Доски</span> -->
         </a>
-        <!-- <button mat-menu-item>
-          <mat-icon>credit_card</mat-icon>
-          <span>Мои задачи</span>
-        </button> -->
         <button mat-menu-item (click)="logout()">
           <mat-icon>logout</mat-icon>
-          <span>Выйти</span>
+          <span>{{ "header.logOut" | i18next }}</span>
+          <!-- <span>Выйти</span> -->
         </button>
       </mat-menu>
 
-      <button class="action-btn" routerLink="/auth/login">Войти</button>
-      <button class="action-btn" routerLink="/auth/register">Регистрация</button>
-      
+      <button class="action-btn" routerLink="/auth/login">{{ "header.signIn" | i18next }}</button>
+      <button class="action-btn" routerLink="/auth/register">{{ "header.signUp" | i18next }}</button>
+
       <div class="toggle">
         <mat-label ngClass="before">ru</mat-label>
-        <mat-slide-toggle color="primary" (change)="switchToggle($event)"></mat-slide-toggle>
+        <mat-slide-toggle color="primary" (change)="switchToggle($event)" [(ngModel)]="isChecked"></mat-slide-toggle>
         <mat-label ngClass="after">en</mat-label>
       </div>
-      
+
     </div>
   </div>
 </header>
