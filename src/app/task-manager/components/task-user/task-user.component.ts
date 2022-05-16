@@ -34,7 +34,6 @@ export class TaskUserComponent implements OnInit {
       this.users = users;
       const user = users.find((user) => user.id === this.task.userId);
       this.owner = user ? user.login : this.i18NextService.t('words.withoutOwner')
-      // this.owner = user ? user.login : 'без владельца'
     })
   }
 

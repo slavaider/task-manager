@@ -42,7 +42,6 @@ export class EditBoardFormComponent {
       this.store.dispatch(loadBoards());
 
       this.notification.open(`${this.i18NextService.t('words.board')} ${this.data.title} ${this.i18NextService.t('words.updated')}`, 'ok', {
-      // this.notification.open(`Доска ${this.data.title} обновлена`, 'ok', {
         duration: 4000,
         panelClass: ['note-success'],
       });

@@ -12,17 +12,14 @@
         <button mat-menu-item (click)="editUser()">
           <mat-icon>manage_accounts</mat-icon>
           <span>{{ "header.edit" | i18next }}</span>
-          <!-- <span>Редактировать</span> -->
         </button>
         <a mat-menu-item  routerLink="/">
           <mat-icon>dashboard</mat-icon>
           <span>{{ "header.boards" | i18next }}</span>
-          <!-- <span>Доски</span> -->
         </a>
         <button mat-menu-item (click)="logout()">
           <mat-icon>logout</mat-icon>
           <span>{{ "header.logOut" | i18next }}</span>
-          <!-- <span>Выйти</span> -->
         </button>
       </mat-menu>
 

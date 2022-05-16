@@ -1,12 +1,10 @@
 <h2 mat-dialog-title>
   {{ "changeUser.changeOwnership" | i18next }}
-  <!-- Смена владельца -->
 </h2>
 <div mat-dialog-content>
   <form class="form" [formGroup]="changeForm" (ngSubmit)="submit()">
     <div class="user-container">
       <p>{{ "changeUser.owner" | i18next }} </p>
-        <!-- Владелец: -->
       <p class="user-login">
         {{data.owner}}
       </p>
@@ -14,7 +12,6 @@
 
     <mat-form-field appearance="fill">
       <mat-label>{{ "changeUser.changeOwner" | i18next }}</mat-label>
-      <!-- Сменить владельца -->
       <mat-select matNativeControl formControlName="nextOwner">
         <mat-option *ngFor="let user of data.users" [value]="user.id">
           {{user.login}}
@@ -24,9 +21,7 @@
 
     <mat-dialog-actions align="end">
       <button mat-raised-button mat-dialog-close>{{ "changeUser.cancel" | i18next }}</button>
-      <!-- Отмена -->
       <button mat-raised-button [mat-dialog-close]="true" type="submit">{{ "changeUser.change" | i18next }}</button>
-      <!-- Сменить -->
     </mat-dialog-actions>
 
   </form>

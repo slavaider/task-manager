@@ -46,7 +46,6 @@ export class RegisterPageComponent {
         const { name } = response;
         if (name) {
           this.notification.open(`${name} ${this.i18NextService.t('words.registered')}`, 'ok', {
-          // this.notification.open(`${name} зарегистрирован`, 'ok', {
             duration: 4000,
             panelClass: ['note-success'],
           });
@@ -54,7 +53,6 @@ export class RegisterPageComponent {
           this.router.navigateByUrl('/auth/login');
         } else {
           this.notification.open(this.i18NextService.t('words.oops'), 'ok', {
-          // this.notification.open('Упс! Попробуйте еще раз.', 'ok', {
             duration: 4000,
             panelClass: ['note-error'],
           });
