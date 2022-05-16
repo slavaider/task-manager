@@ -99,7 +99,16 @@ header {
     align-items: flex-start;
   }
 
-  header .container .home {
-    font-size: 2rem;
+  header {
+    height: 8vh;
+    padding-top: 1vh;
+
+    .container .home {
+      font-size: 2rem;
+    }
+  }
+
+  .start-section[_ngcontent-rao-c159] {
+    height: 92vh;
   }
 }
