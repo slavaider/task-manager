@@ -4,7 +4,7 @@
       home
     </div>
     <div class="actions">
-      <div class="user-login">{{this.auth.currentUserLogin}}</div>
+      <!-- <div class="user-login">{{this.auth.currentUserLogin}}</div> -->
       <button *ngIf="isLogged" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
         <mat-icon class="user-icon">person_outline</mat-icon>
       </button>
@@ -23,8 +23,10 @@
         </button>
       </mat-menu>
 
-      <button class="action-btn" routerLink="/auth/login">{{ "header.signIn" | i18next }}</button>
-      <button class="action-btn" routerLink="/auth/register">{{ "header.signUp" | i18next }}</button>
+      <div class="sign">
+        <button class="action-btn" routerLink="/auth/login">{{ "header.signIn" | i18next }}</button>
+        <button class="action-btn" routerLink="/auth/register">{{ "header.signUp" | i18next }}</button>
+      </div>
 
       <div class="toggle">
         <mat-label ngClass="before">ru</mat-label>
