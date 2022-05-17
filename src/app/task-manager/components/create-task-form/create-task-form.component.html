@@ -1,37 +1,37 @@
 <h2 mat-dialog-title>{{ "createTask.title" | i18next }}</h2>
-<!-- Создать задачу -->
+
 <div mat-dialog-content>
   <form class="form" [formGroup]="createForm" (ngSubmit)="submit()">
 
     <mat-form-field>
       <mat-label>{{ "createTask.titlePlaceholder" | i18next }}</mat-label>
-      <!-- Заголовок -->
+
       <input matInput formControlName="title">
       <mat-error *ngIf="title?.hasError('required')">
         {{ "createTask.titleMissing" | i18next }}
-        <!-- Введите заголовок -->
+
       </mat-error>
     </mat-form-field>
 
 
     <mat-form-field>
       <mat-label>{{ "createTask.descriptionPlaceholder" | i18next }}</mat-label>
-      <!-- Описание -->
+
       <input matInput formControlName="description">
       <mat-error *ngIf="description?.hasError('required')">
         {{ "createTask.descriptionMissing" | i18next }}
-        <!-- Добавьте описание -->
+
       </mat-error>
     </mat-form-field>
 
     <mat-dialog-actions align="end">
       <button mat-raised-button mat-dialog-close>
         {{ "createTask.cancel" | i18next }}
-        <!-- Отмена -->
+
       </button>
       <button mat-raised-button [mat-dialog-close]="true" type="submit" [disabled]="!createForm.valid">
         {{ "createTask.create" | i18next }}
-        <!-- Создать -->
+
       </button>
     </mat-dialog-actions>
 

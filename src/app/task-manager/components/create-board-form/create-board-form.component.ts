@@ -39,7 +39,6 @@ export class CreateBoardFormComponent {
       this.store.dispatch(loadBoards());
 
       this.notification.open(this.i18NextService.t('words.boardCreated'), 'ok', {
-      // this.notification.open(`Доска создана`, 'ok', {
         duration: 4000,
         panelClass: ['note-success'],
       });
