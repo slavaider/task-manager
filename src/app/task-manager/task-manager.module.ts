@@ -25,6 +25,7 @@ import { EditBoardFormComponent } from './components/edit-board-form/edit-board-
 import { ChangeUserFormComponent } from './components/change-user-form/change-user-form.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchPipe } from './pipes/search/search.pipe';
+import { MyTasksComponent } from './components/my-tasks/my-tasks.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SearchPipe } from './pipes/search/search.pipe';
     ChangeUserFormComponent,
     SearchComponent,
     SearchPipe,
+    MyTasksComponent,
   ],
   exports: [HeaderComponent, FooterComponent],
   schemas: [],
