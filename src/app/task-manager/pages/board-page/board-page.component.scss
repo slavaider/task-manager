@@ -6,8 +6,9 @@
 
 .board-page {
   position: fixed;
-  top: 7vh; // 7 - header
-  bottom: 6vh; // 6 - footer
+  // top: 7vh; // 7 - header
+  // bottom: 6vh; // 6 - footer
+  height: 85vh;
   width: 100%;
   padding-bottom: 1rem;
 
@@ -123,7 +124,7 @@
       margin-left: -1rem;
       font-size: 1.2rem;
       color: $color-icon;
-      
+
       &:hover {
         color: $color-hover-second;
       }
@@ -132,7 +133,7 @@
         font-size: 1.3rem;
       }
     }
-  
+
     .delete-task-btn {
       margin-left: -1rem;
       color: $color-icon;
@@ -185,4 +186,25 @@
   background: $color-bg-scroll;
   border: dotted 1px $color-icon;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@media (max-width: 550px) {
+
+  .add-column-title {
+    display: none;
+  }
+
+
+  .column {
+    row-gap: 0.5rem;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .board-page .container .actions {
+    column-gap: 0.5rem;
+  }
+
 }
