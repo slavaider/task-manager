@@ -21,8 +21,16 @@
 
 @media (max-width: 420px) {
 
+  .form {
+    row-gap: 0.5rem;
+  }
+
   .mat-dialog-content {
-    width: 16rem;
+      width: 16rem;
+    }
+
+  .mat-dialog-actions {
+    row-gap: 10px;
   }
 
 }
