@@ -41,7 +41,6 @@ export class BoardComponent {
     this.dialogService
       .confirm({
         message: this.i18NextService.t('questionsDelete.board'),
-        // message: 'Вы уверены, что хотите удалить доску?',
       })
       .subscribe((answer) => {
         if (answer) {
@@ -49,7 +48,6 @@ export class BoardComponent {
             this.store.dispatch(loadBoards());
 
              this.notification.open(this.i18NextService.t('words.boardRemoved'), 'ok', {
-            // Доска удалена
               duration: 4000,
               panelClass: ['note-success'],
             });

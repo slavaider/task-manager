@@ -17,5 +17,4 @@ export class WelcomeComponent implements OnInit {
       this.isLogged = value;
     });
   }
-
 }

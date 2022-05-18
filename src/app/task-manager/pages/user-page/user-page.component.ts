@@ -65,7 +65,6 @@ export class UserPageComponent implements OnInit {
       const id = this.user.id;
       this.userService.deleteUser(id).subscribe(() => {
         this.notification.open(this.i18NextService.t('words.userRemoved'), 'ok', {
-        // this.notification.open(`пользователь удален`, 'ok', {
           duration: 4000,
           panelClass: ['note-success'],
         });
@@ -80,7 +79,6 @@ export class UserPageComponent implements OnInit {
     if (this.user && name && login) {
       this.userService.editUser( this.user.id, { name, login, password }).subscribe(() => {
         this.notification.open(`${name} ${this.i18NextService.t('words.changesSaved')}`, 'ok', {
-        // this.notification.open(`${name} изменения сохранены`, 'ok', {
           duration: 4000,
           panelClass: ['note-success'],
         });

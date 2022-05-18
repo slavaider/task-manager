@@ -6,7 +6,6 @@
       <input class="input-field" matInput formControlName="title">
       <mat-error *ngIf="title?.hasError('required')">
         {{ "columnTitle.title" | i18next }}
-        <!-- Введите заголовок -->
       </mat-error>
       <button matPrefix (click)="hide()">
         <mat-icon>highlight_off</mat-icon>

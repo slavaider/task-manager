@@ -41,7 +41,6 @@ export class ChangeUserFormComponent {
       this.store.dispatch(loadBoard({ id: boardId }));
 
       this.notification.open(`${this.i18NextService.t('words.taskOwner')} ${title} ${this.i18NextService.t('words.changed')}`, 'ok', {
-      // this.notification.open(`Владелец задачи ${title} изменен`, 'ok', {
         duration: 4000,
         panelClass: ['note-success'],
       });

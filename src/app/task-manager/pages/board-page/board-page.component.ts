@@ -118,7 +118,6 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     this.dialogService
       .confirm({
         message: this.i18NextService.t('questionsDelete.column'),
-        // message: 'Вы уверены, что хотите удалить колонку?',
       })
       .subscribe((answer) => {
         if (answer) {
@@ -160,7 +159,6 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     this.dialogService
       .confirm({
         message: this.i18NextService.t('questionsDelete.task'),
-        // message: 'Вы уверены, что хотите удалить задачу?',
       })
       .subscribe((answer) => {
         if (answer) {

@@ -8,7 +8,6 @@
       <button mat-raised-button color="primary" (click)="createColumn()">
         <mat-icon>post_add</mat-icon>
         <span>{{ "boardPage.addColumn" | i18next }}</span>
-        <!-- Добавить колонку -->
       </button>
       <app-search></app-search>
     </div>
@@ -57,7 +56,6 @@
           <button mat-raised-button (click)="createTask(column.id)" class="create-task-btn">
             <span class="material-icons">add_card</span>
             <span>{{ "boardPage.addTask" | i18next }} </span>
-            <!-- Добавить задачу -->
           </button>
         </div>
       </div>
