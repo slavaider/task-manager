@@ -80,19 +80,11 @@
 
   .route-btn {
     width: 100%;
-    min-width: 10rem;
+    min-width: 15rem;
   }
 
   .board {
     max-width: calc(100vw - 2rem);
-  }
-
-}
-
-@media (max-width: 420px) {
-
-  .route-btn {
-    min-width: 15rem;
   }
 
 }
