@@ -7,6 +7,7 @@ export const resources = {
         "signUp": "Sign Up",
         "edit": "Edit",
         "boards": "Boards",
+        "tasks": "My tasks",
         "logOut": "Log out",
       },
       loginPage: {
@@ -128,6 +129,7 @@ export const resources = {
         "board": "Are you sure you want to delete this board?",
         "column": "Are you sure you want to delete this column?",
         "task": "Are you sure you want to delete this task?",
+        "user": "Are you sure you want to delete this user?",
       },
       words: {
         "board": "Board",
@@ -140,7 +142,8 @@ export const resources = {
         "withoutOwner": "without owner",
         "boardRemoved": "board removed",
         "userRemoved": "User removed",
-        "changesSaved": "Changes saved"
+        "changesSaved": "Changes saved",
+        "close": "close",
       }
     }
   },
@@ -152,6 +155,7 @@ export const resources = {
         "signUp": "Регистрация",
         "edit": "Редактировать",
         "boards": "Доски",
+        "tasks": "Мои задачи",
         "logOut": "Выйти",
       },
       loginPage: {
@@ -273,6 +277,7 @@ export const resources = {
         "board": "Вы уверены, что хотите удалить доску?",
         "column": "Вы уверены, что хотите удалить колонку?",
         "task": "Вы уверены, что хотите удалить задачу?",
+        "user": "Вы уверены, что хотите удалить пользователя?"
       },
       words: {
         "board": "Доска",
@@ -285,7 +290,8 @@ export const resources = {
         "withoutOwner": "без владельца",
         "boardRemoved": "Доска удалена",
         "userRemoved": "Пользователь удален",
-        "changesSaved": "Изменения сохранены"
+        "changesSaved": "Изменения сохранены",
+        "close": "закрыть"
       }
     }
   }

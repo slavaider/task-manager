@@ -1,4 +1,5 @@
 <h2 mat-dialog-title>{{ "editBoard.title" | i18next }}</h2>
+
 <div mat-dialog-content>
   <form class="form" [formGroup]="editForm" (ngSubmit)="submit()">
 
@@ -9,7 +10,6 @@
         {{ "editBoard.titleMissing" | i18next }}
       </mat-error>
     </mat-form-field>
-
 
     <mat-form-field>
       <mat-label>{{ "editBoard.descriptionPlaceholder" | i18next }}</mat-label>

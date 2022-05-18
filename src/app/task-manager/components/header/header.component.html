@@ -4,7 +4,7 @@
       home
     </div>
     <div class="actions">
-      <!-- <div class="user-login">{{this.auth.currentUserLogin}}</div> -->
+      <div *ngIf="isLogged" class="user-login">{{user?.login}}</div>
       <button *ngIf="isLogged" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
         <mat-icon class="user-icon">person_outline</mat-icon>
       </button>
@@ -17,6 +17,10 @@
           <mat-icon>dashboard</mat-icon>
           <span>{{ "header.boards" | i18next }}</span>
         </a>
+        <button mat-menu-item (click)="showTasks()">
+          <mat-icon>credit_card</mat-icon>
+          <span>{{ "header.tasks" | i18next }}</span>
+        </button>
         <button mat-menu-item (click)="logout()">
           <mat-icon>logout</mat-icon>
           <span>{{ "header.logOut" | i18next }}</span>

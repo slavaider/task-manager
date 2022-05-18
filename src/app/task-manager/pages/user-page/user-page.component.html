@@ -6,28 +6,23 @@
   >
   <p class="title">
     {{ "userPage.title" | i18next }}
-    <!-- Edit profile -->
   </p>
   <mat-form-field>
     <mat-label>
       {{ "userPage.namePlaceholder" | i18next }}
-      <!-- Enter your name -->
     </mat-label>
     <input matInput formControlName="name" required>
     <mat-error *ngIf="name?.invalid">
       {{ "userPage.nameMissing" | i18next }}
-      <!-- Please enter a name -->
     </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>
         {{ "userPage.loginPlaceholder" | i18next }}
-        <!-- Enter your login -->
       </mat-label>
       <input matInput formControlName="login" required>
       <mat-error *ngIf="login?.invalid">
         {{ "userPage.loginMissing" | i18next }}
-        <!-- Please enter a login -->
       </mat-error>
     </mat-form-field>
     <mat-form-field>
