@@ -5,18 +5,15 @@
 
     <mat-form-field>
       <mat-label>{{ "createTask.titlePlaceholder" | i18next }}</mat-label>
-
       <input matInput formControlName="title">
       <mat-error *ngIf="title?.hasError('required')">
         {{ "createTask.titleMissing" | i18next }}
-
       </mat-error>
     </mat-form-field>
 
 
     <mat-form-field>
       <mat-label>{{ "createTask.descriptionPlaceholder" | i18next }}</mat-label>
-
       <input matInput formControlName="description">
       <mat-error *ngIf="description?.hasError('required')">
         {{ "createTask.descriptionMissing" | i18next }}

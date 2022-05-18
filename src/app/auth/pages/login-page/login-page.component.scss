@@ -54,3 +54,14 @@
     }
   }
 }
+
+@media (max-width: 420px) {
+
+  .form {
+    row-gap: 0.5rem;
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+
+}

@@ -18,3 +18,11 @@
   width: 20rem;
   min-height: 12rem;
 }
+
+@media (max-width: 420px) {
+
+  .mat-dialog-content {
+    width: 16rem;
+  }
+
+}

@@ -28,3 +28,36 @@
     column-gap: 20px;
   }
 }
+
+@media (max-width: 600px) {
+
+  .form {
+    row-gap: 10px;
+    .controls {
+      row-gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .form {
+    .controls {
+      align-items: center;
+      row-gap: 10px;
+      flex-direction: column;
+      .mat-raised-button {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+
+  .cdk-overlay-pane {
+    max-width: 95vw;
+  }
+
+}

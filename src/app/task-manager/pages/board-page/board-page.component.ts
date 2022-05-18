@@ -56,7 +56,7 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     if (this.id) {
       const id = this.id;
       this.store.dispatch(loadBoard({ id }));
-    } 
+    }
 
     this.board$.subscribe((board) => {
       if (board) {
