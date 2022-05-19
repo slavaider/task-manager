@@ -1,10 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { DialogService } from 'src/app/core/services/dialog/dialog.service';
 import { UserRequestService } from 'src/app/core/services/request/user-request.service';
 import { editUser, deleteUser } from 'src/app/store/actions/users.actions';
 import { IUser } from 'src/app/store/models/user.model';
@@ -35,6 +38,10 @@ export class UserPageComponent implements OnInit {
     private notification: MatSnackBar,
     private router: Router,
     private store: Store,
+    private dialogService: DialogService,
+    private auth: AuthService,
+    private cookieService: CookieService,
+    private dialogRef: MatDialogRef<UserPageComponent>,
     @Inject(I18NEXT_SERVICE) private i18NextService: ITranslationService,) {}
 
   ngOnInit(): void {
@@ -61,17 +68,32 @@ export class UserPageComponent implements OnInit {
   }
 
   public deleteUser() {
-    if (this.user) {
-      const id = this.user.id;
-      this.userService.deleteUser(id).subscribe(() => {
-        this.notification.open(this.i18NextService.t('words.userRemoved'), 'ok', {
-          duration: 4000,
-          panelClass: ['note-success'],
-        });
-        this.store.dispatch(deleteUser({ id }));
-        this.router.navigateByUrl('/auth/login');
-      });
-    }
+    this.dialogService
+      .confirm({
+        message: this.i18NextService.t('questionsDelete.user'),
+      })
+      .subscribe((answer) => {
+        if (answer && this.user) {
+          const id = this.user.id;
+          this.userService.deleteUser(id).subscribe(() => {
+            this.notification.open(this.i18NextService.t('words.userRemoved'), 'ok', {
+              duration: 4000,
+              panelClass: ['note-success'],
+            });
+
+            this.dialogRef.close();
+
+            this.router.navigateByUrl('/auth/login');
+
+            this.store.dispatch(deleteUser({ id }));
+            
+            this.cookieService.delete('token', '/');
+            this.cookieService.delete('login', '/');
+
+            this.auth.updateTrackLogin(false);
+          });
+        }
+      })
   }
 
   public submit() {
@@ -86,6 +108,11 @@ export class UserPageComponent implements OnInit {
           const modifiedUser: IUser = {id: this.user.id, name, login}
           this.store.dispatch(editUser({ modifiedUser }));
           this.router.navigateByUrl('/auth/login');
+
+          this.cookieService.delete('token', '/');
+          this.cookieService.delete('login', '/');
+
+          this.auth.updateTrackLogin(false);
         }
       });
     }
