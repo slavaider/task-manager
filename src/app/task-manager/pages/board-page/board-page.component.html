@@ -1,0 +1,64 @@
+<div class="board-page">
+  <div class="container">
+
+    <div class="actions">
+      <button mat-raised-button color="primary" routerLink="/">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button mat-raised-button color="primary" (click)="createColumn()">
+        <mat-icon>post_add</mat-icon>
+        <span class="add-column-title">{{ "boardPage.addColumn" | i18next }}</span>
+      </button>
+      <app-search></app-search>
+    </div>
+
+    <div class="board"
+      cdkDropList
+      [cdkDropListData]="columns"
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="dropColumn($event)"
+    >
+      <div cdkDropListGroup class="group-wrapper">
+        <div class="column" *ngFor="let column of columns" cdkDrag>
+          <div class="column-placeholder" *cdkDragPlaceholder></div>
+          <div class="column-header">
+            <app-column-title [column]="column" [boardId]="board.id"></app-column-title>
+            <button class="delete-column-btn" (click)="deleteColumn(column.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </div>
+          <div class="tasks-list"
+            cdkDropList
+            [cdkDropListData]="column"
+            (cdkDropListDropped)="dropTask($event)"
+          >
+            <mat-card class="task" *ngFor="let task of column.tasks" cdkDrag>
+              <div class="task-placeholder" *cdkDragPlaceholder></div>
+              <mat-card-title>{{task.title}}</mat-card-title>
+              <mat-card-content>{{task.description}}</mat-card-content>
+              <div class="actions">
+                <button class="edit-task-btn" (click)="editTask(task, column.id)">
+                  <mat-icon>mode_edit</mat-icon>
+                </button>
+                <button class="delete-task-btn" (click)="deleteTask(task.id, column.id)">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+              </div>
+              <mat-divider></mat-divider>
+              <app-task-user
+                [boardId]="board.id"
+                [columnId]="column.id"
+                [task]="task"
+              ></app-task-user>
+            </mat-card>
+          </div>
+
+          <button mat-raised-button (click)="createTask(column.id)" class="create-task-btn">
+            <span class="material-icons">add_card</span>
+            <span>{{ "boardPage.addTask" | i18next }} </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

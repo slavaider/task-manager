@@ -1,0 +1,43 @@
+<header mat-toolbar [ngClass]="{'mat-elevation-z5' : isSticky, 'sticky' : isSticky}">
+  <div class="container">
+    <div class="home material-icons" routerLink="/welcome">
+      home
+    </div>
+    <div class="actions">
+      <div *ngIf="isLogged" class="user-login">{{user?.login}}</div>
+      <button *ngIf="isLogged" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+        <mat-icon class="user-icon">person_outline</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editUser()">
+          <mat-icon>manage_accounts</mat-icon>
+          <span>{{ "header.edit" | i18next }}</span>
+        </button>
+        <a mat-menu-item  routerLink="/">
+          <mat-icon>dashboard</mat-icon>
+          <span>{{ "header.boards" | i18next }}</span>
+        </a>
+        <button mat-menu-item (click)="showTasks()">
+          <mat-icon>credit_card</mat-icon>
+          <span>{{ "header.tasks" | i18next }}</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>{{ "header.logOut" | i18next }}</span>
+        </button>
+      </mat-menu>
+
+      <div class="sign">
+        <button class="action-btn" routerLink="/auth/login">{{ "header.signIn" | i18next }}</button>
+        <button class="action-btn" routerLink="/auth/register">{{ "header.signUp" | i18next }}</button>
+      </div>
+
+      <div class="toggle">
+        <mat-label ngClass="before">ru</mat-label>
+        <mat-slide-toggle color="primary" (change)="switchToggle($event)" [(ngModel)]="isChecked"></mat-slide-toggle>
+        <mat-label ngClass="after">en</mat-label>
+        <div class="labels-toggler">ru  en</div>
+      </div>
+    </div>
+  </div>
+</header>

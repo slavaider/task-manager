@@ -1,0 +1,81 @@
+@import '../../../shared/variables/variables.scss';
+
+footer {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid;
+  background: $color-footer-bg;
+  color: $color-text-third;
+  width: 100%;
+  height: $footer-header-height;
+  overflow: hidden;
+
+  .footer-container {
+    max-width: 1920px;
+    width: 100%;
+    padding: 1vh 2vmin;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    column-gap: 2rem;
+  }
+}
+
+.team-github {
+  font-size: 2.5vmin;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5vh;
+  // margin-right: 1.5vh;
+  filter: brightness(0) invert(1);
+
+  img {
+    height: 4vmin;
+  }
+}
+
+.year {
+  font-size: 2.5vmin;
+}
+
+.team {
+  display: flex;
+  column-gap: 20px;
+
+  a {
+    color: $color-text-third;
+    text-decoration: none;
+  }
+}
+
+.rss-logo {
+  height: 3vmin;
+}
+
+@media (max-width: 750px) {
+
+  .team-github {
+    // font-size: 2.5vmin;
+    line-height: 3.5vmin;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  footer {
+    height: $footer-header-height-mobile;
+    .footer-container {
+      column-gap: 0.5rem;
+    }
+  }
+
+
+
+  .team {
+    column-gap: 0.5rem;
+  }
+
+}

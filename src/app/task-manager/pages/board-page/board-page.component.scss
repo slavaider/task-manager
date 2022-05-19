@@ -1,0 +1,215 @@
+@import '../../../shared/variables/variables.scss';
+
+:host {
+  flex: 1;
+}
+
+.board-page {
+  position: fixed;
+  height: calc(100vh - $footer-header-height * 2);
+  width: 100%;
+  padding-bottom: 1rem;
+
+    .container {
+      width: 100%;
+      height: 100%;
+
+      .actions {
+        display: flex;
+        column-gap: 1rem;
+      }
+  }
+}
+
+.board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .group-wrapper {
+    display: flex;
+    column-gap: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      height: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-bg-scroll;
+      border-radius: 1rem;
+    }
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  max-width: 18rem;
+  min-width: 18rem;
+  padding: 0.5rem;
+  background-color: $color-bg-board;
+  overflow-y: auto;
+  border-radius: 4px;
+
+  .column-header {
+    display: flex;
+    width: 100%;
+
+    .delete-column-btn {
+      color: $color-icon;
+
+      .mat-icon {
+        font-size: 2rem;
+      }
+    }
+
+    .delete-column-btn:hover {
+      color: $color-hover-first;
+    }
+
+    .create-task-btn {
+      margin-bottom: auto;
+    }
+  }
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  min-height: 8rem;
+  width: 100%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-bg-scroll;
+    border-radius: 1rem;
+  }
+}
+
+.task {
+  .mat-card-title {
+    font-size: 1.1rem;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+
+    .edit-task-btn {
+      margin-left: -1rem;
+      font-size: 1.2rem;
+      color: $color-icon;
+
+      &:hover {
+        color: $color-hover-second;
+      }
+
+      .mat-icon {
+        font-size: 1.3rem;
+      }
+    }
+
+    .delete-task-btn {
+      margin-left: -1rem;
+      color: $color-icon;
+
+      &:hover {
+        color: $color-hover-first;
+      }
+    }
+  }
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.group-wrapper.cdk-drop-list-dragging .column:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.tasks-list.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.column:last-child,
+.task:last-child {
+  border: none;
+}
+
+.column-placeholder {
+  width: 18rem;
+  background: $color-bg-placeholder;
+  border: dotted 1px $color-icon;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.task-placeholder {
+  height: 5rem;
+  background: $color-bg-scroll;
+  border: dotted 1px $color-icon;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+@media (max-width: 550px) {
+
+  .add-column-title {
+    display: none;
+  }
+
+  .column {
+    row-gap: 0.5rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .board-page {
+    height: calc(100vh - $footer-header-height-mobile * 2);
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .board-page .container .actions {
+    column-gap: 0.5rem;
+  }
+
+}

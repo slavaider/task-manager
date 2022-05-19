@@ -1,0 +1,43 @@
+<div class="container">
+  <form
+    class="form"
+    [formGroup]="loginForm"
+    (ngSubmit)="submit()"
+  >
+    <p class="title">
+      {{ "loginPage.signIn" | i18next }}
+    </p>
+    <mat-form-field>
+      <mat-label>
+        {{ "loginPage.loginPlaceholder" | i18next }}
+      </mat-label>
+      <input matInput formControlName="login" required>
+      <mat-error *ngIf="login?.invalid">
+        {{ "loginPage.loginMissing" | i18next }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        {{ "loginPage.passwordPlaceholder" | i18next }}
+      </mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="password?.invalid">
+        {{ "loginPage.passwordMissing" | i18next }}
+      </mat-error>
+    </mat-form-field>
+    <div class="controls">
+      <button mat-raised-button [disabled]="!loginForm.valid" type="submit">
+        {{ "loginPage.signIn" | i18next }}
+      </button>
+      <div class="flex space-between">
+        {{ "loginPage.notAccount" | i18next }}
+        <a routerLink="/auth/register">
+          {{ "loginPage.signUp" | i18next }}
+        </a>
+      </div>
+    </div>
+  </form>
+</div>

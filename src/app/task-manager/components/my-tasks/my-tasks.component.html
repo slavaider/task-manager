@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>{{ "header.tasks" | i18next }}</h2>
+
+<div mat-dialog-content>
+  <div *ngFor="let task of tasks$ | async">
+    <mat-card>
+      <h3 class="title">{{task.title}}</h3>
+      <p>{{task.description}}</p>  
+    </mat-card>
+  </div>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>{{ "words.close" | i18next }}</button>
+</mat-dialog-actions>

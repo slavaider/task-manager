@@ -1,0 +1,67 @@
+@import '../../../shared/variables/variables.scss';
+
+:host {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  font-size: 18px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 2rem;
+  width: 22rem;
+  padding: 2rem;
+  border: 1px solid $color-bg;
+
+  .title {
+    font-size: 2.1rem;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    margin-top: auto;
+
+
+    .mat-raised-button {
+      width: 100%;
+      padding: 0.25rem 1rem;
+      font-size: 1.4rem;
+      border: 1px solid $color-bg;
+    }
+
+    .mat-raised-button:disabled {
+      border: 1px solid transparent;
+    }
+
+    .mat-raised-button:active {
+      border: 1px solid $color-bg;
+    }
+
+    a {
+      color: $color-text-second;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+
+  .form {
+    row-gap: 0.5rem;
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+
+}

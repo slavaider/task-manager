@@ -8,11 +8,40 @@ import { AppI18nextModule } from './app-i18next.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { AuthModule } from './auth/auth.module';
+import { interceptors } from './http-interceptors/interceptors';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { CoreModule } from './core/core.module';
+import { CookieService } from 'ngx-cookie-service';
+import { TaskManagerModule } from './task-manager/task-manager.module';
+import { reducers } from './store/reducers/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { BoardsEffects } from './store/effects/boards.effects';
+import { MaterialModule } from './material/material.module';
+import { UserEffects } from './store/effects/users.effects';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, AppI18nextModule, HttpClientModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AuthModule,
+    CoreModule,
+    TaskManagerModule,
+    AppRoutingModule,
+    AppI18nextModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([BoardsEffects, UserEffects]),
+    MaterialModule,
+  ],
+  providers: [interceptors, CookieService],
   bootstrap: [AppComponent],
   exports: [FormsModule],
 })

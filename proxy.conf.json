@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://v1115797.hosted-by-vdsina.ru:4000/",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

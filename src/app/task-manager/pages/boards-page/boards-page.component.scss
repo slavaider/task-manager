@@ -1,0 +1,16 @@
+:host {
+  flex: 1;
+  // height: 100%;
+}
+
+.boards {
+  height: 100%;
+
+  .container {
+    height: 100%;
+
+    .mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+}

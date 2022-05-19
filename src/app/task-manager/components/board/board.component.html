@@ -1,0 +1,18 @@
+<mat-card class="board">
+  <div class="route-btn" routerLink="/boards/{{ board?.id }}">
+    <div class="title-container">
+      <mat-icon>dashboard</mat-icon>
+      <p class="title">{{board?.title}}</p>
+    </div>
+    <p class="description">{{board.description}}</p>
+  </div>
+  <div class="actions">
+    <button class="edit-btn"  (click)="editBoard()">
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+    <button class="delete-btn"  (click)="deleteBoard()">
+      <mat-icon>delete_outline</mat-icon>
+    </button>
+  </div>
+</mat-card>
+
