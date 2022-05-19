@@ -63,7 +63,6 @@
   background-color: $color-bg-board;
   overflow-y: auto;
   border-radius: 4px;
-  // cursor: move;
 
   .column-header {
     display: flex;
@@ -186,11 +185,6 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-@media (max-width: 600px) {
-  .board-page {
-    // height: calc(100% - 6.5rem);
-  }
-}
 
 @media (max-width: 550px) {
 
